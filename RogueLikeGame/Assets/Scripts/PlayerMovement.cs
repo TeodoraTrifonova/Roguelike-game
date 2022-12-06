@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     private Animator animator;
+    public Transform attackPoint;
 
     void Awake()
     {
@@ -35,7 +36,9 @@ public class PlayerMovement : MonoBehaviour
 
         void MoveCharacter()
         {
-            rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime); 
+            rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
         }
     }
+
+
 }
