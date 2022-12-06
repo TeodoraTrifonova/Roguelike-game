@@ -19,14 +19,16 @@ public class Enemy : MonoBehaviour
         if(currentHealth <= 0)
         {
             Die();
+           
         }
+       
     }
 
    void Die()
     {
         Debug.Log("Enemy died!");
-        animator.SetBool("isDead", true);
-
+        animator.SetTrigger("isDead");
+     
 
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
