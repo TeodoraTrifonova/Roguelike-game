@@ -5,14 +5,20 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    public Animator animator;
+    [SerializeField]
+    private Animator animator;
+    [SerializeField]
     public Transform attackPoint;
-    public LayerMask enemyLayers;
+    [SerializeField]
+    private LayerMask enemyLayers;
+    [SerializeField]
+    private float attackRange = 0.5f;
+    [SerializeField]
+    private int attackDamage = 40;
 
-    public float attackRange = 0.5f;
-    public int attackDamage = 40;
     private float attackRate = 2f;
-    float nextAttackTime = 0f;
+    private float nextAttackTime = 0f;
+
     void Update()
     {
         if(Time.time >= nextAttackTime)

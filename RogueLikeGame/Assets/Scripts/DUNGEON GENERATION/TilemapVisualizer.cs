@@ -7,7 +7,7 @@ using UnityEngine.Tilemaps;
 public class TilemapVisualizer : MonoBehaviour
 {
     [SerializeField]
-    private Tilemap floorTilemap, wallTilemap;
+    private Tilemap floorTilemap, wallTilemap, bottomWallTilemap;
     [SerializeField]
     private TileBase floorTile, wallTop, wallSideRight, wallSiderLeft, wallBottom, wallFull, 
         wallInnerCornerDownLeft, wallInnerCornerDownRight, 
@@ -44,6 +44,8 @@ public class TilemapVisualizer : MonoBehaviour
         else if (WallTypesHelper.wallBottm.Contains(typeAsInt))
         {
             tile = wallBottom;
+            PaintSingleTile(bottomWallTilemap, tile, position);
+            return;
         }
         else if (WallTypesHelper.wallFull.Contains(typeAsInt))
         {
@@ -51,7 +53,10 @@ public class TilemapVisualizer : MonoBehaviour
         }
 
         if (tile!=null)
+        {
             PaintSingleTile(wallTilemap, tile, position);
+        }
+            
     }
 
     private void PaintSingleTile(Tilemap tilemap, TileBase tile, Vector2Int position)
@@ -64,6 +69,7 @@ public class TilemapVisualizer : MonoBehaviour
     {
         floorTilemap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
+        bottomWallTilemap.ClearAllTiles();
     }
 
     internal void PaintSingleCornerWall(Vector2Int position, string binaryType)
@@ -74,10 +80,14 @@ public class TilemapVisualizer : MonoBehaviour
         if (WallTypesHelper.wallInnerCornerDownLeft.Contains(typeASInt))
         {
             tile = wallInnerCornerDownLeft;
+            PaintSingleTile(bottomWallTilemap, tile, position);
+            return;
         }
         else if (WallTypesHelper.wallInnerCornerDownRight.Contains(typeASInt))
         {
             tile = wallInnerCornerDownRight;
+            PaintSingleTile(bottomWallTilemap, tile, position);
+            return;
         }
         else if (WallTypesHelper.wallDiagonalCornerDownLeft.Contains(typeASInt))
         {

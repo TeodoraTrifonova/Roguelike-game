@@ -1,19 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 2f;
+    [SerializeField]
+    private float moveSpeed = 2f;
+    [SerializeField]
+    private Transform attackPoint;
+
     private Rigidbody2D rb;
     private Vector2 movement;
     private Animator animator;
-    public Transform attackPoint;
+
+    private PlayerCombat playerCombatScript;
+    
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();    
+        animator = GetComponent<Animator>();  
+        playerCombatScript = GetComponent<PlayerCombat>();
     }
 
     void Update()
@@ -28,6 +36,15 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("moveX", movement.x);
             animator.SetFloat("moveY", movement.y);
             animator.SetBool("isMoving",true);
+
+            if(movement.x > 0)
+            {
+                playerCombatScript.attackPoint.localPosition = new Vector3(0.13f, -0.05f, 0f);
+            }
+            if (movement.x < 0)
+            {
+                playerCombatScript.attackPoint.localPosition = new Vector3(-0.13f, -0.05f, 0f);
+            }
         }
         else
         {
