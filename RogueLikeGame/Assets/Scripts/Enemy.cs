@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    /*[SerializeField]
-    private Animator animator;*/
+    [SerializeField]
+    private Animator animator;
     [SerializeField]
     private int maxHealth = 100;
     private int currentHealth;
@@ -33,13 +33,13 @@ public class Enemy : MonoBehaviour
    void Die()
     {
         Debug.Log("Enemy died!");
-        /*animator.SetTrigger("isDead");
-        
+        animator.SetTrigger("isDead");
+
         GetComponent<Collider2D>().enabled = false;
-        animator.enabled = false;*/
+       // animator.enabled = false;
 
         Instantiate(deathParticles, transform.position, transform.rotation);
-        Destroy(gameObject);
+       Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

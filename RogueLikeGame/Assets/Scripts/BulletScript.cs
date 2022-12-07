@@ -47,8 +47,9 @@ public class BulletScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Instantiate(particles, transform.position, transform.rotation);
-        Destroy(gameObject);
+           Instantiate(particles, transform.position, transform.rotation);
+           Destroy(gameObject);
+       
     }
 
 }

@@ -18,12 +18,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private GameObject feetPos;
     private float particleTimer;
+    private SpriteRenderer playerSpriteRenderer;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         particleTimer = 0;
+        playerSpriteRenderer = GetComponent<SpriteRenderer>();
+
 
     }
 
@@ -32,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         movement = Vector2.zero;
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+        Physics2D.IgnoreLayerCollision(7, 9); // not sure
 
         if(movement != Vector2.zero)
         {
@@ -40,11 +44,13 @@ public class PlayerMovement : MonoBehaviour
 
             if(movement.x > 0)
             {
-                transform.rotation = new Quaternion(0, 0, 0, 0);
+                playerSpriteRenderer.flipX = false;
+                //transform.rotation = new Quaternion(0, 0, 0, 0);
             }
             if (movement.x < 0)
             {
-                transform.rotation = new Quaternion(0, 180, 0, 0);
+                playerSpriteRenderer.flipX = true;
+                //transform.rotation = new Quaternion(0, 180, 0, 0);
             }
         }
         else
