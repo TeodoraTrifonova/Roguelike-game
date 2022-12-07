@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -47,6 +48,12 @@ TagManager:
   - name: Actor
     uniqueID: 1036947501
     locked: 0
+  - name: Projectiles
+    uniqueID: 59462901
+    locked: 0
   - name: BottomTilemap
     uniqueID: 939289973
+    locked: 0
+  - name: ShootingPoint
+    uniqueID: 4129764823
     locked: 0

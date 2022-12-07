@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public Animator animator;
-    public int maxHealth = 100;
-    int currentHealth;
+    /*[SerializeField]
+    private Animator animator;*/
+    [SerializeField]
+    private int maxHealth = 100;
+    private int currentHealth;
+
+    [SerializeField]
+    private GameObject deathParticles;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -27,10 +33,21 @@ public class Enemy : MonoBehaviour
    void Die()
     {
         Debug.Log("Enemy died!");
-        animator.SetTrigger("isDead");
-     
-
+        /*animator.SetTrigger("isDead");
+        
         GetComponent<Collider2D>().enabled = false;
-        this.enabled = false;
+        animator.enabled = false;*/
+
+        Instantiate(deathParticles, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Collision with " + collision.gameObject.name);
+        if(collision.gameObject.tag == "Bullet")
+        {
+            TakeDamage(collision.gameObject.GetComponent<BulletScript>().damage);
+        }
     }
 }

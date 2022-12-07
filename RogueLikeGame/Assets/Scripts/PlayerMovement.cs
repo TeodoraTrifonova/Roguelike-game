@@ -7,21 +7,19 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private float moveSpeed = 2f;
-    [SerializeField]
-    private Transform attackPoint;
 
     private Rigidbody2D rb;
     private Vector2 movement;
-    private Animator animator;
+    //private Animator animator;
 
-    private PlayerCombat playerCombatScript;
+    //private PlayerCombat playerCombatScript;
     
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();  
-        playerCombatScript = GetComponent<PlayerCombat>();
+        /*animator = GetComponent<Animator>();  
+        playerCombatScript = GetComponent<PlayerCombat>();*/
     }
 
     void Update()
@@ -33,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         if(movement != Vector2.zero)
         {
             MoveCharacter();
-            animator.SetFloat("moveX", movement.x);
+            /*animator.SetFloat("moveX", movement.x);
             animator.SetFloat("moveY", movement.y);
             animator.SetBool("isMoving",true);
 
@@ -44,12 +42,12 @@ public class PlayerMovement : MonoBehaviour
             if (movement.x < 0)
             {
                 playerCombatScript.attackPoint.localPosition = new Vector3(-0.13f, -0.05f, 0f);
-            }
+            }*/
         }
-        else
+       /* else
         {
             animator.SetBool("isMoving", false);
-        }
+        }*/
 
         void MoveCharacter()
         {
