@@ -14,11 +14,20 @@ public class EnemyMovement : MonoBehaviour
     private Vector2 movement;
     private Animator animator;
 
+    [SerializeField]
+    private GameObject walkingParticles;
+
+    [SerializeField]
+    private GameObject feetPos;
+
+    private float particleTimer;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        particleTimer = 0;
     }
 
     void Update()
@@ -31,6 +40,19 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MoveCharacter(movement);
+    }
+
+    void SpawnParticles()
+    {
+        if (particleTimer < 0.1f)
+        {
+            particleTimer += Time.deltaTime;
+        }
+        else
+        {
+            Instantiate(walkingParticles, feetPos.transform.position, transform.rotation);
+            particleTimer = 0f;
+        }
     }
 
     void MoveCharacter(Vector2 direction)
@@ -53,6 +75,8 @@ public class EnemyMovement : MonoBehaviour
             transform.rotation = new Quaternion(0, 0, 0, 0);
 
         }
+
+        SpawnParticles();
 
         rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
     }

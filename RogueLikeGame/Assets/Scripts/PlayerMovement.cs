@@ -10,16 +10,21 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 movement;
-    //private Animator animator;
+    private Animator animator;
 
-    //private PlayerCombat playerCombatScript;
-    
+    [SerializeField]
+    private GameObject walkingParticles;
+
+    [SerializeField]
+    private GameObject feetPos;
+    private float particleTimer;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        /*animator = GetComponent<Animator>();  
-        playerCombatScript = GetComponent<PlayerCombat>();*/
+        animator = GetComponent<Animator>();
+        particleTimer = 0;
+
     }
 
     void Update()
@@ -31,27 +36,40 @@ public class PlayerMovement : MonoBehaviour
         if(movement != Vector2.zero)
         {
             MoveCharacter();
-            /*animator.SetFloat("moveX", movement.x);
-            animator.SetFloat("moveY", movement.y);
             animator.SetBool("isMoving",true);
 
             if(movement.x > 0)
             {
-                playerCombatScript.attackPoint.localPosition = new Vector3(0.13f, -0.05f, 0f);
+                transform.rotation = new Quaternion(0, 0, 0, 0);
             }
             if (movement.x < 0)
             {
-                playerCombatScript.attackPoint.localPosition = new Vector3(-0.13f, -0.05f, 0f);
-            }*/
+                transform.rotation = new Quaternion(0, 180, 0, 0);
+            }
         }
-       /* else
+        else
         {
             animator.SetBool("isMoving", false);
-        }*/
+        }
+
+        void SpawnParticles()
+        {
+            if (particleTimer < 0.1f)
+            {
+                particleTimer += Time.deltaTime;
+            }
+            else
+            {
+                Instantiate(walkingParticles, feetPos.transform.position, transform.rotation);
+                particleTimer = 0f;
+            }
+        }
 
         void MoveCharacter()
         {
+            SpawnParticles();
             rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
+            
         }
     }
 
