@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         animator.enabled = false;*/
 
-        Instantiate(deathParticles, transform.position, Quaternion.identity);
+        Instantiate(deathParticles, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
