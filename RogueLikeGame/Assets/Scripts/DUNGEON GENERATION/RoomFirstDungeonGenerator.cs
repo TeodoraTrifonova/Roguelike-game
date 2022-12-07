@@ -23,9 +23,23 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     private Vector2Int gridEnd;
 
 
+    private void Start()
+    {
+        RunProceduralGeneration();
+        
+        Room baseRoom = rooms.Find(x => x is BaseRoom);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Camera mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
+
+        player.transform.position = new Vector2(baseRoom.RoomCenter.x,baseRoom.RoomCenter.y);
+        mainCam.transform.position = new Vector3(baseRoom.RoomCenter.x, baseRoom.RoomCenter.y, mainCam.transform.position.z);
+    }
+
 
     protected override void RunProceduralGeneration()
     {
+        tilemapVisualizer.Clear();
         rooms = new List<Room>();
         CreateRooms();
     }
