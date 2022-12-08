@@ -22,18 +22,26 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     private Vector2Int gridStart;
     private Vector2Int gridEnd;
 
+    [SerializeField]
+    private bool generateNewDungeon = false;
+
 
     private void Start()
     {
-        RunProceduralGeneration();
-        
-        Room baseRoom = rooms.Find(x => x is BaseRoom);
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        Camera mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        Physics2D.IgnoreLayerCollision(7, 9); // not sure
+
+        if (!generateNewDungeon)
+        {
+            RunProceduralGeneration();
+
+            Room baseRoom = rooms.Find(x => x is BaseRoom);
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            Camera mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
 
-        player.transform.position = new Vector2(baseRoom.RoomCenter.x,baseRoom.RoomCenter.y);
-        mainCam.transform.position = new Vector3(baseRoom.RoomCenter.x, baseRoom.RoomCenter.y, mainCam.transform.position.z);
+            player.transform.position = new Vector2(baseRoom.RoomCenter.x, baseRoom.RoomCenter.y);
+            mainCam.transform.position = new Vector3(baseRoom.RoomCenter.x, baseRoom.RoomCenter.y, mainCam.transform.position.z);
+        } 
     }
 
 

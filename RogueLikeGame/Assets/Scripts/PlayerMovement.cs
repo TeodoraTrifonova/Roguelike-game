@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         movement = Vector2.zero;
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        Physics2D.IgnoreLayerCollision(7, 9); // not sure
+        
 
         if(movement != Vector2.zero)
         {

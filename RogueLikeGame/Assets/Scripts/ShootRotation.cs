@@ -11,7 +11,7 @@ public class ShootRotation : MonoBehaviour
     private GameObject bullet;
 
     [SerializeField]
-    private Transform bulletTransform;
+    private Transform shootingPoint;
 
     [SerializeField]
     private bool canFire;
@@ -52,7 +52,8 @@ public class ShootRotation : MonoBehaviour
         if(Input.GetMouseButton(0) && canFire)
         {
             canFire = false;
-            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            Instantiate(bullet, new Vector2(transform.position.x, transform.position.y - 0.33f), Quaternion.identity);
+
         }
     }
 }
