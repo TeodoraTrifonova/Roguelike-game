@@ -6,11 +6,14 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField]
     private Animator animator;
+
     [SerializeField]
     private int maxHealth = 100;
+
     private int currentHealth;
     private bool isFlipped=false;
     public Transform player;
+
     [SerializeField]
     private GameObject walkingParticles;
 
@@ -26,6 +29,7 @@ public class Enemy : MonoBehaviour
     public Vector3 attackOffset;
     public float attackRange = .1f;
     public LayerMask attackMask;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -47,6 +51,7 @@ public class Enemy : MonoBehaviour
 
     public void Attack()
     {
+        LookAtPlayer();
         Vector3 pos = transform.position;
         pos += transform.right * attackOffset.x;
         pos += transform.up * attackOffset.y;
@@ -60,19 +65,17 @@ public class Enemy : MonoBehaviour
     public void LookAtPlayer()
     {
         SpawnParticles();
-        Vector3 flipped = transform.localScale;
-        flipped.z *= -1f;
+        /*Vector3 flipped = transform.localScale;
+        flipped.z *= -1f;*/
 
-        if(transform.position.x > player.position.x && isFlipped)
+        if(transform.position.x < player.position.x && isFlipped)
         {
-            transform.localScale = flipped;
-            transform.Rotate(0f, 180f, 0f);
+            transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
             isFlipped = false;  
         }
-        else if (transform.position.x < player.position.x && !isFlipped)
+        else if (transform.position.x > player.position.x && !isFlipped)
         {
-            transform.localScale = flipped;
-            transform.Rotate(0f,180f,0f);
+            transform.rotation = new Quaternion(0f,0f,0f, 0f);
             isFlipped = true;
         }
     }

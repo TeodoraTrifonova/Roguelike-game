@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        rb.velocity = new Vector2(0, 0);
+
         movement = Vector2.zero;
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
