@@ -5138,6 +5138,11 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!1 &905469813 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7329755860250236812, guid: 1cac712e1462329429134bd169ebc270, type: 3}
+  m_PrefabInstance: {fileID: 1389630265}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &986160025
 GameObject:
   m_ObjectHideFlags: 0
@@ -5378,13 +5383,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3794154927349698542, guid: 1cac712e1462329429134bd169ebc270, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1689242325}
+    - target: {fileID: 3794154927349698542, guid: 1cac712e1462329429134bd169ebc270, type: 3}
+      propertyPath: feetPos
+      value: 
+      objectReference: {fileID: 905469813}
+    - target: {fileID: 3794154927349698542, guid: 1cac712e1462329429134bd169ebc270, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 238746922}
+    - target: {fileID: 3794154927349698542, guid: 1cac712e1462329429134bd169ebc270, type: 3}
+      propertyPath: walkingParticles
+      value: 
+      objectReference: {fileID: 1431918719672896397, guid: 61a0f5f0361959746b91928045a6b590, type: 3}
     - target: {fileID: 7900568769537450284, guid: 1cac712e1462329429134bd169ebc270, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1689242325}
+    - target: {fileID: 7900568769537450284, guid: 1cac712e1462329429134bd169ebc270, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cac712e1462329429134bd169ebc270, type: 3}
 --- !u!1 &1441489759
@@ -55258,7 +55279,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634440937}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.18, z: 0}
+  m_LocalPosition: {x: 0, y: -0.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55281,11 +55302,29 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!1 &1641485460 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1294487837593447761, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
+  m_PrefabInstance: {fileID: 215481411}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1689242325 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1294487837593447771, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
   m_PrefabInstance: {fileID: 215481411}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1689242331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641485460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9f8e7fe42883d4b92abd8d99a8ef71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &1786082960
 GameObject:
   m_ObjectHideFlags: 3

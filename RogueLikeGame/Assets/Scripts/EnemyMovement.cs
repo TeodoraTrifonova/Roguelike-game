@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
     private Transform player;
 
     [SerializeField]
-    private float moveSpeed; 
+    private float moveSpeed=3f; 
     
     private Rigidbody2D rb;
     private Vector2 movement;
