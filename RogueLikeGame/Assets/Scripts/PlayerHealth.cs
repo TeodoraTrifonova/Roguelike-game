@@ -23,7 +23,23 @@ public class PlayerHealth : MonoBehaviour
         else if (health <= 0f)
         {
             health = 0f;
-            Debug.Log("Player Respawn");
+            Debug.Log("You're Dead");
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if(health <= 0f)
+        {
+            health = 0f;
+            Debug.Log("You're Dead");
+            // Die();
+        }
+    }
+
+    void Die()
+    {
+        //die animation
     }
 }
