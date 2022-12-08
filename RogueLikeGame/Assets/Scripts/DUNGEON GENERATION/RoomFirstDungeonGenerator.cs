@@ -22,6 +22,8 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     private Vector2Int gridStart;
     private Vector2Int gridEnd;
 
+    private HashSet<Vector2Int> corridors;
+
     [SerializeField]
     private bool generateNewDungeon = false;
 
@@ -41,6 +43,8 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
             player.transform.position = new Vector2(baseRoom.RoomCenter.x, baseRoom.RoomCenter.y);
             mainCam.transform.position = new Vector3(baseRoom.RoomCenter.x, baseRoom.RoomCenter.y, mainCam.transform.position.z);
+
+            this.GetComponent<PrefabSpawner>().StartSpawning();
         } 
     }
 
@@ -62,7 +66,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
          floor = CreateRoomsRandomly(roomsList);
 
-        HashSet<Vector2Int> corridors = ConnectRooms(roomCenters);
+        corridors = ConnectRooms(roomCenters);
         floor.UnionWith(corridors);
 
         RoomTypeDecidingAlgorithm.ChooseStartingRoom(rooms);
@@ -184,6 +188,16 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
          return closest;
 
         
+    }
+
+    public List<Room> GetRooms()
+    {
+        return rooms;
+    }
+
+    public HashSet<Vector2Int> GetCorridors()
+    {
+        return corridors;
     }
 
     private int WhatRoomIsCurrentTileIn(Vector2Int position)
