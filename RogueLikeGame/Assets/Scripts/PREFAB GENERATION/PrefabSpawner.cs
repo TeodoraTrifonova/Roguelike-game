@@ -18,32 +18,72 @@ public class PrefabSpawner : MonoBehaviour
     [SerializeField]
     private GameObject propPrefab;
 
+
     public void StartSpawning()
     {
         corridors = GameObject.FindGameObjectWithTag("RoomFirstDungeonGenerator").GetComponent<RoomFirstDungeonGenerator>().GetCorridors();
         rooms = GameObject.FindGameObjectWithTag("RoomFirstDungeonGenerator").GetComponent<RoomFirstDungeonGenerator>().GetRooms();
-        SpawnProps();
+
+        foreach (var room in rooms)
+        {
+            GenerateSpawningPoints(room);
+        }
     }
 
-    void SpawnProps()
+    void GenerateSpawningPoints(Room room)
     {
+        List<Vector2Int> possibleRemainingPositions = new List<Vector2Int>();
+
+        List<Vector2Int> possibleCornerPositions = new List<Vector2Int>();
+
         int numberOfProps = Random.Range(minPropCount, maxPropCount);
-
-        List<Vector2Int> possiblePositions = new List<Vector2Int>();
-
-        Room room = rooms.Find(x => x is BaseRoom);
 
         foreach (var roomTile in room.RoomTiles)
         {
-            if (corridors.Contains(roomTile)) continue;
-            possiblePositions.Add(roomTile);
+            if (corridors.Contains(roomTile))
+            {
+                continue;
+            }
+
+            if (GetNeighboursCount(roomTile, room.RoomTiles) < 3)
+            {
+                possibleCornerPositions.Add(roomTile);
+            }
+            else
+            {
+                possibleRemainingPositions.Add(roomTile);
+            }
         }
 
+        if (propPrefab.GetComponent<Prop>().IsInCorner)
+        {
+            SpawnProps(possibleCornerPositions, numberOfProps);
+        }
+        else if(propPrefab.GetComponent<Prop>().IsInMiddle)
+        {
+            SpawnProps(possibleRemainingPositions, numberOfProps) ;
+        }
+    }
+    private void SpawnProps(List<Vector2Int> possiblePositions, int numberOfProps)
+    {
         RoomTypeDecidingAlgorithm.ShuffleRooms(possiblePositions);
 
         for (int i = 0; i < numberOfProps; i++)
         {
-            Instantiate(propPrefab, new Vector3(possiblePositions[i].x+ 0.5f, possiblePositions[i].y), Quaternion.identity);
+            Instantiate(propPrefab, new Vector3(possiblePositions[i].x + 0.5f, possiblePositions[i].y + 0.5f), Quaternion.identity);
         }
+    }
+
+    private int GetNeighboursCount(Vector2Int floorTile, HashSet<Vector2Int> roomFloor)
+    {
+        int neighbourCount = 0;
+        for (int i = 0; i < Direction2D.cardinalDirectionsList.Count; i++)
+        {
+            if(roomFloor.Contains(floorTile + Direction2D.cardinalDirectionsList[i]))
+            {
+                neighbourCount++;
+            }
+        }
+        return neighbourCount;
     }
 }
