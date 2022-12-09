@@ -8,7 +8,7 @@ public class EnemyMove : StateMachineBehaviour
     Transform player;
     [SerializeField]
     private float moveSpeed = 5f;
-    public float attackRange = 3f;
+    private float attackRange;
 
 
     private Rigidbody2D rb;
@@ -22,6 +22,7 @@ public class EnemyMove : StateMachineBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = animator.GetComponent<Rigidbody2D>();
         enemy = animator.GetComponent<Enemy>();
+        attackRange = enemy.AttackRange;
 
     }
 
@@ -42,9 +43,23 @@ public class EnemyMove : StateMachineBehaviour
 
             Vector2 newPos = Vector2.MoveTowards(rb.transform.position, target, moveSpeed * Time.deltaTime);
 
-            // naprawi moveX, moveY
+            Vector2 direction = new Vector2(newPos.x - target.x, newPos.y - target.y).normalized * -1;
+
+            animator.SetFloat("moveX", direction.x);
+            animator.SetFloat("moveY", direction.y);
+
+            if(direction.x < 0)
+            {
+                animator.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else
+            {
+                animator.GetComponent<SpriteRenderer>().flipX = false;
+            }
 
             rb.MovePosition(newPos);
+
+            enemy.SpawnParticles();
         }
     }
 

@@ -118,6 +118,7 @@ MonoBehaviour:
   isInCorner: 1
   isInMiddle: 1
   size: {x: 0, y: 0}
+  minAmount: 0
 --- !u!114 &6689178309457262914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,5 +132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInCorner: 1
-  isInMiddle: 1
+  isInMiddle: 0
   size: {x: 1, y: 1}
+  minAmount: 0

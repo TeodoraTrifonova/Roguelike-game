@@ -8,14 +8,6 @@ public class PrefabSpawner : MonoBehaviour
     private List<Room> rooms;
 
     [SerializeField]
-    [Min(0)]
-    private int minPropCount;
-
-    [SerializeField]
-    [Range(1,20)]
-    private int maxPropCount;
-
-    [SerializeField]
     private GameObject propPrefab;
 
 
@@ -36,7 +28,8 @@ public class PrefabSpawner : MonoBehaviour
 
         List<Vector2Int> possibleCornerPositions = new List<Vector2Int>();
 
-        int numberOfProps = Random.Range(minPropCount, maxPropCount);
+        int numberOfProps = Random.Range(propPrefab.GetComponent<Prop>().MinAmount, propPrefab.GetComponent<Prop>().MaxAmount);
+
 
         foreach (var roomTile in room.RoomTiles)
         {
@@ -55,6 +48,7 @@ public class PrefabSpawner : MonoBehaviour
             }
         }
 
+
         if (propPrefab.GetComponent<Prop>().IsInCorner)
         {
             SpawnProps(possibleCornerPositions, numberOfProps);
@@ -64,15 +58,20 @@ public class PrefabSpawner : MonoBehaviour
             SpawnProps(possibleRemainingPositions, numberOfProps) ;
         }
     }
+
+
     private void SpawnProps(List<Vector2Int> possiblePositions, int numberOfProps)
     {
         RoomTypeDecidingAlgorithm.ShuffleRooms(possiblePositions);
 
-        for (int i = 0; i < numberOfProps; i++)
+        for (int i = 0, j = i; j < numberOfProps && i < possiblePositions.Count; i++)
         {
             Instantiate(propPrefab, new Vector3(possiblePositions[i].x + 0.5f, possiblePositions[i].y + 0.5f), Quaternion.identity);
+            possiblePositions.RemoveAt(i);
+            i--;
         }
     }
+
 
     private int GetNeighboursCount(Vector2Int floorTile, HashSet<Vector2Int> roomFloor)
     {

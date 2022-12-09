@@ -89,7 +89,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  attackRange: 2
 --- !u!1101 &-8294814719752042609
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

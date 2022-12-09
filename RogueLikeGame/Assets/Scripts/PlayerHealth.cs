@@ -27,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    /*public void TakeDamage(float damage)
     {
         health -= damage;
         if(health <= 0f)
@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("You're Dead");
             // Die();
         }
-    }
+    }*/
 
     void Die()
     {

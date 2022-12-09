@@ -12,7 +12,9 @@ public class Enemy : MonoBehaviour
 
     private int currentHealth;
     private bool isFlipped=false;
-    public Transform player;
+
+    [SerializeField]
+    private Transform player;
 
     [SerializeField]
     private GameObject walkingParticles;
@@ -25,10 +27,22 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private GameObject deathParticles;
 
-    public int attackDamage = 20;
-    public Vector3 attackOffset;
-    public float attackRange = .1f;
-    public LayerMask attackMask;
+    [SerializeField]
+    private int attackDamage = 20;
+
+    [SerializeField]
+    private Vector3 attackOffset;
+    
+    [SerializeField]
+    private float attackRange = 1f;
+
+    public float AttackRange { get => attackRange; }
+
+    [SerializeField]
+    private LayerMask attackMask;
+
+    [SerializeField]
+    private bool ShowAttackRangeDebug;
 
     void Start()
     {
@@ -52,32 +66,32 @@ public class Enemy : MonoBehaviour
     public void Attack()
     {
         LookAtPlayer();
+
         Vector3 pos = transform.position;
         pos += transform.right * attackOffset.x;
         pos += transform.up * attackOffset.y;
+
         Debug.Log("I'm attacking!" + pos);
         Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
         if(colInfo != null)
         {
-            colInfo.GetComponent<PlayerHealth>().UpdateHealth(-attackDamage);
+            colInfo.GetComponent<PlayerHealth>().UpdateHealth((-attackDamage)/4); // poradi nqkakwa prichina avera udrq chetiri puti s edin attack i towa beshe nai lesniq fix
         }
     }
     public void LookAtPlayer()
     {
-        SpawnParticles();
-        /*Vector3 flipped = transform.localScale;
-        flipped.z *= -1f;*/
 
         if(transform.position.x < player.position.x && isFlipped)
         {
-            transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
+            transform.rotation = new Quaternion(0f, 0, 0f, 0f);
             isFlipped = false;  
         }
         else if (transform.position.x > player.position.x && !isFlipped)
         {
-            transform.rotation = new Quaternion(0f,0f,0f, 0f);
+            transform.rotation = new Quaternion(0f,180f,0f, 0f);
             isFlipped = true;
         }
+
     }
    public void TakeDamage(int damage)
     {
@@ -98,10 +112,9 @@ public class Enemy : MonoBehaviour
         animator.SetTrigger("isDead");
 
         GetComponent<Collider2D>().enabled = false;
-       // animator.enabled = false;
 
         Instantiate(deathParticles, transform.position, transform.rotation);
-       Destroy(gameObject);
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -110,6 +123,15 @@ public class Enemy : MonoBehaviour
         if(collision.gameObject.tag == "Bullet")
         {
             TakeDamage(collision.gameObject.GetComponent<BulletScript>().damage);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if(ShowAttackRangeDebug)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(new Vector2(transform.position.x * attackOffset.x, transform.position.y * attackOffset.y), attackRange);
         }
     }
 }
