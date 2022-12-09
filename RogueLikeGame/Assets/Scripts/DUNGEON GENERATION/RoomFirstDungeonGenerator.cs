@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -45,7 +43,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
             mainCam.transform.position = new Vector3(baseRoom.RoomCenter.x, baseRoom.RoomCenter.y, mainCam.transform.position.z);
 
             this.GetComponent<PrefabSpawner>().StartSpawning();
-        } 
+        }
     }
 
 
@@ -62,9 +60,9 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
         HashSet<Vector2Int> floor = new HashSet<Vector2Int>();
 
-         roomCenters = new List<Vector2Int>();
+        roomCenters = new List<Vector2Int>();
 
-         floor = CreateRoomsRandomly(roomsList);
+        floor = CreateRoomsRandomly(roomsList);
 
         corridors = ConnectRooms(roomCenters);
         floor.UnionWith(corridors);
@@ -96,7 +94,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
                 }
             }
             roomCenters.Add(roomCenter);
-            rooms.Add(new Room(roomCenter, finalRoomFloor,i));
+            rooms.Add(new Room(roomCenter, finalRoomFloor, i));
         }
         return floor;
     }
@@ -117,19 +115,19 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         while (roomCenters.Count > 0)
         {
             Vector2Int closest = FindClosestPointTo(currentRoomCenter, roomCenters);
-            
+
             roomCenters.Remove(closest);
 
             closestRoomNumber = WhatRoomIsCurrentTileIn(closest);
 
             HashSet<Vector2Int> newCorridor = CreateCorridor(currentRoomCenter, closest);
 
-            rooms.First(x=>x.RoomNumber == currentRoomNumber) .AddNeighbour(closestRoomNumber);
-            rooms.First(x => x.RoomNumber == closestRoomNumber).AddNeighbour(currentRoomNumber); 
+            rooms.First(x => x.RoomNumber == currentRoomNumber).AddNeighbour(closestRoomNumber);
+            rooms.First(x => x.RoomNumber == closestRoomNumber).AddNeighbour(currentRoomNumber);
 
 
             currentRoomCenter = closest;
-            currentRoomNumber = closestRoomNumber; 
+            currentRoomNumber = closestRoomNumber;
 
             corridors.UnionWith(newCorridor);
         }
@@ -141,7 +139,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         HashSet<Vector2Int> corridor = new HashSet<Vector2Int>();
         var position = currentRoomCenter;
         corridor.Add(position);
-        
+
         while (position.x != destination.x)
         {
             if (destination.x > position.x)
@@ -171,13 +169,13 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
     private Vector2Int FindClosestPointTo(Vector2Int currentRoomCenter, List<Vector2Int> roomCenters)
     {
-         Vector2Int closest = Vector2Int.zero;
-         float distance = float.MaxValue;
-         foreach (var position in roomCenters)
-         {
+        Vector2Int closest = Vector2Int.zero;
+        float distance = float.MaxValue;
+        foreach (var position in roomCenters)
+        {
             float distanceFromGridSides = Mathf.Min(Mathf.Abs(position.x - gridStart.x), Mathf.Abs(position.x - gridEnd.x));
             float distanceFromGridTopBottom = Mathf.Min(Mathf.Abs(position.y - gridStart.y), Mathf.Abs(position.y - gridEnd.y));
-            float currentDistance = Vector2.Distance(position, currentRoomCenter)*2f+(distanceFromGridSides+distanceFromGridTopBottom);
+            float currentDistance = Vector2.Distance(position, currentRoomCenter) * 2f + (distanceFromGridSides + distanceFromGridTopBottom);
             if (currentDistance < distance)
             {
                 distance = currentDistance;
@@ -185,9 +183,9 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
             }
 
         }
-         return closest;
+        return closest;
 
-        
+
     }
 
     public List<Room> GetRooms()
@@ -283,7 +281,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
                 currentRoomCenter = bottomRightRoom;
                 break;
         }
-        
+
         return currentRoomCenter;
     }
 
@@ -299,7 +297,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
             }
             Gizmos.color = Color.white;
             Gizmos.DrawWireCube((Vector2)baseRoom.RoomCenter, new Vector2(1, 1));
-        }   
+        }
         if (rooms.Exists(x => x is BossRoom))
         {
             Room bossRoom = rooms.First(x => x is BossRoom);
@@ -313,7 +311,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         }
         foreach (var room in rooms)
         {
-            if(room is not BaseRoom && room is not BossRoom)
+            if (room is not BaseRoom && room is not BossRoom)
             {
                 Gizmos.color = Random.ColorHSV(0.7f, .8f, 1f, 1f, 0.5f, 1f);
                 foreach (var tiles in room.RoomTiles)
@@ -325,7 +323,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
             }
         }
     }
-    
+
     private void PrintInfoForAllRooms()
     {
         rooms.OrderBy(x => x.RoomNumber);

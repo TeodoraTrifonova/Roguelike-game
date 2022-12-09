@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -16,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health += mod;
 
-        if(health > maxHealth)
+        if (health > maxHealth)
         {
             health = maxHealth;
         }

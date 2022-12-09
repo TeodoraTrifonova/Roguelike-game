@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -11,7 +9,7 @@ public class Enemy : MonoBehaviour
     private int maxHealth = 100;
 
     private int currentHealth;
-    private bool isFlipped=false;
+    private bool isFlipped = false;
 
     [SerializeField]
     private Transform player;
@@ -32,7 +30,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private Vector3 attackOffset;
-    
+
     [SerializeField]
     private float attackRange = 1f;
 
@@ -61,7 +59,7 @@ public class Enemy : MonoBehaviour
             particleTimer = 0f;
         }
     }
-  
+
 
     public void Attack()
     {
@@ -73,40 +71,40 @@ public class Enemy : MonoBehaviour
 
         Debug.Log("I'm attacking!" + pos);
         Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
-        if(colInfo != null)
+        if (colInfo != null)
         {
-            colInfo.GetComponent<PlayerHealth>().UpdateHealth((-attackDamage)/4); // poradi nqkakwa prichina avera udrq chetiri puti s edin attack i towa beshe nai lesniq fix
+            colInfo.GetComponent<PlayerHealth>().UpdateHealth((-attackDamage) / 4); // poradi nqkakwa prichina avera udrq chetiri puti s edin attack i towa beshe nai lesniq fix
         }
     }
     public void LookAtPlayer()
     {
 
-        if(transform.position.x < player.position.x && isFlipped)
+        if (transform.position.x < player.position.x && isFlipped)
         {
             transform.rotation = new Quaternion(0f, 0, 0f, 0f);
-            isFlipped = false;  
+            isFlipped = false;
         }
         else if (transform.position.x > player.position.x && !isFlipped)
         {
-            transform.rotation = new Quaternion(0f,180f,0f, 0f);
+            transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
             isFlipped = true;
         }
 
     }
-   public void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         Debug.Log("YOURE HERE");
         currentHealth -= damage;
         //Hit animation
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             Die();
-           
+
         }
-       
+
     }
 
-   void Die()
+    void Die()
     {
         Debug.Log("Enemy died!");
         animator.SetTrigger("isDead");
@@ -120,7 +118,7 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Collision with " + collision.gameObject.name);
-        if(collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Bullet")
         {
             TakeDamage(collision.gameObject.GetComponent<BulletScript>().damage);
         }
@@ -128,7 +126,7 @@ public class Enemy : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if(ShowAttackRangeDebug)
+        if (ShowAttackRangeDebug)
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(new Vector2(transform.position.x * attackOffset.x, transform.position.y * attackOffset.y), attackRange);

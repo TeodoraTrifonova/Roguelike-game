@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootRotation : MonoBehaviour
@@ -21,7 +19,7 @@ public class ShootRotation : MonoBehaviour
     [SerializeField]
     private float timeBetweenFiring;
 
-    
+
 
     void Start()
     {
@@ -35,21 +33,21 @@ public class ShootRotation : MonoBehaviour
 
         Vector3 rotation = mousePos - transform.position;
 
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg ;
+        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
 
-        if(!canFire)
+        if (!canFire)
         {
             timer += Time.deltaTime;
-            if(timer > timeBetweenFiring)
+            if (timer > timeBetweenFiring)
             {
                 canFire = true;
                 timer = 0;
             }
         }
 
-        if(Input.GetMouseButton(0) && canFire)
+        if (Input.GetMouseButton(0) && canFire)
         {
             canFire = false;
             Instantiate(bullet, new Vector2(transform.position.x, transform.position.y - 0.33f), Quaternion.identity);

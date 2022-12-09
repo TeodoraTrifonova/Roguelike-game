@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Room 
+public class Room
 {
     public Vector2Int RoomCenter { get; private set; }
     public HashSet<Vector2Int> RoomTiles { get; private set; }

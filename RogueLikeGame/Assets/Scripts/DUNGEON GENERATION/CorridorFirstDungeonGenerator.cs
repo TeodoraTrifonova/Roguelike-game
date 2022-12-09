@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -10,7 +9,7 @@ public class CorridorFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     [SerializeField]
     private int corridorLength = 14, corridorCount = 5;
     [SerializeField]
-    [Range(0.1f,1)]
+    [Range(0.1f, 1)]
     private float roomPercent = 0.8f;
 
     //PCG Data
@@ -46,7 +45,7 @@ public class CorridorFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
         tilemapVisualizer.PaintFloorTiles(floorPositions);
         WallGenerator.CreateWalls(floorPositions, tilemapVisualizer);
-    
+
 
     }
 
@@ -54,7 +53,7 @@ public class CorridorFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     {
         foreach (var position in deadEnds)
         {
-            if(roomFloors.Contains(position) == false)
+            if (roomFloors.Contains(position) == false)
             {
                 var room = RunRandomWalk(randomWalkParameters, position);
 
@@ -74,7 +73,7 @@ public class CorridorFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
             {
                 if (floorPositions.Contains(position + direction))
                     neighboursCount++;
-                
+
             }
             if (neighboursCount == 1)
                 deadEnds.Add(position);
@@ -128,24 +127,24 @@ public class CorridorFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
     private void OnDrawGizmos()
     {
-        if(showRoomGizmo)
+        if (showRoomGizmo)
         {
-            foreach(var room in rooms)
+            foreach (var room in rooms)
             {
                 Debug.Log($"Painted room at {room.RoomCenter}");
                 Gizmos.color = Color.white;
-                foreach(var roomTile in room.RoomTiles)
+                foreach (var roomTile in room.RoomTiles)
                 {
                     Gizmos.DrawWireCube((Vector2)roomTile, new Vector2(1, 1));
                 }
             }
         }
-        if(showCorridorsGizmo)
+        if (showCorridorsGizmo)
         {
             Gizmos.color = Color.yellow;
             foreach (var corridor in corridorPositions)
             {
-                Gizmos.DrawWireCube((Vector2)corridor,new Vector2(corridorLength, corridorLength));
+                Gizmos.DrawWireCube((Vector2)corridor, new Vector2(corridorLength, corridorLength));
             }
         }
     }

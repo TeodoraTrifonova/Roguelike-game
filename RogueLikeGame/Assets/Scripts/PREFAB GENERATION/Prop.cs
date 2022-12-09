@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Prop : MonoBehaviour 
+public class Prop : MonoBehaviour
 {
     [SerializeField]
     private bool isInCorner = true;
@@ -13,7 +11,9 @@ public class Prop : MonoBehaviour
     [SerializeField]
     [Min(1)]
     private int minAmount;
-    private const int maxAmount = 10;
+    [SerializeField]
+    [Min(2)]
+    private int maxAmount;
 
     public bool IsInCorner { get => isInCorner; }
     public bool IsInMiddle { get => isInMiddle; }

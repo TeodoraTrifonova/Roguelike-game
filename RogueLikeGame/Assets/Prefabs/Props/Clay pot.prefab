@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5658249492143003797}
   - component: {fileID: 2569230323043305970}
   - component: {fileID: 6454743200319846749}
-  - component: {fileID: 6689178309457262914}
   m_Layer: 0
   m_Name: Clay pot
   m_TagString: Untagged
@@ -117,21 +116,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInCorner: 1
   isInMiddle: 1
-  size: {x: 0, y: 0}
-  minAmount: 0
---- !u!114 &6689178309457262914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4101752218595239954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54e0c42a8f55bc743b5b849c3f8f1fc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInCorner: 1
-  isInMiddle: 0
   size: {x: 1, y: 1}
-  minAmount: 0
+  minAmount: 3
+  maxAmount: 7

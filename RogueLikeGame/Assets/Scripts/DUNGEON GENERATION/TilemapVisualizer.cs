@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -9,8 +8,8 @@ public class TilemapVisualizer : MonoBehaviour
     [SerializeField]
     private Tilemap floorTilemap, wallTilemap, bottomWallTilemap;
     [SerializeField]
-    private TileBase floorTile, wallTop, wallSideRight, wallSiderLeft, wallBottom, wallFull, 
-        wallInnerCornerDownLeft, wallInnerCornerDownRight, 
+    private TileBase floorTile, wallTop, wallSideRight, wallSiderLeft, wallBottom, wallFull,
+        wallInnerCornerDownLeft, wallInnerCornerDownRight,
         wallDiagonalCornerDownRight, wallDiagonalCornerDownLeft, wallDiagonalCornerUpRight, wallDiagonalCornerUpLeft;
 
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions)
@@ -33,7 +32,8 @@ public class TilemapVisualizer : MonoBehaviour
         if (WallTypesHelper.wallTop.Contains(typeAsInt))
         {
             tile = wallTop;
-        }else if (WallTypesHelper.wallSideRight.Contains(typeAsInt))
+        }
+        else if (WallTypesHelper.wallSideRight.Contains(typeAsInt))
         {
             tile = wallSideRight;
         }
@@ -52,11 +52,11 @@ public class TilemapVisualizer : MonoBehaviour
             tile = wallFull;
         }
 
-        if (tile!=null)
+        if (tile != null)
         {
             PaintSingleTile(wallTilemap, tile, position);
         }
-            
+
     }
 
     private void PaintSingleTile(Tilemap tilemap, TileBase tile, Vector2Int position)

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -37,14 +34,14 @@ public class PlayerMovement : MonoBehaviour
         movement = Vector2.zero;
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        
 
-        if(movement != Vector2.zero)
+
+        if (movement != Vector2.zero)
         {
             MoveCharacter();
-            animator.SetBool("isMoving",true);
+            animator.SetBool("isMoving", true);
 
-            if(movement.x > 0)
+            if (movement.x > 0)
             {
                 playerSpriteRenderer.flipX = false;
                 //transform.rotation = new Quaternion(0, 0, 0, 0);
@@ -77,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         {
             SpawnParticles();
             rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
-            
+
         }
     }
 
