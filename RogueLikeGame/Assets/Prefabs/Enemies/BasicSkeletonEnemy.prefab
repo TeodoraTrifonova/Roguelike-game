@@ -172,7 +172,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3654296873732127744}
   maxHealth: 100
-  player: {fileID: 1294487837593447771, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
+  player: {fileID: 0}
+  points: 10
   walkingParticles: {fileID: 1431918719672896397, guid: 61a0f5f0361959746b91928045a6b590, type: 3}
   feetPos: {fileID: 7329755860250236812}
   deathParticles: {fileID: 3477510542980642911, guid: 59aa08b0750c7ba4b82c060009cfe99c, type: 3}

@@ -1,12 +1,20 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private float health = 0f;
+    public float health = 0f;
     [SerializeField] private float maxHealth = 100f;
+    [SerializeField]
+    private GameObject deathParticles;
+    [SerializeField]
+    private GameObject gameOverMenu;
+
+    private GameObject player;
+
 
     private void Start()
-    {
+    {    
         health = maxHealth;
     }
 
@@ -21,7 +29,7 @@ public class PlayerHealth : MonoBehaviour
         else if (health <= 0f)
         {
             health = 0f;
-            Debug.Log("You're Dead");
+            Die();
         }
     }
 
@@ -38,6 +46,12 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        //die animation
+        
+        GetComponent<Collider2D>().enabled = false;
+        Instantiate(deathParticles, transform.position, transform.rotation);
+        Destroy(gameObject);
+        gameOverMenu.SetActive(true);
+
+        
     }
 }

@@ -1,9 +1,10 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMove : StateMachineBehaviour
 {
 
-    Transform player;
+    GameObject player;
     [SerializeField]
     private float moveSpeed = 5f;
     private float attackRange;
@@ -17,7 +18,7 @@ public class EnemyMove : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
         rb = animator.GetComponent<Rigidbody2D>();
         enemy = animator.GetComponent<Enemy>();
         attackRange = enemy.AttackRange;
@@ -27,38 +28,43 @@ public class EnemyMove : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        rb.velocity = new Vector2(0, 0); // removes velocity from the enemy
-
-        enemy.LookAtPlayer();
-
-        if (Vector2.Distance(player.position, rb.position) <= attackRange)
+        if (!player.IsDestroyed() && player!=null)
         {
-            animator.SetTrigger("Attack");
-        }
-        else
-        {
-            Vector2 target = new Vector2(player.position.x, player.position.y);
 
-            Vector2 newPos = Vector2.MoveTowards(rb.transform.position, target, moveSpeed * Time.deltaTime);
+            rb.velocity = new Vector2(0, 0); // removes velocity from the enemy
 
-            Vector2 direction = new Vector2(newPos.x - target.x, newPos.y - target.y).normalized * -1;
+            enemy.LookAtPlayer();
 
-            animator.SetFloat("moveX", direction.x);
-            animator.SetFloat("moveY", direction.y);
-
-            /*if (direction.x < 0)
+            if (Vector2.Distance(player.transform.position, rb.position) <= attackRange)
             {
-                animator.GetComponent<SpriteRenderer>().flipX = true;
+                animator.SetTrigger("Attack");
             }
             else
             {
-                animator.GetComponent<SpriteRenderer>().flipX = false;
-            }*/
+                Vector2 target = new Vector2(player.transform.position.x, player.transform.position.y);
 
-            rb.MovePosition(newPos);
+                Vector2 newPos = Vector2.MoveTowards(rb.transform.position, target, moveSpeed * Time.deltaTime);
 
-            enemy.SpawnParticles();
+                Vector2 direction = new Vector2(newPos.x - target.x, newPos.y - target.y).normalized * -1;
+
+                animator.SetFloat("moveX", direction.x);
+                animator.SetFloat("moveY", direction.y);
+
+                /*if (direction.x < 0)
+                {
+                    animator.GetComponent<SpriteRenderer>().flipX = true;
+                }
+                else
+                {
+                    animator.GetComponent<SpriteRenderer>().flipX = false;
+                }*/
+
+                rb.MovePosition(newPos);
+
+                enemy.SpawnParticles();
+            }
         }
+        
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

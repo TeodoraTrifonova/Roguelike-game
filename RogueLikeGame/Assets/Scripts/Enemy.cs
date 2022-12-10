@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class Enemy : MonoBehaviour
 {
@@ -12,7 +13,10 @@ public class Enemy : MonoBehaviour
     private bool isFlipped = false;
 
     [SerializeField]
-    private Transform player;
+    private GameObject player;
+
+    [SerializeField]
+    private int points = 10;
 
     [SerializeField]
     private GameObject walkingParticles;
@@ -79,12 +83,12 @@ public class Enemy : MonoBehaviour
     public void LookAtPlayer()
     {
 
-        if (transform.position.x < player.position.x && isFlipped)
+        if (transform.position.x < player.transform.position.x && isFlipped )
         {
             transform.rotation = new Quaternion(0f, 0, 0f, 0f);
             isFlipped = false;
         }
-        else if (transform.position.x > player.position.x && !isFlipped)
+        else if (transform.position.x > player.transform.position.x && !isFlipped)
         {
             transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
             isFlipped = true;
@@ -93,7 +97,7 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        Debug.Log("YOURE HERE");
+
         currentHealth -= damage;
         //Hit animation
         if (currentHealth <= 0)
@@ -106,8 +110,8 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Enemy died!");
-        animator.SetTrigger("isDead");
+        //animator.SetTrigger("isDead");
+        ScoreCounter.score += points;
 
         GetComponent<Collider2D>().enabled = false;
 
