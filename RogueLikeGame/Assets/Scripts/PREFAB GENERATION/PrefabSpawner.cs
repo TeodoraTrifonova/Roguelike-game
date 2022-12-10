@@ -9,22 +9,18 @@ public class PrefabSpawner : MonoBehaviour
     [SerializeField]
     private List<GameObject> itemPrefabs = new List<GameObject>();
 
-    [SerializeField]
-    private List<GameObject> enemyPrefabs = new List<GameObject>();
-
     private List<Vector2Int> possibleCornerPositions;
 
     private List<Vector2Int> possibleRemainingPositions;
 
     private List<int> numberOfPrefabItemProps;
-    private List<int> numberOfPrefabEnemyProps;
 
 
 
     public void StartSpawning()
     {
-        corridors = GameObject.FindGameObjectWithTag("RoomFirstDungeonGenerator").GetComponent<RoomFirstDungeonGenerator>().GetCorridors();
-        rooms = GameObject.FindGameObjectWithTag("RoomFirstDungeonGenerator").GetComponent<RoomFirstDungeonGenerator>().GetRooms();
+        corridors = gameObject.GetComponent<RoomFirstDungeonGenerator>().GetCorridors();
+        rooms = gameObject.GetComponent<RoomFirstDungeonGenerator>().GetRooms();
 
         possibleRemainingPositions = new List<Vector2Int>();
 
@@ -32,22 +28,15 @@ public class PrefabSpawner : MonoBehaviour
 
         numberOfPrefabItemProps = new List<int>();
 
-        numberOfPrefabEnemyProps = new List<int>();
-
         foreach (var room in rooms)
         {
-            if(room.NeighbourRooms.Count > 1)
-            {
-                GenerateRandomPrefabCount(numberOfPrefabEnemyProps, enemyPrefabs);
-                SpawnProps(enemyPrefabs, numberOfPrefabEnemyProps);
-            }
             GenerateRandomPrefabCount(numberOfPrefabItemProps, itemPrefabs);
             GenerateSpawningPoints(room);
             SpawnProps(itemPrefabs, numberOfPrefabItemProps);
         }
-    }
 
-    
+        gameObject.GetComponent<RoomsBoxColliderGenerator>().Setup(rooms);
+    }
 
     private void GenerateRandomPrefabCount(List<int> numberOfPropsPerPrefab, List<GameObject> prefabs)
     {
