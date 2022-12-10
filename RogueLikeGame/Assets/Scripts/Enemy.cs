@@ -112,7 +112,8 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("Enemy died!");
         animator.SetTrigger("isDead");
-
+        ScoreCounter.score += points;
+       
         GetComponent<Collider2D>().enabled = false;
 
         Instantiate(deathParticles, transform.position, transform.rotation);
