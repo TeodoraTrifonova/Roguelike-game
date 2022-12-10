@@ -3502,6 +3502,7 @@ GameObject:
   - component: {fileID: 1208139127}
   - component: {fileID: 1208139129}
   - component: {fileID: 1208139130}
+  - component: {fileID: 1208139131}
   m_Layer: 0
   m_Name: RoomsFirstDungeonGenerator
   m_TagString: RoomFirstDungeonGenerator
@@ -3573,7 +3574,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f881c1762307640ab5ee2d63388860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 1148002028}
+--- !u!114 &1208139131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208139126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9167cd05f8b074ebd5b7094daa619b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionDelay: 0.3
+  detectionMask:
+    serializedVersion: 2
+    m_Bits: 128
+  enemyPrefab: {fileID: 1584196272}
 --- !u!1 &1277961033
 GameObject:
   m_ObjectHideFlags: 0
@@ -20701,6 +20719,11 @@ Transform:
   m_Father: {fileID: 709312581}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1584196272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3654296873732127746, guid: 1cac712e1462329429134bd169ebc270, type: 3}
+  m_PrefabInstance: {fileID: 2053435283}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1634440937
 GameObject:
   m_ObjectHideFlags: 0
