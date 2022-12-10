@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour
         pos += transform.right * attackOffset.x;
         pos += transform.up * attackOffset.y;
 
-        Debug.Log("I'm attacking!" + pos);
+        //Debug.Log("I'm attacking!" + pos);
         Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
         if (colInfo != null)
         {
@@ -97,7 +97,7 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-
+        Debug.Log("YOURE HERE");
         currentHealth -= damage;
         //Hit animation
         if (currentHealth <= 0)
@@ -110,8 +110,8 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        //animator.SetTrigger("isDead");
-        ScoreCounter.score += points;
+        Debug.Log("Enemy died!");
+        animator.SetTrigger("isDead");
 
         GetComponent<Collider2D>().enabled = false;
 

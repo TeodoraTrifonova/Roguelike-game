@@ -25,6 +25,8 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     [SerializeField]
     private bool generateNewDungeon = false;
 
+    public Vector2 MinRoomSize { get => new Vector2(minRoomWidth, minRoomHeight); }
+
 
     private void Start()
     {
@@ -70,7 +72,6 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         RoomTypeDecidingAlgorithm.ChooseStartingRoom(rooms);
         RoomTypeDecidingAlgorithm.ChooseBossRoom(rooms);
 
-        PrintInfoForAllRooms();
         tilemapVisualizer.PaintFloorTiles(floor);
         WallGenerator.CreateWalls(floor, tilemapVisualizer);
     }
@@ -207,7 +208,6 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
                 return rooms[i].RoomNumber;
             }
         }
-        Debug.Log($"Position {position} doesn't exist in any rooms");
         throw new ArgumentException();
     }
 
@@ -320,38 +320,6 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
                 }
                 Gizmos.color = Color.white;
                 Gizmos.DrawWireCube((Vector2)room.RoomCenter, new Vector2(1, 1));
-            }
-        }
-    }
-
-    private void PrintInfoForAllRooms()
-    {
-        rooms.OrderBy(x => x.RoomNumber);
-        for (int i = 0; i < rooms.Count; i++)
-        {
-            rooms[i].NeighbourRooms.OrderBy(x => x);
-        }
-
-        foreach (var room in rooms)
-        {
-            if (room is BaseRoom)
-            {
-                Debug.Log("BASE ROOM - Room Nr" + room.RoomNumber + " has the following neighbours:");
-
-            }
-            else if (room is BossRoom)
-            {
-                Debug.Log("BOSS ROOM - Room Nr" + room.RoomNumber + " has the following neighbours:");
-
-            }
-            else
-            {
-                Debug.Log("ROOM - Room Nr" + room.RoomNumber + " has the following neighbours:");
-
-            }
-            foreach (var neighbour in room.NeighbourRooms)
-            {
-                Debug.Log("\t Neighbour with Room Nr" + neighbour);
             }
         }
     }
