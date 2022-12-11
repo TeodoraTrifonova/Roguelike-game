@@ -5,16 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    // Start is called before the first frame update
-   
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
-
-
     public void StartTheGame()
     {
         ScoreCounter.score = 0;
@@ -31,8 +21,5 @@ public class SceneLoader : MonoBehaviour
     {
         Debug.Log("Game is exiting");
         Application.Quit();
-       
     }
-
-
 }

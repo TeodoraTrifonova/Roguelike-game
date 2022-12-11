@@ -50,15 +50,6 @@ public class EnemyMove : StateMachineBehaviour
                 animator.SetFloat("moveX", direction.x);
                 animator.SetFloat("moveY", direction.y);
 
-                /*if (direction.x < 0)
-                {
-                    animator.GetComponent<SpriteRenderer>().flipX = true;
-                }
-                else
-                {
-                    animator.GetComponent<SpriteRenderer>().flipX = false;
-                }*/
-
                 rb.MovePosition(newPos);
 
                 enemy.SpawnParticles();

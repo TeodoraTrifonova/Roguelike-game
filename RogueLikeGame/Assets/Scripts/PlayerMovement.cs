@@ -23,8 +23,6 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         particleTimer = 0;
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
-
-
     }
 
     void Update()
@@ -44,12 +42,10 @@ public class PlayerMovement : MonoBehaviour
             if (movement.x > 0)
             {
                 playerSpriteRenderer.flipX = false;
-                //transform.rotation = new Quaternion(0, 0, 0, 0);
             }
             if (movement.x < 0)
             {
                 playerSpriteRenderer.flipX = true;
-                //transform.rotation = new Quaternion(0, 180, 0, 0);
             }
         }
         else
@@ -74,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
         {
             SpawnParticles();
             rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
-
         }
     }
 

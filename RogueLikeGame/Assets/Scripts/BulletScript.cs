@@ -39,15 +39,10 @@ public class BulletScript : MonoBehaviour
         Vector3 rotation = transform.position - mousePos;
 
         rb.velocity = new Vector2(direction.x, direction.y).normalized * speed;
-        rb.AddTorque(Random.Range(MIN_ROTATION * 30F, MAX_ROTATION * 30F));
+        rb.AddTorque(Random.Range(MIN_ROTATION * 15f, MAX_ROTATION * 15f));
 
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
-    }
-
-    private void Update()
-    {
-
     }
 
 

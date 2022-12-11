@@ -69,15 +69,14 @@ public class Enemy : MonoBehaviour
     {
         LookAtPlayer();
 
-        Vector3 pos = transform.position;
-        pos += transform.right * attackOffset.x;
-        pos += transform.up * attackOffset.y;
+        Vector3 attackPosition = transform.position;
+        attackPosition += transform.right * attackOffset.x;
+        attackPosition += transform.up * attackOffset.y;
 
-        //Debug.Log("I'm attacking!" + pos);
-        Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
-        if (colInfo != null)
+        Collider2D colliderInfo = Physics2D.OverlapCircle(attackPosition, attackRange, attackMask);
+        if (colliderInfo != null)
         {
-            colInfo.GetComponent<PlayerHealth>().UpdateHealth((-attackDamage) / 4); // poradi nqkakwa prichina avera udrq chetiri puti s edin attack i towa beshe nai lesniq fix
+            colliderInfo.GetComponent<PlayerHealth>().UpdateHealth((-attackDamage) / 4); // poradi nqkakwa prichina avera udrq chetiri puti s edin attack i towa beshe nai lesniq fix
         }
     }
     public void LookAtPlayer()
@@ -97,20 +96,16 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        Debug.Log("YOURE HERE");
         currentHealth -= damage;
-        //Hit animation
+        
         if (currentHealth <= 0)
         {
             Die();
-
         }
-
     }
 
     void Die()
     {
-        Debug.Log("Enemy died!");
         animator.SetTrigger("isDead");
         ScoreCounter.score += points;
        
@@ -122,7 +117,6 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision with " + collision.gameObject.name);
         if (collision.gameObject.tag == "Bullet")
         {
             TakeDamage(collision.gameObject.GetComponent<BulletScript>().damage);

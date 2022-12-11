@@ -21,14 +21,12 @@ public class RoomsBoxColliderGenerator : MonoBehaviour
     {
         rooms = new List<Room>(_rooms);
 
-        MinRoomSize = GameObject.FindGameObjectWithTag("RoomFirstDungeonGenerator").GetComponent<RoomFirstDungeonGenerator>().MinRoomSize;
+        MinRoomSize = GameObject.FindGameObjectWithTag("SceneController").GetComponent<RoomFirstDungeonGenerator>().MinRoomSize;
         StartCoroutine(DetectionCoroutine());
-
     }
 
     IEnumerator DetectionCoroutine()
     {
-
         yield return new WaitForSeconds(detectionDelay);
         PerformDetection();
         StartCoroutine(DetectionCoroutine());
@@ -41,20 +39,10 @@ public class RoomsBoxColliderGenerator : MonoBehaviour
             Collider2D collider = Physics2D.OverlapBox(rooms[i].RoomCenter, MinRoomSize, 0, detectionMask);
             if (collider != null)
             {
-                Debug.Log("FOUND YOU!");
                 Instantiate(enemyPrefab, (Vector2)rooms[i].RoomCenter, Quaternion.identity);
                 rooms.RemoveAt(i);
                 i--;
             }
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        foreach (var room in rooms)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawCube((Vector2)room.RoomCenter, MinRoomSize);
         }
     }
 }

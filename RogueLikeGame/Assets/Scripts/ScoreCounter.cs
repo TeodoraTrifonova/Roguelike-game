@@ -18,17 +18,10 @@ public class ScoreCounter : MonoBehaviour
     private void Start()
     {
         scoreText.text = "SCORE: " + score.ToString();
-
     }
 
     private void Update()
     {
         scoreText.text = "SCORE: "+ score.ToString();
-      
     }
-
-
-
-
-
 }
