@@ -31,10 +31,16 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         enemy = GetComponent<Enemy>();
-        currentHealth = 100;
+        currentHealth = enemy.MaxHealth;
+        SpawnParticles();
     }
 
-    public void SpawnParticles()
+    void SpawnParticles()
+    {
+        Instantiate(deathParticles, feetPos.transform.position, transform.rotation);
+    }
+
+    public void WalkingParticles()
     {
         if (particleTimer < 0.1f)
         {

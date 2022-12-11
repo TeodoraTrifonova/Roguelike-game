@@ -28,6 +28,16 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     public Vector2 MinRoomSize { get => new Vector2(minRoomWidth, minRoomHeight); }
 
 
+    [Header("Gizmos")]
+    [SerializeField]
+    private bool showEnemyRoomGizmo;
+    [SerializeField]
+    private bool showBaseRoomGizmo;
+    [SerializeField]
+    private bool showBossRoomGizmo;
+
+
+
     private void Start()
     {
         Physics2D.IgnoreLayerCollision(7, 9); // not sure
@@ -287,40 +297,49 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
     private void OnDrawGizmos()
     {
-        if (rooms.Exists(x => x is BaseRoom))
+        if(showBaseRoomGizmo)
         {
-            Room baseRoom = rooms.First(x => x is BaseRoom);
-            Gizmos.color = Color.green;
-            foreach (var tiles in baseRoom.RoomTiles)
+            if (rooms.Exists(x => x is BaseRoom))
             {
-                Gizmos.DrawWireCube((Vector2)tiles, new Vector2(1, 1));
-            }
-            Gizmos.color = Color.white;
-            Gizmos.DrawWireCube((Vector2)baseRoom.RoomCenter, new Vector2(1, 1));
-        }
-        if (rooms.Exists(x => x is BossRoom))
-        {
-            Room bossRoom = rooms.First(x => x is BossRoom);
-            Gizmos.color = Color.red;
-            foreach (var tiles in bossRoom.RoomTiles)
-            {
-                Gizmos.DrawWireCube((Vector2)tiles, new Vector2(1, 1));
-            }
-            Gizmos.color = Color.white;
-            Gizmos.DrawWireCube((Vector2)bossRoom.RoomCenter, new Vector2(1, 1));
-        }
-        foreach (var room in rooms)
-        {
-            if (room is not BaseRoom && room is not BossRoom)
-            {
-                Gizmos.color = Random.ColorHSV(0.7f, .8f, 1f, 1f, 0.5f, 1f);
-                foreach (var tiles in room.RoomTiles)
+                Room baseRoom = rooms.First(x => x is BaseRoom);
+                Gizmos.color = Color.green;
+                foreach (var tiles in baseRoom.RoomTiles)
                 {
                     Gizmos.DrawWireCube((Vector2)tiles, new Vector2(1, 1));
                 }
                 Gizmos.color = Color.white;
-                Gizmos.DrawWireCube((Vector2)room.RoomCenter, new Vector2(1, 1));
+                Gizmos.DrawWireCube((Vector2)baseRoom.RoomCenter, new Vector2(1, 1));
             }
         }
+        if(showBossRoomGizmo)
+        {
+            if (rooms.Exists(x => x is BossRoom))
+            {
+                Room bossRoom = rooms.First(x => x is BossRoom);
+                Gizmos.color = Color.red;
+                foreach (var tiles in bossRoom.RoomTiles)
+                {
+                    Gizmos.DrawWireCube((Vector2)tiles, new Vector2(1, 1));
+                }
+                Gizmos.color = Color.white;
+                Gizmos.DrawWireCube((Vector2)bossRoom.RoomCenter, new Vector2(1, 1));
+            }
+        }
+        if (showEnemyRoomGizmo)
+        {
+            foreach (var room in rooms)
+            {
+                if (room is not BaseRoom && room is not BossRoom)
+                {
+                    Gizmos.color = Random.ColorHSV(0.7f, .8f, 1f, 1f, 0.5f, 1f);
+                    foreach (var tiles in room.RoomTiles)
+                    {
+                        Gizmos.DrawWireCube((Vector2)tiles, new Vector2(1, 1));
+                    }
+                    Gizmos.color = Color.white;
+                    Gizmos.DrawWireCube((Vector2)room.RoomCenter, new Vector2(1, 1));
+                }
+            }
+        }  
     }
 }

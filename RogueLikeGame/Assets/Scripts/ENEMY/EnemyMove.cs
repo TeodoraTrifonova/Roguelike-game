@@ -49,7 +49,7 @@ public class EnemyMove : StateMachineBehaviour
 
                 rb.MovePosition(newPos);
 
-                enemyController.SpawnParticles();
+                enemyController.WalkingParticles();
             }
         }
         

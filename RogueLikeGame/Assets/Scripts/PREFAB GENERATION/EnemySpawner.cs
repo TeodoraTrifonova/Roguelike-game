@@ -7,6 +7,8 @@ public class EnemySpawner : MonoBehaviour
 {
     public float detectionDelay = 0.3f;
 
+    private float spawningDelay = 1f;
+
     private List<Room> rooms;
 
     private Vector2 MinRoomSize;
@@ -32,6 +34,15 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(DetectionCoroutine());
     }
 
+    IEnumerator SpawnWithDelay(Vector2 roomCenter)
+    {
+        yield return new WaitForSeconds(spawningDelay);
+        Instantiate(enemyPrefab, roomCenter + new Vector2(0, MinRoomSize.y / 2 - 2), Quaternion.identity);
+        Instantiate(enemyPrefab, roomCenter + new Vector2(MinRoomSize.x / 2 - 2, 0), Quaternion.identity);
+        Instantiate(enemyPrefab, roomCenter + new Vector2(-MinRoomSize.x / 2 + 2, 0), Quaternion.identity);
+        Instantiate(enemyPrefab, roomCenter + new Vector2(0, -MinRoomSize.y / 2 + 2), Quaternion.identity);
+    }
+
     private void PerformDetection()
     {
         for (int i = 0; i < rooms.Count; i++)
@@ -39,7 +50,7 @@ public class EnemySpawner : MonoBehaviour
             Collider2D collider = Physics2D.OverlapBox(rooms[i].RoomCenter, MinRoomSize, 0, detectionMask);
             if (collider != null)
             {
-                Instantiate(enemyPrefab, (Vector2)rooms[i].RoomCenter, Quaternion.identity);
+                StartCoroutine(SpawnWithDelay(rooms[i].RoomCenter));
                 rooms.RemoveAt(i);
                 i--;
             }
