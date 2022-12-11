@@ -6,6 +6,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
+    private Enemy enemy;
+
     private int currentHealth;
 
     private bool isFlipped = false;
@@ -28,6 +30,7 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
+        enemy = GetComponent<Enemy>();
         currentHealth = 100;
     }
 
@@ -50,13 +53,13 @@ public class EnemyController : MonoBehaviour
         LookAtPlayer();
 
         Vector3 attackPosition = transform.position;
-        attackPosition += transform.right * Enemy.AttackOffset.x;
-        attackPosition += transform.up * Enemy.AttackOffset.y;
+        attackPosition += transform.right * enemy.AttackOffset.x;
+        attackPosition += transform.up * enemy.AttackOffset.y;
 
-        Collider2D colliderInfo = Physics2D.OverlapCircle(attackPosition, Enemy.AttackRange, Enemy.AttackMask);
+        Collider2D colliderInfo = Physics2D.OverlapCircle(attackPosition, enemy.AttackRange, enemy.AttackMask);
         if (colliderInfo != null)
         {
-            colliderInfo.GetComponent<PlayerHealth>().UpdateHealth((-Enemy.AttackDamage) / 4); // poradi nqkakwa prichina avera udrq chetiri puti s edin attack i towa beshe nai lesniq fix
+            colliderInfo.GetComponent<PlayerHealth>().UpdateHealth(-1 * enemy.AttackDamage / 4); // poradi nqkakwa prichina avera udrq chetiri puti s edin attack i towa beshe nai lesniq fix
         }
     }
     public void LookAtPlayer()
@@ -87,7 +90,7 @@ public class EnemyController : MonoBehaviour
     private void Die()
     {
         animator.SetTrigger("isDead");
-        ScoreCounter.instance.IncrementScore(Enemy.Points);
+        ScoreCounter.instance.IncrementScore(enemy.Points);
        
         GetComponent<Collider2D>().enabled = false;
 

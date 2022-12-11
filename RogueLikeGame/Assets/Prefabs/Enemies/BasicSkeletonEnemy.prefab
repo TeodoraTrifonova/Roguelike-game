@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2781080215181277467}
   - component: {fileID: 3794154927349698542}
   - component: {fileID: 2755857671012458313}
+  - component: {fileID: -2306819512726106232}
   m_Layer: 8
   m_Name: BasicSkeletonEnemy
   m_TagString: Untagged
@@ -187,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3654296873732127744}
-  player: {fileID: 1294487837593447761, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
+  player: {fileID: 0}
   walkingParticles: {fileID: 1431918719672896397, guid: 61a0f5f0361959746b91928045a6b590, type: 3}
   feetPos: {fileID: 7329755860250236812}
   deathParticles: {fileID: 3477510542980642911, guid: 59aa08b0750c7ba4b82c060009cfe99c, type: 3}
@@ -208,6 +209,27 @@ MonoBehaviour:
   size: {x: 1, y: 2}
   minAmount: 3
   maxAmount: 7
+--- !u!114 &-2306819512726106232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3654296873732127746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c7a004c22cfff4b8cec776efd740aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  points: 10
+  attackDamage: 20
+  attackOffset: {x: 0, y: 0, z: 0}
+  attackRange: 1
+  attackMask:
+    serializedVersion: 2
+    m_Bits: 128
+  moveSpeed: 5
 --- !u!1 &7329755860250236812
 GameObject:
   m_ObjectHideFlags: 0

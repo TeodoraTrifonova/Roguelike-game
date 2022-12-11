@@ -13,7 +13,6 @@ public static class RoomTypeDecidingAlgorithm
             {
                 if (rooms[i] is BossRoom) continue;
                 rooms[i] = new BaseRoom(rooms[i]); // starting room
-                Debug.Log($"Created a base room - room {rooms[i].RoomNumber}");
                 break;
             }
         }
@@ -29,7 +28,6 @@ public static class RoomTypeDecidingAlgorithm
             {
                 if (rooms[i] is BaseRoom) continue;
                 rooms[i] = new BossRoom(rooms[i]); // starting room
-                Debug.Log($"Created a base room - room {rooms[i].RoomNumber}");
                 break;
             }
         }

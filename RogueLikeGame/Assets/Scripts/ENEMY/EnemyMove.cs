@@ -8,6 +8,7 @@ public class EnemyMove : StateMachineBehaviour
 
     private Rigidbody2D rb;
     EnemyController enemyController;
+    Enemy enemy;
 
 
 
@@ -16,6 +17,7 @@ public class EnemyMove : StateMachineBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb = animator.GetComponent<Rigidbody2D>();
+        enemy = animator.GetComponent<Enemy>();
         enemyController = animator.GetComponent<EnemyController>();
 
     }
@@ -30,7 +32,7 @@ public class EnemyMove : StateMachineBehaviour
 
             enemyController.LookAtPlayer();
 
-            if (Vector2.Distance(player.transform.position, rb.position) <= Enemy.AttackRange)
+            if (Vector2.Distance(player.transform.position, rb.position) <= enemy.AttackRange)
             {
                 animator.SetTrigger("Attack");
             }
@@ -38,7 +40,7 @@ public class EnemyMove : StateMachineBehaviour
             {
                 Vector2 target = new Vector2(player.transform.position.x, player.transform.position.y);
 
-                Vector2 newPos = Vector2.MoveTowards(rb.transform.position, target, Enemy.MoveSpeed * Time.deltaTime);
+                Vector2 newPos = Vector2.MoveTowards(rb.transform.position, target, enemy.MoveSpeed * Time.deltaTime);
 
                 Vector2 direction = new Vector2(newPos.x - target.x, newPos.y - target.y).normalized * -1;
 

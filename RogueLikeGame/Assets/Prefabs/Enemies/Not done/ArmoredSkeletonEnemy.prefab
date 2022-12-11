@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: -3093753919267837581}
   - component: {fileID: 1460699879}
   - component: {fileID: 1460699880}
+  - component: {fileID: 3790592288478119142}
   m_Layer: 8
   m_Name: ArmoredSkeletonEnemy
   m_TagString: Untagged
@@ -235,16 +236,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7640882055635586007}
-  maxHealth: 200
-  player: {fileID: 0}
-  points: 30
+  player: {fileID: 1294487837593447761, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
   walkingParticles: {fileID: 1431918719672896397, guid: 61a0f5f0361959746b91928045a6b590, type: 3}
   feetPos: {fileID: 838970661}
   deathParticles: {fileID: 3477510542980642911, guid: 59aa08b0750c7ba4b82c060009cfe99c, type: 3}
-  attackDamage: 32
+--- !u!114 &3790592288478119142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7640882055635586005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c7a004c22cfff4b8cec776efd740aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  points: 10
+  attackDamage: 20
   attackOffset: {x: 0, y: 0, z: 0}
   attackRange: 1
   attackMask:
     serializedVersion: 2
-    m_Bits: 128
-  ShowAttackRangeDebug: 1
+    m_Bits: 7
+  moveSpeed: 5

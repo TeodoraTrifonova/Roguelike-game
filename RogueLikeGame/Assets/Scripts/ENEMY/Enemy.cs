@@ -2,28 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Enemy
+public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    private static int maxHealth = 100;
+    private int maxHealth = 100;
     [SerializeField]
-    private static int points = 10;
+    private int points = 10;
     [SerializeField]
-    private static int attackDamage = 20;
+    private int attackDamage = 20;
     [SerializeField]
-    private static Vector3 attackOffset;
+    private Vector3 attackOffset = new Vector3(0,0,0);
     [SerializeField]
-    private static float attackRange = 1f;
+    private float attackRange = 1f;
     [SerializeField]
-    private static LayerMask attackMask = 7;
+    private LayerMask attackMask = 7;
     [SerializeField]
-    private static float moveSpeed = 5f;
+    private float moveSpeed = 5f;
 
-    public static int MaxHealth { get => maxHealth; }
-    public static int Points { get => points; }
-    public static int AttackDamage { get => attackDamage; }
-    public static Vector3 AttackOffset { get => attackOffset; }
-    public static float AttackRange { get => attackRange; }
-    public static LayerMask AttackMask { get => attackMask; }
-    public static float MoveSpeed { get => moveSpeed; }
+    public int MaxHealth { get => maxHealth; }
+    public int Points { get => points; }
+    public int AttackDamage { get => attackDamage; }
+    public Vector3 AttackOffset { get => attackOffset; }
+    public float AttackRange { get => attackRange; }
+    public LayerMask AttackMask { get => attackMask; }
+    public float MoveSpeed { get => moveSpeed; }
 }
