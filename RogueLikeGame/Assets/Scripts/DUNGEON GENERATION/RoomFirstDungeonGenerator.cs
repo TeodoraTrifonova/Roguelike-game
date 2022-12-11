@@ -48,10 +48,12 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
             Room baseRoom = rooms.Find(x => x is BaseRoom);
             GameObject player = GameObject.FindGameObjectWithTag("Player");
+            GameObject fallenWarrior = GameObject.Find("FallenWarrior");
             Camera mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
 
-            player.transform.position = new Vector2(baseRoom.RoomCenter.x, baseRoom.RoomCenter.y);
+            player.transform.position = new Vector2(baseRoom.RoomCenter.x+1, baseRoom.RoomCenter.y+1);
+            fallenWarrior.transform.position = new Vector2(baseRoom.RoomCenter.x - 2, baseRoom.RoomCenter.y - 2);
             mainCam.transform.position = new Vector3(baseRoom.RoomCenter.x, baseRoom.RoomCenter.y, mainCam.transform.position.z);
 
             this.GetComponent<PrefabSpawner>().StartSpawning();

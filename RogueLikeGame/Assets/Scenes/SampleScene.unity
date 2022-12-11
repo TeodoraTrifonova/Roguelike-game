@@ -2766,6 +2766,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 351902965}
   m_CullTransparentMesh: 1
+--- !u!1 &386759370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8190216219638017884, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+  m_PrefabInstance: {fileID: 7606651594872590317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &386759373
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386759370}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0b3142d0a818fbb448d9ff005a8a6d00, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &529172050
 GameObject:
   m_ObjectHideFlags: 0
@@ -3222,6 +3247,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866917177}
   m_CullTransparentMesh: 1
+--- !u!1 &911814520 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4483645155449350059, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+  m_PrefabInstance: {fileID: 7606651594872590317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &911814522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911814520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 951ef53ec3240c5438fb3ad3e52f391f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionDelay: 0.3
+  detectionRadius: 2
+  animator: {fileID: 0}
+  detectionMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &986160025
 GameObject:
   m_ObjectHideFlags: 0
@@ -3470,6 +3518,9 @@ MonoBehaviour:
   dungeonHeight: 80
   offset: 0
   generateNewDungeon: 0
+  showEnemyRoomGizmo: 0
+  showBaseRoomGizmo: 0
+  showBossRoomGizmo: 0
 --- !u!4 &1208139128
 Transform:
   m_ObjectHideFlags: 0
@@ -20626,7 +20677,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ab8d27250ecb71644909d851749bbcc7, type: 2}
+  - {fileID: 2100000, guid: 1cb2ee6eba4b5e647857f345fcb98df9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -28968,3 +29019,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7606651594872590317
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 840401243916310688, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 840401243916310688, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 37.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 840401243916310688, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 41.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 840401243916310688, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0023048944
+      objectReference: {fileID: 0}
+    - target: {fileID: 840401243916310688, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 840401243916310688, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 840401243916310688, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 840401243916310688, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 840401243916310688, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 840401243916310688, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 840401243916310688, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483645155449350059, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_Name
+      value: FallenWarrior
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}

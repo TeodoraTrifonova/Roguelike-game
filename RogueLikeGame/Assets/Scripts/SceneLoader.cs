@@ -7,7 +7,6 @@ public class SceneLoader : MonoBehaviour
 {
     public void StartTheGame()
     {
-        ScoreCounter.instance.ClearScore();
         SceneManager.LoadScene("SampleScene");
     }
 

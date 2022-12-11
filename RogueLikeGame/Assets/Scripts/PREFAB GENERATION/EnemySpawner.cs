@@ -47,12 +47,15 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < rooms.Count; i++)
         {
-            Collider2D collider = Physics2D.OverlapBox(rooms[i].RoomCenter, MinRoomSize, 0, detectionMask);
-            if (collider != null)
+            if(!(rooms[i] is BaseRoom))
             {
-                StartCoroutine(SpawnWithDelay(rooms[i].RoomCenter));
-                rooms.RemoveAt(i);
-                i--;
+                Collider2D collider = Physics2D.OverlapBox(rooms[i].RoomCenter, MinRoomSize, 0, detectionMask);
+                if (collider != null)
+                {
+                    StartCoroutine(SpawnWithDelay(rooms[i].RoomCenter));
+                    rooms.RemoveAt(i);
+                    i--;
+                }
             }
         }
     }
