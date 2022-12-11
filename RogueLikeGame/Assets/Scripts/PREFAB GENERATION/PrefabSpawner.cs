@@ -35,7 +35,7 @@ public class PrefabSpawner : MonoBehaviour
             SpawnProps(itemPrefabs, numberOfPrefabItemProps);
         }
 
-        gameObject.GetComponent<RoomsBoxColliderGenerator>().Setup(rooms);
+        gameObject.GetComponent<EnemySpawner>().Setup(rooms);
     }
 
     private void GenerateRandomPrefabCount(List<int> numberOfPropsPerPrefab, List<GameObject> prefabs)
@@ -48,7 +48,6 @@ public class PrefabSpawner : MonoBehaviour
 
     private void GenerateSpawningPoints(Room room)
     {
-        
         foreach (var roomTile in room.RoomTiles)
         {
             if (corridors.Contains(roomTile))

@@ -5,13 +5,9 @@ public class EnemyMove : StateMachineBehaviour
 {
 
     GameObject player;
-    [SerializeField]
-    private float moveSpeed = 5f;
-    private float attackRange;
-
 
     private Rigidbody2D rb;
-    Enemy enemy;
+    EnemyController enemyController;
 
 
 
@@ -20,8 +16,7 @@ public class EnemyMove : StateMachineBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb = animator.GetComponent<Rigidbody2D>();
-        enemy = animator.GetComponent<Enemy>();
-        attackRange = enemy.AttackRange;
+        enemyController = animator.GetComponent<EnemyController>();
 
     }
 
@@ -33,9 +28,9 @@ public class EnemyMove : StateMachineBehaviour
 
             rb.velocity = new Vector2(0, 0); // removes velocity from the enemy
 
-            enemy.LookAtPlayer();
+            enemyController.LookAtPlayer();
 
-            if (Vector2.Distance(player.transform.position, rb.position) <= attackRange)
+            if (Vector2.Distance(player.transform.position, rb.position) <= Enemy.AttackRange)
             {
                 animator.SetTrigger("Attack");
             }
@@ -43,7 +38,7 @@ public class EnemyMove : StateMachineBehaviour
             {
                 Vector2 target = new Vector2(player.transform.position.x, player.transform.position.y);
 
-                Vector2 newPos = Vector2.MoveTowards(rb.transform.position, target, moveSpeed * Time.deltaTime);
+                Vector2 newPos = Vector2.MoveTowards(rb.transform.position, target, Enemy.MoveSpeed * Time.deltaTime);
 
                 Vector2 direction = new Vector2(newPos.x - target.x, newPos.y - target.y).normalized * -1;
 
@@ -52,7 +47,7 @@ public class EnemyMove : StateMachineBehaviour
 
                 rb.MovePosition(newPos);
 
-                enemy.SpawnParticles();
+                enemyController.SpawnParticles();
             }
         }
         

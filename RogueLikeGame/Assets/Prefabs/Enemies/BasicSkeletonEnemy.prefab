@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3654296873732127745}
   - component: {fileID: 3654296873732127749}
   - component: {fileID: 3654296873732127750}
-  - component: {fileID: 3794154927349698542}
   - component: {fileID: 2781080215181277467}
+  - component: {fileID: 3794154927349698542}
   - component: {fileID: 2755857671012458313}
   m_Layer: 8
   m_Name: BasicSkeletonEnemy
@@ -158,32 +158,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3794154927349698542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3654296873732127746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ec6951cee2d660438eb705d5f5400fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 3654296873732127744}
-  maxHealth: 100
-  player: {fileID: 0}
-  points: 10
-  walkingParticles: {fileID: 1431918719672896397, guid: 61a0f5f0361959746b91928045a6b590, type: 3}
-  feetPos: {fileID: 7329755860250236812}
-  deathParticles: {fileID: 3477510542980642911, guid: 59aa08b0750c7ba4b82c060009cfe99c, type: 3}
-  attackDamage: 20
-  attackOffset: {x: 0, y: 0, z: 0}
-  attackRange: 1
-  attackMask:
-    serializedVersion: 2
-    m_Bits: 128
-  ShowAttackRangeDebug: 1
 --- !u!58 &2781080215181277467
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -200,6 +174,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.07}
   serializedVersion: 2
   m_Radius: 0.073124565
+--- !u!114 &3794154927349698542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3654296873732127746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec6951cee2d660438eb705d5f5400fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 3654296873732127744}
+  player: {fileID: 1294487837593447761, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
+  walkingParticles: {fileID: 1431918719672896397, guid: 61a0f5f0361959746b91928045a6b590, type: 3}
+  feetPos: {fileID: 7329755860250236812}
+  deathParticles: {fileID: 3477510542980642911, guid: 59aa08b0750c7ba4b82c060009cfe99c, type: 3}
 --- !u!114 &2755857671012458313
 MonoBehaviour:
   m_ObjectHideFlags: 0

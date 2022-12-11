@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomsBoxColliderGenerator : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
     public float detectionDelay = 0.3f;
 

@@ -1,22 +1,17 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class Enemy : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     [SerializeField]
     private Animator animator;
 
-    [SerializeField]
-    private int maxHealth = 100;
-
     private int currentHealth;
+
     private bool isFlipped = false;
 
     [SerializeField]
     private GameObject player;
-
-    [SerializeField]
-    private int points = 10;
 
     [SerializeField]
     private GameObject walkingParticles;
@@ -29,26 +24,11 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private GameObject deathParticles;
 
-    [SerializeField]
-    private int attackDamage = 20;
 
-    [SerializeField]
-    private Vector3 attackOffset;
-
-    [SerializeField]
-    private float attackRange = 1f;
-
-    public float AttackRange { get => attackRange; }
-
-    [SerializeField]
-    private LayerMask attackMask;
-
-    [SerializeField]
-    private bool ShowAttackRangeDebug;
 
     void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = 100;
     }
 
     public void SpawnParticles()
@@ -70,13 +50,13 @@ public class Enemy : MonoBehaviour
         LookAtPlayer();
 
         Vector3 attackPosition = transform.position;
-        attackPosition += transform.right * attackOffset.x;
-        attackPosition += transform.up * attackOffset.y;
+        attackPosition += transform.right * Enemy.AttackOffset.x;
+        attackPosition += transform.up * Enemy.AttackOffset.y;
 
-        Collider2D colliderInfo = Physics2D.OverlapCircle(attackPosition, attackRange, attackMask);
+        Collider2D colliderInfo = Physics2D.OverlapCircle(attackPosition, Enemy.AttackRange, Enemy.AttackMask);
         if (colliderInfo != null)
         {
-            colliderInfo.GetComponent<PlayerHealth>().UpdateHealth((-attackDamage) / 4); // poradi nqkakwa prichina avera udrq chetiri puti s edin attack i towa beshe nai lesniq fix
+            colliderInfo.GetComponent<PlayerHealth>().UpdateHealth((-Enemy.AttackDamage) / 4); // poradi nqkakwa prichina avera udrq chetiri puti s edin attack i towa beshe nai lesniq fix
         }
     }
     public void LookAtPlayer()
@@ -94,7 +74,7 @@ public class Enemy : MonoBehaviour
         }
 
     }
-    public void TakeDamage(int damage)
+    private void TakeDamage(int damage)
     {
         currentHealth -= damage;
         
@@ -104,10 +84,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Die()
+    private void Die()
     {
         animator.SetTrigger("isDead");
-        ScoreCounter.score += points;
+        ScoreCounter.instance.IncrementScore(Enemy.Points);
        
         GetComponent<Collider2D>().enabled = false;
 
@@ -120,15 +100,6 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             TakeDamage(collision.gameObject.GetComponent<BulletScript>().damage);
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (ShowAttackRangeDebug)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(new Vector2(transform.position.x * attackOffset.x, transform.position.y * attackOffset.y), attackRange);
         }
     }
 }

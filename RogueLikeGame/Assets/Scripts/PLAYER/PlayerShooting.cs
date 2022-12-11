@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShootRotation : MonoBehaviour
+public class PlayerShooting : MonoBehaviour
 {
     private Camera mainCam;
     private Vector3 mousePos;
