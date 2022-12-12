@@ -17,9 +17,21 @@ public class PopupTrigger : MonoBehaviour
     private LayerMask detectionMask = 7;
 
     private bool playerInRadius = false;
+    private CameraManager cameraManager;
+    private GameObject dialogBoxMenu;
+    private DialogueManager dialogueManager;
+
+    public bool PlayerInRadius { get => playerInRadius; }
+
+    
 
     private void Start()
     {
+        cameraManager = FindObjectOfType<CameraManager>();
+        dialogBoxMenu = GameObject.Find("DialogueMenu");
+        dialogBoxMenu.SetActive(false);
+        dialogueManager = FindObjectOfType<DialogueManager>();
+
         StartCoroutine(DetectionCoroutine());
     }
 
@@ -38,11 +50,13 @@ public class PopupTrigger : MonoBehaviour
             Debug.Log("Near fallen warrior!");
             playerInRadius = true;
             animator.SetBool("isOpen", true);
+            cameraManager.SwitchCamera(playerInRadius);
         }
         else
         {
             playerInRadius = false;
             animator.SetBool("isOpen", false);
+            cameraManager.SwitchCamera(playerInRadius);
         }
     }
 
@@ -53,9 +67,22 @@ public class PopupTrigger : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.ClearDeveloperConsole();
-                gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+                if(dialogBoxMenu.activeSelf == false)
+                {
+                    Debug.ClearDeveloperConsole();
+                    dialogBoxMenu.SetActive(true);
+                    gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+                }
+                else
+                {
+                    dialogueManager.DisplayNextSentence();
+                }
+                
             }
+        }
+        else
+        {
+            dialogBoxMenu.SetActive(false);
         }
     }
 
@@ -64,4 +91,5 @@ public class PopupTrigger : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
+
 }

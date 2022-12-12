@@ -9,5 +9,6 @@ public class DialogueTrigger : MonoBehaviour
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        // Bi mi haresalo da ima animaciq za popup na dialogue bubble-a
     }
 }

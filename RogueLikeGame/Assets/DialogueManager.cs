@@ -40,5 +40,7 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         Debug.Log("Ending dialogue!");
+        GameObject.Find("DialogueMenu").SetActive(false);
+
     }
 }
