@@ -16,6 +16,8 @@ public class PopupTrigger : MonoBehaviour
     [SerializeField]
     private LayerMask detectionMask = 7;
 
+    private bool playerInRadius = false;
+
     private void Start()
     {
         StartCoroutine(DetectionCoroutine());
@@ -34,7 +36,26 @@ public class PopupTrigger : MonoBehaviour
         if (collider != null)
         {
             Debug.Log("Near fallen warrior!");
-            //animator.SetBool("NearFallenWarrior", true);
+            playerInRadius = true;
+            animator.SetBool("isOpen", true);
+        }
+        else
+        {
+            playerInRadius = false;
+            animator.SetBool("isOpen", false);
+        }
+    }
+
+    private void Update()
+    {
+        
+        if(playerInRadius)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.ClearDeveloperConsole();
+                gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+            }
         }
     }
 

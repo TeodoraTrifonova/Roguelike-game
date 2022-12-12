@@ -3329,10 +3329,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionDelay: 0.3
   detectionRadius: 2
-  animator: {fileID: 0}
+  animator: {fileID: 386759373}
   detectionMask:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &911814523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911814520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db181615d2486a541b021f26b829a7bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Ivan
+    sentences:
+    - Zdraveite, az sym Ivan!
+    - 'Lubimite mi zanimaniq sa noseneto na voda ot kladeneca i broeneto na kokoshkite
+      v chujdite dvorove kusno vecher!
+
+'
+    - Horata mi kazwat, che sym stranen, no ne im vqrvam.
 --- !u!1 &986160025
 GameObject:
   m_ObjectHideFlags: 0
@@ -3553,6 +3574,7 @@ GameObject:
   - component: {fileID: 1208139130}
   - component: {fileID: 1208139131}
   - component: {fileID: 1208139132}
+  - component: {fileID: 1208139133}
   m_Layer: 0
   m_Name: SceneController
   m_TagString: SceneController
@@ -3655,6 +3677,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f44768110d4c7145916f87bed8a468b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1208139133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208139126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40a9cf587370a541bd107c6b30cf49a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1277961033
@@ -29136,6 +29170,42 @@ PrefabInstance:
     - target: {fileID: 4483645155449350059, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
       propertyPath: m_Name
       value: FallenWarrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394052684542580165, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394052684542580165, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394052684542580165, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394052684542580165, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849072975947643062, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849072975947643062, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849072975947643062, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849072975947643062, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_SortingLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849072975947643062, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -165202473
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
