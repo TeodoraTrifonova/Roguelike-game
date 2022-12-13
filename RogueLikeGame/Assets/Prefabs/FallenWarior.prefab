@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 840401243916310688}
+  - component: {fileID: 911814522}
+  - component: {fileID: 911814523}
   m_Layer: 0
   m_Name: FallenWarior
   m_TagString: Untagged
@@ -33,6 +35,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &911814522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4483645155449350059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 951ef53ec3240c5438fb3ad3e52f391f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionDelay: 0.3
+  detectionRadius: 2
+  animator: {fileID: 386759373}
+  detectionMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &911814523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4483645155449350059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db181615d2486a541b021f26b829a7bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Ivan
+    sentences:
+    - Zdraveite, az sym Ivan!
+    - 'Lubimite mi zanimaniq sa noseneto na voda ot kladeneca i broeneto na kokoshkite
+      v chujdite dvorove kusno vecher!
+
+'
+    - Horata mi kazwat, che sym stranen, no ne im vqrvam.
 --- !u!1 &8190216219638017884
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,6 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7394052684542580165}
   - component: {fileID: 8849072975947643062}
+  - component: {fileID: 386759373}
   m_Layer: 0
   m_Name: Dialogue
   m_TagString: Untagged
@@ -58,8 +100,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8190216219638017884}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.53, y: 0.41, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.33, z: 1}
+  m_LocalPosition: {x: 0.39, y: 0.21, z: 0}
+  m_LocalScale: {x: 0.17, y: 0.11, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 840401243916310688}
@@ -103,8 +145,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1036947501
-  m_SortingLayer: 4
+  m_SortingLayerID: -165202473
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9b337a360b84fa9428fe7dbe7774012f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -117,6 +159,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &386759373
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8190216219638017884}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0b3142d0a818fbb448d9ff005a8a6d00, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8826615111246337974
 GameObject:
   m_ObjectHideFlags: 0

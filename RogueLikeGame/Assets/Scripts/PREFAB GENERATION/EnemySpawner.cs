@@ -47,7 +47,7 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < rooms.Count; i++)
         {
-            if(!(rooms[i] is BaseRoom))
+            if(!(rooms[i] is BaseRoom) && !(rooms[i] is BossRoom))
             {
                 Collider2D collider = Physics2D.OverlapBox(rooms[i].RoomCenter, MinRoomSize, 0, detectionMask);
                 if (collider != null)

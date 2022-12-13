@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4988653826375015472}
   - component: {fileID: 1748644211276188450}
   - component: {fileID: 1153042232098051931}
+  - component: {fileID: -4173348910499931372}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -146,3 +147,18 @@ MonoBehaviour:
   size: {x: 1, y: 1}
   minAmount: 1
   maxAmount: 3
+  health: 120
+--- !u!114 &-4173348910499931372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5421650799500915750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1d6c04907e514949ba41fe9dc173f6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyParticles: {fileID: 542817707394978054, guid: bb42974c49836c243895c96abcb8f235, type: 3}
+  propHitParticles: {fileID: 542817707394978054, guid: 328cad79bd2a90a4795158234360b111, type: 3}

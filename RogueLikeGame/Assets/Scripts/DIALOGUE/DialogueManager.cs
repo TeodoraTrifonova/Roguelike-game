@@ -1,10 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
     private Queue<string> sentences;
+
+    [SerializeField]
+    private TextMeshProUGUI nameDialogue;
+
+    [SerializeField]
+    private TextMeshProUGUI sentenceDialogue;
 
     private void Start()
     {
@@ -13,7 +21,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        Debug.Log("Starting dialogue with " + dialogue.name);
+        nameDialogue.text = dialogue.name;
 
         sentences.Clear();
 
@@ -34,7 +42,18 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        Debug.Log(sentence);
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
+    }
+
+    IEnumerator TypeSentence(string sentence)
+    {
+        sentenceDialogue.text = "";
+        foreach (var letter in sentence)
+        {
+            sentenceDialogue.text += letter;
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 
     private void EndDialogue()

@@ -11,7 +11,7 @@ public class BulletScript : MonoBehaviour
 
 
     [SerializeField]
-    public int damage;
+    private int damage;
 
     private Vector3 mousePos;
     private Camera mainCam;
@@ -23,6 +23,7 @@ public class BulletScript : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public int Damage { get => damage; }
 
     void Start()
     {

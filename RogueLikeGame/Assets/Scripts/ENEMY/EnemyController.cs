@@ -108,7 +108,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            TakeDamage(collision.gameObject.GetComponent<BulletScript>().damage);
+            TakeDamage(collision.gameObject.GetComponent<BulletScript>().Damage);
         }
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5658249492143003797}
   - component: {fileID: 2569230323043305970}
   - component: {fileID: 6454743200319846749}
+  - component: {fileID: 6458031726289940075}
   m_Layer: 0
   m_Name: Clay pot
   m_TagString: Untagged
@@ -119,3 +120,18 @@ MonoBehaviour:
   size: {x: 1, y: 1}
   minAmount: 3
   maxAmount: 7
+  health: 70
+--- !u!114 &6458031726289940075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4101752218595239954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1d6c04907e514949ba41fe9dc173f6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyParticles: {fileID: 542817707394978054, guid: bb42974c49836c243895c96abcb8f235, type: 3}
+  propHitParticles: {fileID: 542817707394978054, guid: 328cad79bd2a90a4795158234360b111, type: 3}

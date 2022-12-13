@@ -12,6 +12,9 @@ public class PlayerHealth : MonoBehaviour
     private GameObject deathParticles;
 
     [SerializeField]
+    private GameObject damageParticles;
+
+    [SerializeField]
     private GameObject gameOverMenu;
 
     private void Start()
@@ -23,7 +26,12 @@ public class PlayerHealth : MonoBehaviour
     {
         health += mod;
 
-        if(health > maxHealth)
+        if(mod < 0)
+        {
+            Instantiate(damageParticles, transform.position, transform.rotation);
+        }
+
+        if (health > maxHealth)
         {
             health = maxHealth;
         }
