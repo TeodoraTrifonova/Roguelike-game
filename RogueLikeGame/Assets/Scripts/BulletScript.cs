@@ -50,6 +50,7 @@ public class BulletScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Instantiate(particles, transform.position, transform.rotation);
+        if(collision.gameObject.tag=="Player")
         Destroy(gameObject);
 
     }
