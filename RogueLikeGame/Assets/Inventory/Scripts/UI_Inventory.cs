@@ -7,14 +7,12 @@ using System;
 public class UI_Inventory : MonoBehaviour {
 
     private Inventory inventory;
-    private Transform itemSlotContainer;
-    private Transform itemSlotTemplate;
+    [SerializeField] private Transform itemSlotContainer;
+    [SerializeField] private Transform itemSlotTemplate;
     private Player player;
     private Color bgcolor;
 
     private void Awake() {
-        itemSlotContainer = transform.Find("itemSlotContainer");
-        itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
         bgcolor = itemSlotTemplate.Find("background").GetComponent<Image>().color;
     }
 

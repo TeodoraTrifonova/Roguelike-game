@@ -130,7 +130,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1689242326}
-  weapons: []
+  weapons:
+  - {fileID: 1431586001915267517, guid: 18e1a2efb229659428a89c76fe2dca12, type: 3}
+  - {fileID: 3607866779580274182, guid: 22c1040930487e242a5e5ca740cefed8, type: 3}
+  - {fileID: 5552713007579239538, guid: 7a5ac7bfc5e6a764591214434a98db19, type: 3}
+  - {fileID: 2908042968554181339, guid: c5fa1383cbe9ff445a643a8186387833, type: 3}
   selectedWeapon: 0
   shootingPoint: {fileID: 1294487835851319090}
   canFire: 1

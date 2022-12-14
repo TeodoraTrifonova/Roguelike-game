@@ -64,7 +64,6 @@ public class BulletScript : MonoBehaviour
             bulletTriggerCollider.enabled = true;
         }
         sprite.enabled = false;
-        damage = 0;
         //if(collision.gameObject.tag=="Player")
         //Destroy(gameObject);
 

@@ -120,7 +120,7 @@ MonoBehaviour:
   size: {x: 1, y: 1}
   minAmount: 3
   maxAmount: 7
-  health: 70
+  health: 25
 --- !u!114 &6458031726289940075
 MonoBehaviour:
   m_ObjectHideFlags: 0
