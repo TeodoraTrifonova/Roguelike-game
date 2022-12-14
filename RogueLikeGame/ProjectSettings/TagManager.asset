@@ -17,7 +17,7 @@ TagManager:
   - Actor
   - Enemy
   - Bullet
-  - 
+  - BulletColliders
   - 
   - 
   - 

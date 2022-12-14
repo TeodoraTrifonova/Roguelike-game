@@ -17,6 +17,12 @@ public class BulletScript : MonoBehaviour
     private Camera mainCam;
 
     [SerializeField]
+    private BoxCollider2D bulletTriggerCollider;
+
+    [SerializeField]
+    private SpriteRenderer sprite;
+
+    [SerializeField]
     private GameObject particles;
 
     private GameObject rotationPoint;
@@ -49,9 +55,18 @@ public class BulletScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Instantiate(particles, transform.position, transform.rotation);
-        if(collision.gameObject.tag=="Player")
-        Destroy(gameObject);
+        if(damage != 0)
+        {
+            Instantiate(particles, transform.position, transform.rotation);
+        }
+        if (bulletTriggerCollider != null)
+        {
+            bulletTriggerCollider.enabled = true;
+        }
+        sprite.enabled = false;
+        damage = 0;
+        //if(collision.gameObject.tag=="Player")
+        //Destroy(gameObject);
 
     }
 

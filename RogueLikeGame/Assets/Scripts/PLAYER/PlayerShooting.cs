@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
@@ -6,7 +7,13 @@ public class PlayerShooting : MonoBehaviour
     private Vector3 mousePos;
 
     [SerializeField]
-    private GameObject bullet;
+    private Player player;
+
+    [Header("Weapons // Throwables")]
+    [SerializeField]
+    private List<GameObject> weapons;
+
+    public int selectedWeapon;
 
     [SerializeField]
     private Transform shootingPoint;
@@ -19,11 +26,14 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField]
     private float timeBetweenFiring;
 
-
-
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        for (int i = 0; i < weapons.Count; i++)
+        {
+            weapons[i].GetComponentInChildren<BoxCollider2D>().enabled = false;
+        }
+        selectedWeapon = -1;
     }
 
     // Update is called once per frame
@@ -47,11 +57,27 @@ public class PlayerShooting : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButton(0) && canFire)
+        if (Input.GetMouseButtonDown(0) && canFire && (selectedWeapon >= 0 && selectedWeapon < weapons.Count))
         {
             canFire = false;
-            Instantiate(bullet, new Vector2(transform.position.x, transform.position.y - 0.33f), Quaternion.identity);
-
+            Instantiate(weapons[selectedWeapon], new Vector2(transform.position.x, transform.position.y - 0.33f), Quaternion.identity);
+            if(selectedWeapon == 0)
+            {
+                player.RemoveItem(new Item { itemType = Item.ItemType.rollingPin, amount = 1 });
+            }
+            else if(selectedWeapon == 1)
+            {
+                player.RemoveItem(new Item { itemType = Item.ItemType.cookingPot, amount = 1 });
+            }
+            else if(selectedWeapon == 2)
+            {
+                player.RemoveItem(new Item { itemType = Item.ItemType.ladle, amount = 1});
+            }
+            else if(selectedWeapon == 3)
+            {
+                player.RemoveItem(new Item { itemType = Item.ItemType.cookingKnife, amount = 1});
+            }
+            selectedWeapon = -1;
         }
     }
 }

@@ -26,6 +26,18 @@ public class Player : MonoBehaviour {
         }
     }
 
+    public void RemoveItem(Item item)
+    {
+        foreach (var itemInInventory in inventory.GetItemList())
+        {
+            if (itemInInventory.itemType == item.itemType)
+            {
+                inventory.RemoveItem(itemInInventory);
+                break;
+            }
+        }
+    }
+
     public Vector3 GetPosition() {
         return transform.position;
     }

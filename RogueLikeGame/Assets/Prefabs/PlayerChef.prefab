@@ -129,7 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6644e3b009f666643a2fbc9c92d0f964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1431586001915267517, guid: 18e1a2efb229659428a89c76fe2dca12, type: 3}
+  player: {fileID: 1689242326}
+  weapons: []
+  selectedWeapon: 0
   shootingPoint: {fileID: 1294487835851319090}
   canFire: 1
   timeBetweenFiring: 0.3
@@ -148,6 +150,7 @@ GameObject:
   - component: {fileID: 1294487837593447774}
   - component: {fileID: 1689242331}
   - component: {fileID: 1828706057447326718}
+  - component: {fileID: 1689242326}
   m_Layer: 7
   m_Name: PlayerChef
   m_TagString: Player
@@ -312,6 +315,19 @@ CapsuleCollider2D:
   m_Offset: {x: 1.8423864e-13, y: -0.046694122}
   m_Size: {x: 0.17162976, y: 0.2382355}
   m_Direction: 0
+--- !u!114 &1689242326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294487837593447761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d31944f6bba99384b94445338581ef29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiInventory: {fileID: 0}
 --- !u!1 &6855155791646714718
 GameObject:
   m_ObjectHideFlags: 0
