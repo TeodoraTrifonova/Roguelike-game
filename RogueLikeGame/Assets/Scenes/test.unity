@@ -178,7 +178,7 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
   - name: shoot
-    clip: {fileID: 8300000, guid: 323e15cfe809e114ab92c9f4b25e8bc2, type: 3}
+    clip: {fileID: 8300000, guid: 02bb653507e812646be64f2519d6d3b3, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
@@ -404,6 +404,42 @@ PrefabInstance:
       propertyPath: gameOverMenu
       value: 
       objectReference: {fileID: 40153299}
+    - target: {fileID: 1294487835851319089, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 168278a9a6435954ca7e9d047ba0f2c7, type: 3}
+    - target: {fileID: 1294487835851319089, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294487835851319089, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294487835851319089, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294487835851319089, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294487835851319090, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.77000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294487835851319090, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.77000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294487835851319090, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294487835851319090, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1294487837593447761, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
       propertyPath: m_Name
       value: PlayerChef

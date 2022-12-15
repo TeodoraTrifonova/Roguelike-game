@@ -16,7 +16,7 @@ public class SceneLoader : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.instance.Play("Main menu background track");
+        AudioManager.instance.PlayTheme("Main menu background track");
         //FindObjectOfType<AudioManager>().Play("Main menu background track");// plays background music in menu
 
     }
