@@ -26,12 +26,14 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private GameObject deathParticles;
 
+    public HealthBarController healthBar;
 
 
     void Start()
     {
         enemy = GetComponent<Enemy>();
         currentHealth = enemy.MaxHealth;
+        healthBar.SetMaxHealth(currentHealth);
         SpawnParticles();
     }
 
@@ -86,7 +88,8 @@ public class EnemyController : MonoBehaviour
     private void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        
+        healthBar.SetHealth(currentHealth);
+
         if (currentHealth <= 0)
         {
             Die();
