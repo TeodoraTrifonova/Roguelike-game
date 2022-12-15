@@ -20,6 +20,9 @@ public class BulletScript : MonoBehaviour
     private BoxCollider2D bulletTriggerCollider;
 
     [SerializeField]
+    private Collider2D onInactiveCollider;
+
+    [SerializeField]
     private SpriteRenderer sprite;
 
     [SerializeField]
@@ -64,10 +67,11 @@ public class BulletScript : MonoBehaviour
         {
             bulletTriggerCollider.enabled = true;
         }
+        if (onInactiveCollider != null)
+        {
+            onInactiveCollider.enabled = true;
+        }
         sprite.enabled = false;
-        //if(collision.gameObject.tag=="Player")
-        //Destroy(gameObject);
-
     }
 
 }

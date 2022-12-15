@@ -65,22 +65,22 @@ public class UI_Inventory : MonoBehaviour {
                 if(item.itemType == Item.ItemType.rollingPin)
                 {
                     newWeapon = 0;
-                    itemSlotRectTransform.Find("background").GetComponent<Image>().color = new Color(255, 0, 0, 0.5f);
+                    itemSlotRectTransform.Find("background").GetComponent<Image>().color = new Color(97, 63, 49, 0.5f);
                 }
                 else if (item.itemType == Item.ItemType.cookingPot)
                 {
                     newWeapon = 1;
-                    itemSlotRectTransform.Find("background").GetComponent<Image>().color = new Color(255, 0, 0, 0.5f);
+                    itemSlotRectTransform.Find("background").GetComponent<Image>().color = new Color(97, 63, 49, 0.5f);
                 }
                 else if (item.itemType == Item.ItemType.ladle)
                 {
                     newWeapon = 2;
-                    itemSlotRectTransform.Find("background").GetComponent<Image>().color = new Color(255, 0, 0, 0.5f);
+                    itemSlotRectTransform.Find("background").GetComponent<Image>().color = new Color(97, 63, 49, 0.5f);
                 }
                 else if (item.itemType == Item.ItemType.cookingKnife)
                 {
                     newWeapon = 3;
-                    itemSlotRectTransform.Find("background").GetComponent<Image>().color = new Color(255, 0, 0, 0.5f);
+                    itemSlotRectTransform.Find("background").GetComponent<Image>().color = new Color(97, 63, 49, 0.5f);
                 }
                 player.gameObject.GetComponentInChildren<PlayerShooting>().selectedWeapon = newWeapon;
            
