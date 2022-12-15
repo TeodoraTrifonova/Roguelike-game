@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -165202473
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -218,7 +218,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1036947501
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 1129145714, guid: 1455fbc41411f324bbf2d7869ab7940f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -299,10 +299,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9f8e7fe42883d4b92abd8d99a8ef71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 1000000
   deathParticles: {fileID: 3477510542980642911, guid: 59aa08b0750c7ba4b82c060009cfe99c, type: 3}
   damageParticles: {fileID: 1911882017409463750, guid: 42cc3634cc048b34db9b3da0714e1b1f, type: 3}
   gameOverMenu: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!70 &1828706057447326718
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
