@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bullet
+  - SceneController
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -11,11 +14,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Blocking
+  - Actor
+  - Enemy
+  - Bullet
+  - BulletColliders
   - 
   - 
   - 
@@ -40,4 +43,28 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1498057385
+    locked: 0
+  - name: Tilemap
+    uniqueID: 661122443
+    locked: 0
+  - name: Particles
+    uniqueID: 427218803
+    locked: 0
+  - name: Props
+    uniqueID: 2957763133
+    locked: 0
+  - name: Actor
+    uniqueID: 1036947501
+    locked: 0
+  - name: Projectiles
+    uniqueID: 59462901
+    locked: 0
+  - name: BottomTilemap
+    uniqueID: 939289973
+    locked: 0
+  - name: ShootingPoint
+    uniqueID: 4129764823
     locked: 0
