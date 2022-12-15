@@ -166,3 +166,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyParticles: {fileID: 542817707394978054, guid: bb42974c49836c243895c96abcb8f235, type: 3}
   propHitParticles: {fileID: 542817707394978054, guid: 328cad79bd2a90a4795158234360b111, type: 3}
+  itemDropper: {fileID: 0}

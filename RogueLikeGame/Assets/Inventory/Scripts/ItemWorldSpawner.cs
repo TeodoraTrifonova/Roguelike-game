@@ -1,12 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class ItemWorldSpawner : MonoBehaviour {
 
-    public Item item;
+    [SerializeField]
+    private List<GameObject> prefab;
 
-    private void Awake() {
-        ItemWorld.SpawnItemWorld(transform.position, item);
+    public void Drop() {
+        Instantiate(prefab[Random.Range(0,prefab.Count)], transform.position, transform.rotation);
         Destroy(gameObject);
     }
-
 }

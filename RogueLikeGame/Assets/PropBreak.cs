@@ -20,6 +20,9 @@ public class PropBreak : MonoBehaviour
 
 	private float temp_shake_intensity = 0;
 
+	[SerializeField]
+	private ItemWorldSpawner itemDropper;
+
     private void Start()
     {
 		prop = GetComponent<Prop>();
@@ -37,6 +40,10 @@ public class PropBreak : MonoBehaviour
 			if (currentHealth <= 0)
             {
 				Instantiate(destroyParticles, transform.position, transform.rotation);
+				if(itemDropper != null)
+                {
+					itemDropper.GetComponent<ItemWorldSpawner>().Drop();
+				}
 				Destroy(gameObject);
             }
 		}

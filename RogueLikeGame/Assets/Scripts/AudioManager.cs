@@ -44,6 +44,8 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + name + "not found!");
             return;
         }
+        s.source.volume = 1f;
+        s.source.pitch = 1;
         s.source.Play();
     }
 
@@ -58,4 +60,17 @@ public class AudioManager : MonoBehaviour
         s.source.volume = 0;
         s.source.pitch = 0;
     }
+    public void PlayTheme(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + "not found!");
+            return;
+        }
+        s.source.volume = .2f;
+        s.source.pitch = 1;
+        s.source.Play();
+    }
+
 }

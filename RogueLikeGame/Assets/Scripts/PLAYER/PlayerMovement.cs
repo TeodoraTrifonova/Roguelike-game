@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         {
             MoveCharacter();
             animator.SetBool("isMoving", true);
-
+          
             if (movement.x > 0)
             {
                 playerSpriteRenderer.flipX = false;
@@ -47,10 +47,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerSpriteRenderer.flipX = true;
             }
+            
+            
         }
         else
         {
+            
             animator.SetBool("isMoving", false);
+
         }
 
         void SpawnParticles()
@@ -70,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         {
             SpawnParticles();
             rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
+           
         }
     }
 

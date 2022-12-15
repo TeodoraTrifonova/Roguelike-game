@@ -106,8 +106,7 @@ public class EnemyController : MonoBehaviour
         Instantiate(deathParticles, transform.position, transform.rotation);
         Destroy(gameObject);
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
