@@ -167,7 +167,37 @@ MonoBehaviour:
     loop: 0
   - name: Ingame theme
     clip: {fileID: 8300000, guid: 89f935015cc98724a862a586326fdf21, type: 3}
-    volume: 0.1
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: walk sound
+    clip: {fileID: 8300000, guid: df7087e4d8a8bb546bc08ce68632903f, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: shoot
+    clip: {fileID: 8300000, guid: 323e15cfe809e114ab92c9f4b25e8bc2, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: shot hit
+    clip: {fileID: 8300000, guid: 8b23b175a78d6b5458322e3a6c9905d0, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: player death
+    clip: {fileID: 8300000, guid: e4f1ffe43fddfca4fae296e7784984fe, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: player death theme
+    clip: {fileID: 8300000, guid: 0ad591428b0c18c4da51fe3bf98dbc63, type: 3}
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
     loop: 0

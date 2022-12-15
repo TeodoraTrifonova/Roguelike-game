@@ -58,6 +58,7 @@ public class BulletScript : MonoBehaviour
         if(damage != 0)
         {
             Instantiate(particles, transform.position, transform.rotation);
+            AudioManager.instance.Play("shot hit");
         }
         if (bulletTriggerCollider != null)
         {

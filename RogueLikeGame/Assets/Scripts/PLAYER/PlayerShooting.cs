@@ -59,9 +59,11 @@ public class PlayerShooting : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && canFire && (selectedWeapon >= 0 && selectedWeapon < weapons.Count))
         {
+            
             canFire = false;
             Instantiate(weapons[selectedWeapon], new Vector2(transform.position.x, transform.position.y - 0.33f), Quaternion.identity);
-            if(selectedWeapon == 0)
+            AudioManager.instance.Play("shoot");
+            if (selectedWeapon == 0)
             {
                 player.RemoveItem(new Item { itemType = Item.ItemType.rollingPin, amount = 1 });
             }
