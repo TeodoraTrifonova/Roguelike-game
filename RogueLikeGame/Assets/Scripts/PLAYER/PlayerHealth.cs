@@ -17,14 +17,18 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private GameObject gameOverMenu;
 
+    public HealthBarController healthBar;
+
     private void Start()
     {    
         health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     public void UpdateHealth(float mod)
     {
         health += mod;
+        healthBar.SetHealth(health);
 
         if(mod < 0)
         {
