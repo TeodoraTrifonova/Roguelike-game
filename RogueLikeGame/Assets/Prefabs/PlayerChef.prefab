@@ -303,6 +303,7 @@ MonoBehaviour:
   deathParticles: {fileID: 3477510542980642911, guid: 59aa08b0750c7ba4b82c060009cfe99c, type: 3}
   damageParticles: {fileID: 1911882017409463750, guid: 42cc3634cc048b34db9b3da0714e1b1f, type: 3}
   gameOverMenu: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!70 &1828706057447326718
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

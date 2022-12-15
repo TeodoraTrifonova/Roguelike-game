@@ -49,3 +49,25 @@ MonoBehaviour:
   cookingPotSprite: {fileID: 521242316, guid: 6e1e1e5f065b0774ca9f5be33c74e210, type: 3}
   ladleSprite: {fileID: 1208842838, guid: 6e1e1e5f065b0774ca9f5be33c74e210, type: 3}
   cookingKnifeSprite: {fileID: -1294916560, guid: 6e1e1e5f065b0774ca9f5be33c74e210, type: 3}
+  redMeatSprite: {fileID: 673943355, guid: 093e1992bff83934d82e5c37dcc3b363, type: 3}
+  turkeySprite: {fileID: 272769472, guid: 093e1992bff83934d82e5c37dcc3b363, type: 3}
+  chickenSprite: {fileID: -593356699, guid: 093e1992bff83934d82e5c37dcc3b363, type: 3}
+  baconSprite: {fileID: 1359748248, guid: 093e1992bff83934d82e5c37dcc3b363, type: 3}
+  porkSprite: {fileID: -618754357, guid: 093e1992bff83934d82e5c37dcc3b363, type: 3}
+  appleSprite: {fileID: -1930577372, guid: 008126a9cf80e8d4c8e9c842832f5b9c, type: 3}
+  bananaSprite: {fileID: -1430111531, guid: 008126a9cf80e8d4c8e9c842832f5b9c, type: 3}
+  grapeSprite: {fileID: -436323948, guid: 008126a9cf80e8d4c8e9c842832f5b9c, type: 3}
+  lemonSprite: {fileID: 976367674, guid: 008126a9cf80e8d4c8e9c842832f5b9c, type: 3}
+  limeSprite: {fileID: -1228114674, guid: 008126a9cf80e8d4c8e9c842832f5b9c, type: 3}
+  orangeSprite: {fileID: 1384947413, guid: 008126a9cf80e8d4c8e9c842832f5b9c, type: 3}
+  pearSprite: {fileID: -1231657703, guid: 008126a9cf80e8d4c8e9c842832f5b9c, type: 3}
+  strawberrySprite: {fileID: -1197470214, guid: 008126a9cf80e8d4c8e9c842832f5b9c, type: 3}
+  carrotSprite: {fileID: 2132902971, guid: 2e2dc42d3c53b7e40ab6ceb02028837a, type: 3}
+  chilliPepperSprite: {fileID: 378144548, guid: 2e2dc42d3c53b7e40ab6ceb02028837a, type: 3}
+  cornSprite: {fileID: -2071375414, guid: 2e2dc42d3c53b7e40ab6ceb02028837a, type: 3}
+  eggplantSprite: {fileID: 672525828, guid: 2e2dc42d3c53b7e40ab6ceb02028837a, type: 3}
+  garlicSprite: {fileID: 863914453, guid: 2e2dc42d3c53b7e40ab6ceb02028837a, type: 3}
+  mushroomSprite: {fileID: -754085941, guid: 2e2dc42d3c53b7e40ab6ceb02028837a, type: 3}
+  pepperSprite: {fileID: -1398055540, guid: 2e2dc42d3c53b7e40ab6ceb02028837a, type: 3}
+  pumpkinSprite: {fileID: -1276409321, guid: 2e2dc42d3c53b7e40ab6ceb02028837a, type: 3}
+  turnipSprite: {fileID: 1951002793, guid: 2e2dc42d3c53b7e40ab6ceb02028837a, type: 3}

@@ -1,5 +1,55 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1131746574684560807
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 138536174813838202}
+  - component: {fileID: 7629280486103196944}
+  m_Layer: 0
+  m_Name: ItemDropper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &138536174813838202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131746574684560807}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1366024382609409523}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7629280486103196944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131746574684560807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a79b0262a0d6fa43858d867fe3df827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab:
+  - {fileID: 8330565974326503940, guid: 7d7a983ee9ccdfd4993df1d6f00c9ad3, type: 3}
+  - {fileID: 5862262301260080792, guid: 1e80743e33f4b5840a8dda75f07913f3, type: 3}
+  - {fileID: 6331321867658686029, guid: a064363a39c81aa44a11c5f1dfa00d01, type: 3}
+  - {fileID: 1981341697844258482, guid: f0bf7990b4695be45a5bb4d3255e390a, type: 3}
+  - {fileID: 6539261680142436332, guid: ac3c2650f774f0947bf6411ad798618b, type: 3}
 --- !u!1 &5421650799500915750
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,10 +79,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5421650799500915750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.2, y: 41.7, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 138536174813838202}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -162,3 +213,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyParticles: {fileID: 542817707394978054, guid: bb42974c49836c243895c96abcb8f235, type: 3}
   propHitParticles: {fileID: 542817707394978054, guid: 328cad79bd2a90a4795158234360b111, type: 3}
+  itemDropper: {fileID: 7629280486103196944}

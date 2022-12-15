@@ -206,7 +206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &40153300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,11 +384,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1294487837593447771, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.2
+      value: 1.183
       objectReference: {fileID: 0}
     - target: {fileID: 1294487837593447771, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 40.3
+      value: 0.383
       objectReference: {fileID: 0}
     - target: {fileID: 1294487837593447771, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3038,7 +3038,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986160025}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.2, y: 40.3, z: -10}
+  m_LocalPosition: {x: 1.183, y: 0.383, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3140,6 +3140,10 @@ PrefabInstance:
     - target: {fileID: 605600998827552279, guid: 16ecc18b54906da44b4a642d2b5765da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605600998926521540, guid: 16ecc18b54906da44b4a642d2b5765da, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.5999756
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16ecc18b54906da44b4a642d2b5765da, type: 3}
@@ -21627,11 +21631,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7711223616429382552, guid: 555e83394e352a146a0e7489e532dbb2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.2
+      value: 1.183
       objectReference: {fileID: 0}
     - target: {fileID: 7711223616429382552, guid: 555e83394e352a146a0e7489e532dbb2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 40.3
+      value: 0.383
       objectReference: {fileID: 0}
     - target: {fileID: 7711223616429382552, guid: 555e83394e352a146a0e7489e532dbb2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21989,7 +21993,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1051079779393832515, guid: a35672041e5828646b32f18951fc0459, type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: HealthBarCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
       propertyPath: m_Pivot.x
