@@ -147,7 +147,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 375029032526181023}
   player: {fileID: 0}
-  stackCounter: 0
   isInvulnerable: 0
 --- !u!61 &375029032526180997
 BoxCollider2D:
