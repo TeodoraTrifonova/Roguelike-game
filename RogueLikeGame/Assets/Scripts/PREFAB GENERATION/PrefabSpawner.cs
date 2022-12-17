@@ -33,6 +33,10 @@ public class PrefabSpawner : MonoBehaviour
             GenerateRandomPrefabCount(numberOfPrefabItemProps, itemPrefabs);
             GenerateSpawningPoints(room);
             SpawnProps(itemPrefabs, numberOfPrefabItemProps);
+            
+            possibleCornerPositions.Clear();
+            possibleRemainingPositions.Clear();
+            numberOfPrefabItemProps.Clear();
         }
 
         gameObject.GetComponent<EnemySpawner>().Setup(rooms);

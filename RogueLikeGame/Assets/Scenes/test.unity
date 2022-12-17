@@ -422,6 +422,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.009
       objectReference: {fileID: 0}
+    - target: {fileID: 1294487837593447772, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c321fd15fcf182468a8da525b0b0852, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7e4d11c0b4e0f443ac66cd07008159a, type: 3}
 --- !u!1 &216041071 stripped
@@ -4057,10 +4061,10 @@ RectTransform:
   m_Father: {fileID: 1974070560}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 36.000027, y: 89.14285}
-  m_SizeDelta: {x: 199.98755, y: 49.672203}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 377.2, y: -20}
+  m_SizeDelta: {x: 638.395, y: 35.284897}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1171186452
 MonoBehaviour:
@@ -4086,15 +4090,15 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4111,14 +4115,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.75
+  m_fontSize: 30.4
   m_fontSizeBase: 26.2
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4147,7 +4151,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 134.4784, y: 20.811432, z: 0, w: -4.5135803}
+  m_margin: {x: 1.2160645, y: 4.1536026, z: 0, w: -4.5135803}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -31459,7 +31463,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 158, y: 54.4}
+  m_AnchoredPosition: {x: 153.6, y: 48.8}
   m_SizeDelta: {x: 199.98755, y: 49.672203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1852136026
@@ -31484,15 +31488,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: SOME TEXT HERE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -31515,9 +31519,9 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
-  m_HorizontalAlignment: 8
-  m_VerticalAlignment: 512
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -32320,6 +32324,99 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogue.names.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogue.names.Array.data[0]
+      value: ???
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogue.names.Array.data[1]
+      value: Shef Manchev
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogue.names.Array.data[2]
+      value: ???
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogue.names.Array.data[3]
+      value: Shef Manchev
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogue.names.Array.data[4]
+      value: Shef Manchev
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogue.names.Array.data[5]
+      value: Shef Manchev
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogue.names.Array.data[6]
+      value: ???
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogues.Array.data[0].name
+      value: ???
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogues.Array.data[1].name
+      value: Shef Manchev
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: H-h-help me!
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: Pak li angliiska rech?
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: Help me! I'm dying! I've been poisoned!
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogue.sentences.Array.data[3]
+      value: Poizon, ozon, vse himiq! Ama mai nesh ti e losho! She vzema da ti napraq
+        edna lechebna mandja
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogue.sentences.Array.data[4]
+      value: Ama ne si spomnqm receptata tui che kakwito sustavki si haresam.
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogue.sentences.Array.data[5]
+      value: Edin vid meso, edin zelenchuk, plod i edna taina sustavka!
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogue.sentences.Array.data[6]
+      value: Sorry, I don't understand!
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogues.Array.data[0].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogues.Array.data[1].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogues.Array.data[0].sentences.Array.data[0]
+      value: H-h-help me!!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
+      propertyPath: dialogues.Array.data[1].sentences.Array.data[0]
+      value: Angliiska rech?
+      objectReference: {fileID: 0}
     - target: {fileID: 840401243916310688, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
       propertyPath: m_RootOrder
       value: 9

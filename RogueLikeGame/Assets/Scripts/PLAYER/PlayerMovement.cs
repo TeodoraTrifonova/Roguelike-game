@@ -3,6 +3,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
+    private float normalMoveSpeed = 2f;
+
     private float moveSpeed = 2f;
 
     private Rigidbody2D rb;
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        moveSpeed = normalMoveSpeed - ((float)Backpack.ItemsCount / 10);
         rb.velocity = new Vector2(0, 0);
 
         movement = Vector2.zero;

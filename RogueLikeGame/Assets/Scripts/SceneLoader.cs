@@ -9,7 +9,7 @@ public class SceneLoader : MonoBehaviour
     {
         AudioManager.instance.Play("Button click");
         AudioManager.instance.Stop("Main menu background track");
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("test");
 
         
     }

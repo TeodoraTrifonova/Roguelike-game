@@ -294,7 +294,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1c321fd15fcf182468a8da525b0b0852, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d5476e0dca92d4abafa1b3f7cc0046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  normalMoveSpeed: 6
   walkingParticles: {fileID: 1431918719672896397, guid: 61a0f5f0361959746b91928045a6b590, type: 3}
   feetPos: {fileID: 6855155791646714718}
 --- !u!114 &1689242331
@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9f8e7fe42883d4b92abd8d99a8ef71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000000
+  maxHealth: 100
   deathParticles: {fileID: 3477510542980642911, guid: 59aa08b0750c7ba4b82c060009cfe99c, type: 3}
   damageParticles: {fileID: 1911882017409463750, guid: 42cc3634cc048b34db9b3da0714e1b1f, type: 3}
   gameOverMenu: {fileID: 0}

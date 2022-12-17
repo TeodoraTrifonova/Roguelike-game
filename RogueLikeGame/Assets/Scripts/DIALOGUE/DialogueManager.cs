@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     private Queue<string> sentences;
+    private Queue<string> correspondingNames;
 
     [SerializeField]
     private TextMeshProUGUI nameDialogue;
@@ -17,13 +18,18 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         sentences = new Queue<string>();
+        correspondingNames = new Queue<string>();
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
-        nameDialogue.text = dialogue.name;
 
         sentences.Clear();
+
+        foreach (var name in dialogue.names)
+        {
+            correspondingNames.Enqueue(name);
+        }
 
         foreach (var sentence in dialogue.sentences)
         {
@@ -35,13 +41,15 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        if (sentences.Count == 0)
+        if (sentences.Count == 0 || correspondingNames.Count == 0)
         {
             EndDialogue();
             return;
         }
 
         string sentence = sentences.Dequeue();
+        nameDialogue.text = correspondingNames.Dequeue();
+
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }
