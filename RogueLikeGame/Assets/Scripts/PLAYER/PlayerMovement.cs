@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         {
             MoveCharacter();
             animator.SetBool("isMoving", true);
-          
+
             if (movement.x > 0)
             {
                 playerSpriteRenderer.flipX = false;
@@ -50,36 +50,39 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerSpriteRenderer.flipX = true;
             }
-            
-            
+
+
         }
         else
         {
-            
+
             animator.SetBool("isMoving", false);
 
         }
+    }
 
-        void SpawnParticles()
+    void FixedUpdate()
+    {
+        MoveCharacter();
+    }
+
+    void SpawnParticles()
+    {
+        if (particleTimer < 0.1f)
         {
-            if (particleTimer < 0.1f)
-            {
-                particleTimer += Time.deltaTime;
-            }
-            else
-            {
-                Instantiate(walkingParticles, feetPos.transform.position, transform.rotation);
-                particleTimer = 0f;
-            }
+            particleTimer += Time.deltaTime;
         }
-
-        void MoveCharacter()
+        else
         {
-            SpawnParticles();
-            rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
-           
+            Instantiate(walkingParticles, feetPos.transform.position, transform.rotation, GameObject.Find("Particles").transform);
+            particleTimer = 0f;
         }
     }
 
+    void MoveCharacter()
+    {
+        SpawnParticles();
+        rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
 
+    }
 }

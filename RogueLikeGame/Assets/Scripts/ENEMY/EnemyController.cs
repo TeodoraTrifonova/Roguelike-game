@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
 
     void SpawnParticles()
     {
-        Instantiate(deathParticles, feetPos.transform.position, transform.rotation);
+        Instantiate(deathParticles, feetPos.transform.position, transform.rotation, GameObject.Find("Particles").transform);
     }
 
     public void WalkingParticles()
@@ -50,7 +50,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            Instantiate(walkingParticles, feetPos.transform.position, transform.rotation);
+            Instantiate(walkingParticles, feetPos.transform.position, transform.rotation, GameObject.Find("Particles").transform);
             particleTimer = 0f;
         }
     }
@@ -103,7 +103,8 @@ public class EnemyController : MonoBehaviour
        
         GetComponent<Collider2D>().enabled = false;
 
-        Instantiate(deathParticles, transform.position, transform.rotation);
+        SpawnParticles();
+
         Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)

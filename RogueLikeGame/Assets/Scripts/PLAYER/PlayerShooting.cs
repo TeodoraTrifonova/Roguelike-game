@@ -62,7 +62,7 @@ public class PlayerShooting : MonoBehaviour
             
             canFire = false;
             Instantiate(weapons[selectedWeapon], new Vector2(transform.position.x, transform.position.y - 0.33f), Quaternion.identity);
-            AudioManager.instance.Play("shoot");
+            AudioManager.instance.Play("Shoot");
             if (selectedWeapon == 0)
             {
                 player.RemoveItem(new Item { itemType = Item.ItemType.rollingPin, amount = 1 });
