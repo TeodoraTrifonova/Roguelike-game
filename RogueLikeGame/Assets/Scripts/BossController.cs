@@ -102,7 +102,7 @@ public class BossController : MonoBehaviour
     private void Die()
     {
         animator.SetBool("IsBossDead",true);
-        ;
+      
         ScoreCounter.instance.IncrementScore(enemy.Points);
        
     }
