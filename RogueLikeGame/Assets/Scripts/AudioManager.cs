@@ -44,8 +44,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: \"" + name + "\" not found! (You probably haven't added it in the Inspector -> AudioManager)");
             return;
         }
-        s.source.volume = 1f;
-        s.source.pitch = 1;
+       
         s.source.Play();
     }
 
@@ -68,8 +67,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: \"" + name + "\" not found! (You probably haven't added it in the Inspector -> AudioManager)");
             return;
         }
-        s.source.volume = .2f;
-        s.source.pitch = 1;
+       
         s.source.Play();
     }
 

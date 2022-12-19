@@ -1,4 +1,5 @@
 using UnityEngine;
+using static Item;
 
 public class BulletScript : MonoBehaviour
 {
@@ -59,9 +60,10 @@ public class BulletScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(damage != 0)
-        {
+        {   AudioManager.instance.Play("Bonk");
             Instantiate(particles, transform.position, transform.rotation, GameObject.Find("Particles").transform);
-            AudioManager.instance.Play("ShotHit");
+            
+            
         }
         if (bulletTriggerCollider != null)
         {

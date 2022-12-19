@@ -170,6 +170,42 @@ MonoBehaviour:
     volume: 0.1
     pitch: 1
     source: {fileID: 0}
+    loop: 1
+  - name: PlayerDeathSound
+    clip: {fileID: 8300000, guid: e4f1ffe43fddfca4fae296e7784984fe, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: PlayerDeathTheme
+    clip: {fileID: 8300000, guid: 1f2ad53bacc245642854dbdc8ea71a9b, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: SwishSound
+    clip: {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: MetalHit
+    clip: {fileID: 8300000, guid: d9419ba0bfac1e84a95418ac5851caf6, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: WoodHit
+    clip: {fileID: 8300000, guid: ad428eaa691af99459719c67af1391f5, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Bonk
+    clip: {fileID: 8300000, guid: a069bac84be0eee4b85338a565935416, type: 3}
+    volume: 0.05
+    pitch: 1
+    source: {fileID: 0}
     loop: 0
 --- !u!4 &37107587
 Transform:
