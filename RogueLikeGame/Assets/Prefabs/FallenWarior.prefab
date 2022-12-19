@@ -65,15 +65,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db181615d2486a541b021f26b829a7bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    name: Ivan
+  startingDialogue:
+    names:
+    - ???
+    - Shef Manchev
+    - ???
+    - Shef Manchev
+    - Shef Manchev
+    - Shef Manchev
+    - ???
     sentences:
-    - Zdraveite, az sym Ivan!
-    - 'Lubimite mi zanimaniq sa noseneto na voda ot kladeneca i broeneto na kokoshkite
-      v chujdite dvorove kusno vecher!
-
-'
-    - Horata mi kazwat, che sym stranen, no ne im vqrvam.
+    - H-h-help me!
+    - Pak li angliiska rech?
+    - Help me! I'm dying! I've been poisoned!
+    - Poizon, ozon, vse himiq! Ama mai nesh ti e losho! She vzema da ti napraq edna
+      lechebna mandja
+    - Ama ne si spomnqm receptata tui che kakwito sustavki si haresam.
+    - Edin vid meso, edin zelenchuk, plod i edna taina sustavka!
+    - Sorry, I don't understand!
+  endingDialogue:
+    names: []
+    sentences: []
 --- !u!1 &8190216219638017884
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +158,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -165202473
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9b337a360b84fa9428fe7dbe7774012f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -251,7 +263,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1036947501
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 601d5fcdac9157a449a347d6081136ad, type: 3}
   m_Color: {r: 0.6776822, g: 1, b: 0.6179246, a: 1}

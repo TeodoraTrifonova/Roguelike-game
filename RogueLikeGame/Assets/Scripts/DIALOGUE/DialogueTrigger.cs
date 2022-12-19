@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue dialogue;
+    [SerializeField]
+    private Dialogue startingDialogue;
+
+    [SerializeField]
+    private Dialogue endingDialogue;
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        if(EndConditions.CompleteEndConditions == false)
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(startingDialogue);
+        }
+        else
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(endingDialogue);
+        }
         // Bi mi haresalo da ima animaciq za popup na dialogue bubble-a
     }
 }

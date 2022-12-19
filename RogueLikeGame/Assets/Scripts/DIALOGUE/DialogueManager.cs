@@ -44,6 +44,10 @@ public class DialogueManager : MonoBehaviour
         if (sentences.Count == 0 || correspondingNames.Count == 0)
         {
             EndDialogue();
+            if(EndConditions.CompleteEndConditions)
+            {
+                StartCoroutine(DelayedDestroy(1));
+            }
             return;
         }
 
@@ -52,6 +56,14 @@ public class DialogueManager : MonoBehaviour
 
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
+    }
+
+    IEnumerator DelayedDestroy(float seconds)
+    {
+        GameObject.Find("FallenWarrior").transform.GetChild(1).gameObject.SetActive(false);
+        yield return new WaitForSeconds(seconds);
+        Destroy(GameObject.Find("FallenWarrior"));
+        Instantiate(GameObject.Find("SkeletonDeathParticles"), transform.position, Quaternion.identity);
     }
 
     IEnumerator TypeSentence(string sentence)

@@ -3202,7 +3202,7 @@ GameObject:
   - component: {fileID: 406435412}
   - component: {fileID: 406435411}
   m_Layer: 0
-  m_Name: CameraFollowingFallenWarrior (1)
+  m_Name: CameraFollowingDeathBringer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3226,8 +3226,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 1691560447}
-  m_Follow: {fileID: 1691560447}
+  m_LookAt: {fileID: 375029034078622386}
+  m_Follow: {fileID: 375029034078622386}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 2.81
@@ -3254,7 +3254,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406435410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.9, y: 41.71, z: -10.002305}
+  m_LocalPosition: {x: -0.1889, y: 0.248, z: -10.749964}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32305,6 +32305,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ba3bf2a055525c40869a5589e8ab788, type: 3}
+--- !u!4 &375029034078622386 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 375029032526181022, guid: 4ba3bf2a055525c40869a5589e8ab788, type: 3}
+  m_PrefabInstance: {fileID: 375029034078622385}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1051079779313066955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32575,97 +32580,36 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogues.Array.size
-      value: 2
+      propertyPath: endingDialogue.names.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogue.names.Array.size
-      value: 7
+      propertyPath: endingDialogue.names.Array.data[0]
+      value: Shef Manchev
       objectReference: {fileID: 0}
     - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogue.names.Array.data[0]
+      propertyPath: endingDialogue.names.Array.data[1]
       value: ???
       objectReference: {fileID: 0}
     - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogue.names.Array.data[1]
-      value: Shef Manchev
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogue.names.Array.data[2]
+      propertyPath: endingDialogue.names.Array.data[2]
       value: ???
       objectReference: {fileID: 0}
     - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogue.names.Array.data[3]
-      value: Shef Manchev
+      propertyPath: endingDialogue.sentences.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogue.names.Array.data[4]
-      value: Shef Manchev
+      propertyPath: endingDialogue.sentences.Array.data[0]
+      value: Aide, gotowa e! Surbai!
       objectReference: {fileID: 0}
     - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogue.names.Array.data[5]
-      value: Shef Manchev
+      propertyPath: endingDialogue.sentences.Array.data[1]
+      value: '*gluck* *gluck* *gluck*'
       objectReference: {fileID: 0}
     - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogue.names.Array.data[6]
-      value: ???
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogues.Array.data[0].name
-      value: ???
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogues.Array.data[1].name
-      value: Shef Manchev
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogue.sentences.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogue.sentences.Array.data[0]
-      value: H-h-help me!
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogue.sentences.Array.data[1]
-      value: Pak li angliiska rech?
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogue.sentences.Array.data[2]
-      value: Help me! I'm dying! I've been poisoned!
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogue.sentences.Array.data[3]
-      value: Poizon, ozon, vse himiq! Ama mai nesh ti e losho! She vzema da ti napraq
-        edna lechebna mandja
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogue.sentences.Array.data[4]
-      value: Ama ne si spomnqm receptata tui che kakwito sustavki si haresam.
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogue.sentences.Array.data[5]
-      value: Edin vid meso, edin zelenchuk, plod i edna taina sustavka!
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogue.sentences.Array.data[6]
-      value: Sorry, I don't understand!
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogues.Array.data[0].sentences.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogues.Array.data[1].sentences.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogues.Array.data[0].sentences.Array.data[0]
-      value: H-h-help me!!!
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: dialogues.Array.data[1].sentences.Array.data[0]
-      value: Angliiska rech?
+      propertyPath: endingDialogue.sentences.Array.data[2]
+      value: Oh god! IS THERE GRAPE IN THE SOUP! I'M ALLERGIC TO GRAPE!
       objectReference: {fileID: 0}
     - target: {fileID: 840401243916310688, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
       propertyPath: m_RootOrder

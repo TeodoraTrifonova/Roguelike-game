@@ -48,9 +48,9 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        //AudioManager.instance.Stop("IngameTheme");
-        //AudioManager.instance.Play("PlayerDeath");
-        //AudioManager.instance.PlayTheme("PlayerDeathTheme");
+        AudioManager.instance.Stop("IngameTheme");
+        AudioManager.instance.Play("PlayerDeath");
+        AudioManager.instance.PlayTheme("PlayerDeathTheme");
         GetComponent<Collider2D>().enabled = false;
         Instantiate(deathParticles, transform.position, transform.rotation);
         Destroy(gameObject);
