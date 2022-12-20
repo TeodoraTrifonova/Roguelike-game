@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     private float normalMoveSpeed = 2f;
 
     private float moveSpeed = 2f;
+    private float boostSpeed = 0f;
 
     private Rigidbody2D rb;
     private Vector2 movement;
@@ -19,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private float particleTimer;
     private SpriteRenderer playerSpriteRenderer;
 
+    public float BoostSpeed { get => boostSpeed; set => boostSpeed = value; }
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,13 +32,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        moveSpeed = normalMoveSpeed - ((float)Backpack.ItemsCount / 10);
+        moveSpeed = normalMoveSpeed - ((float)Backpack.ItemsCount / 10) + BoostSpeed;
         rb.velocity = new Vector2(0, 0);
 
         movement = Vector2.zero;
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
 
         if (movement != Vector2.zero)
         {
@@ -50,8 +52,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerSpriteRenderer.flipX = true;
             }
-
-
         }
         else
         {

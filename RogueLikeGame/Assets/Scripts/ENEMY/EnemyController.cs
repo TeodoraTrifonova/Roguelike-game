@@ -1,5 +1,7 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Pool;
 
 public class EnemyController : MonoBehaviour
@@ -13,7 +15,7 @@ public class EnemyController : MonoBehaviour
 
     private int currentHealth;
 
-    private GameObject player;
+    private Transform player;
 
     [SerializeField]
     private GameObject walkingParticles;
@@ -58,10 +60,9 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         if (!player.IsDestroyed() && player != null)
         {
-
             rb.velocity = new Vector2(0, 0); // removes velocity from the enemy
 
 
@@ -87,8 +88,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-
-        public void Attack()
+    public void Attack()
     {
 
         Vector3 attackPosition = transform.position;
@@ -117,7 +117,7 @@ public class EnemyController : MonoBehaviour
     {
         animator.SetTrigger("isDead");
         ScoreCounter.instance.IncrementScore(enemy.Points);
-       
+
         GetComponent<Collider2D>().enabled = false;
 
         SpawnParticles();
