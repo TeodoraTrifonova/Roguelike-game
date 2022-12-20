@@ -42,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator SpawnWithDelay(Vector2 roomCenter)
     {
         yield return new WaitForSeconds(spawningDelay);
-        rand = Random.Range(0, enemyPrefab.Count - 1); // doesn't work :/S
+        rand = Random.Range(0, enemyPrefab.Count);
         Instantiate(enemyPrefab[rand], roomCenter + new Vector2(0, MinRoomSize.y / 2 - 2), Quaternion.identity, parent);
         Instantiate(enemyPrefab[rand], roomCenter + new Vector2(MinRoomSize.x / 2 - 2, 0), Quaternion.identity, parent);
         Instantiate(enemyPrefab[rand], roomCenter + new Vector2(-MinRoomSize.x / 2 + 2, 0), Quaternion.identity, parent);
