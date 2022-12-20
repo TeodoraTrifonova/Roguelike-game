@@ -16,6 +16,8 @@ public class BossController : MonoBehaviour
     [SerializeField]
     private GameObject player;
 
+    private GameObject grape;
+
     [SerializeField]
     public static int stackCounter;
 
@@ -25,10 +27,16 @@ public class BossController : MonoBehaviour
 
     //public HealthBarController healthBar;
 
+    private void Awake()
+    {
+        
+    }
 
     void Start()
     {
         enemy = GetComponent<Enemy>();
+        grape = GameObject.FindGameObjectWithTag("BossDrop");
+        grape.SetActive(false);
         currentHealth = enemy.MaxHealth;
         stackCounter = 0;
        // healthBar.SetMaxHealth(currentHealth);
@@ -102,14 +110,15 @@ public class BossController : MonoBehaviour
     private void Die()
     {
         animator.SetBool("IsBossDead",true);
-      
         ScoreCounter.instance.IncrementScore(enemy.Points);
-       
+        GetComponent<Collider2D>().enabled = false;
+
     }
 
     public void OnDeathAnimationFinished()
     {
-        GetComponent<Collider2D>().enabled = false;
+        grape.SetActive(true);
+        grape.transform.position = enemy.gameObject.transform.position;
         Destroy(gameObject);
     }
 
