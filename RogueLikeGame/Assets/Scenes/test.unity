@@ -4971,8 +4971,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   enemyPrefab:
+  - {fileID: 1278162391}
   - {fileID: 650923852}
-  - {fileID: 0}
 --- !u!114 &1208139132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5145,6 +5145,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277961033}
   m_CullTransparentMesh: 1
+--- !u!1 &1278162391 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7640882055635586005, guid: e4051b8cd8c3d7947949b1946bc788b1, type: 3}
+  m_PrefabInstance: {fileID: 1943970473}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1441489759
 GameObject:
   m_ObjectHideFlags: 0
