@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -8,11 +9,10 @@ public class EnemyController : MonoBehaviour
 
     private Enemy enemy;
 
+    private Rigidbody2D rb;
+
     private int currentHealth;
 
-    private bool isFlipped = false;
-
-    [SerializeField]
     private GameObject player;
 
     [SerializeField]
@@ -35,11 +35,12 @@ public class EnemyController : MonoBehaviour
         currentHealth = enemy.MaxHealth;
         healthBar.SetMaxHealth(currentHealth);
         SpawnParticles();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void SpawnParticles()
     {
-        Instantiate(deathParticles, feetPos.transform.position, transform.rotation);
+        Instantiate(deathParticles, feetPos.transform.position, transform.rotation, GameObject.Find("Particles").transform);
     }
 
     public void WalkingParticles()
@@ -50,15 +51,45 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            Instantiate(walkingParticles, feetPos.transform.position, transform.rotation);
+            Instantiate(walkingParticles, feetPos.transform.position, transform.rotation, GameObject.Find("Particles").transform);
             particleTimer = 0f;
         }
     }
 
-
-    public void Attack()
+    private void FixedUpdate()
     {
-        LookAtPlayer();
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (!player.IsDestroyed() && player != null)
+        {
+
+            rb.velocity = new Vector2(0, 0); // removes velocity from the enemy
+
+
+            if (Vector2.Distance(player.transform.position, rb.position) <= enemy.AttackRange)
+            {
+                animator.SetTrigger("Attack");
+            }
+            else
+            {
+                Vector2 target = new Vector2(player.transform.position.x, player.transform.position.y);
+
+                Vector2 newPos = Vector2.MoveTowards(rb.transform.position, target, enemy.MoveSpeed * Time.fixedDeltaTime);
+
+                Vector2 direction = new Vector2(newPos.x - target.x, newPos.y - target.y).normalized * -1;
+
+                animator.SetFloat("moveX", direction.x);
+                animator.SetFloat("moveY", direction.y);
+
+                rb.MovePosition(newPos);
+
+                WalkingParticles();
+            }
+        }
+    }
+
+
+        public void Attack()
+    {
 
         Vector3 attackPosition = transform.position;
         attackPosition += transform.right * enemy.AttackOffset.x;
@@ -70,21 +101,7 @@ public class EnemyController : MonoBehaviour
             colliderInfo.GetComponent<PlayerHealth>().UpdateHealth(-1 * enemy.AttackDamage / 4); // poradi nqkakwa prichina avera udrq chetiri puti s edin attack i towa beshe nai lesniq fix
         }
     }
-    public void LookAtPlayer()
-    {
 
-        if (transform.position.x < player.transform.position.x && isFlipped )
-        {
-            transform.rotation = new Quaternion(0f, 0, 0f, 0f);
-            isFlipped = false;
-        }
-        else if (transform.position.x > player.transform.position.x && !isFlipped)
-        {
-            transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
-            isFlipped = true;
-        }
-
-    }
     private void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -103,7 +120,8 @@ public class EnemyController : MonoBehaviour
        
         GetComponent<Collider2D>().enabled = false;
 
-        Instantiate(deathParticles, transform.position, transform.rotation);
+        SpawnParticles();
+
         Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)

@@ -17,7 +17,7 @@ public class BossController : MonoBehaviour
     private GameObject player;
 
     [SerializeField]
-    private int stackCounter;
+    public static int stackCounter;
 
     
     public bool isInvulnerable = false;
@@ -49,6 +49,22 @@ public class BossController : MonoBehaviour
         if (colliderInfo != null)
         {
             colliderInfo.GetComponent<PlayerHealth>().UpdateHealth(-1 * enemy.AttackDamage / 4); // poradi nqkakwa prichina avera udrq chetiri puti s edin attack i towa beshe nai lesniq fix
+            animator.SetInteger("BossStacks", ++stackCounter);
+        }
+    }
+
+    public void BossSpellAttack()
+    {
+        
+
+        Vector3 attackPosition = transform.position;
+        attackPosition += transform.right * enemy.AttackOffset.x;
+        attackPosition += transform.up * enemy.AttackOffset.y;
+
+        Collider2D colliderInfo = Physics2D.OverlapCircle(attackPosition, enemy.AttackRange, enemy.AttackMask);
+        if (colliderInfo != null)
+        {
+            colliderInfo.GetComponent<PlayerHealth>().UpdateHealth(-1 * enemy.SpellDamage ); 
         }
     }
     public void LookAtPlayer()
@@ -73,12 +89,7 @@ public class BossController : MonoBehaviour
 
         currentHealth -= damage;
         animator.SetTrigger("BossHurt");
-        animator.SetInteger("BossStacks", stackCounter++);
-
-        if(stackCounter == 3)
-        {
-            animator.SetBool("Mage Rage", true);
-        }
+       animator.SetInteger("BossStacks", ++stackCounter);
 
        // healthBar.SetHealth(currentHealth);
 
@@ -91,7 +102,7 @@ public class BossController : MonoBehaviour
     private void Die()
     {
         animator.SetBool("IsBossDead",true);
-        ;
+      
         ScoreCounter.instance.IncrementScore(enemy.Points);
        
     }
@@ -111,19 +122,21 @@ public class BossController : MonoBehaviour
       
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (isInvulnerable && collision.gameObject.tag == "Player")
-        {
-            player.GetComponent<PlayerHealth>().UpdateHealth(-1 * enemy.SpellDamage);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (isInvulnerable && collision.gameObject.tag == "Player")
+    //    {
+    //        player.GetComponent<PlayerHealth>().UpdateHealth(-1 * enemy.SpellDamage);
+    //    }
+    //}
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (isInvulnerable && collision.gameObject.tag == "Player")
-        {
-            player.GetComponent<PlayerHealth>().UpdateHealth(-1 * enemy.SpellDamage);
-        }
-    }
+
+
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (isInvulnerable && collision.gameObject.tag == "Player")
+    //    {
+    //        player.GetComponent<PlayerHealth>().UpdateHealth(-1 * enemy.SpellDamage);
+    //    }
+    //}
 }

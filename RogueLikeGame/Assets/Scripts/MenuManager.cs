@@ -13,7 +13,7 @@ public class MenuManager : MonoBehaviour
        
         gameOverMenu = GameObject.Find("GameOverMenu");
         player = GameObject.FindGameObjectWithTag("Player");
-        AudioManager.instance.PlayTheme("Ingame theme");
+        AudioManager.instance.PlayTheme("IngameTheme");
         gameOverMenu.SetActive(false);
     }
 

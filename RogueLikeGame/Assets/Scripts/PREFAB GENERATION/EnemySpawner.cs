@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField]
+    private Transform parent;
+
     public float detectionDelay = 0.3f;
 
     private float spawningDelay = 1f;
@@ -37,10 +40,10 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator SpawnWithDelay(Vector2 roomCenter)
     {
         yield return new WaitForSeconds(spawningDelay);
-        Instantiate(enemyPrefab, roomCenter + new Vector2(0, MinRoomSize.y / 2 - 2), Quaternion.identity);
-        Instantiate(enemyPrefab, roomCenter + new Vector2(MinRoomSize.x / 2 - 2, 0), Quaternion.identity);
-        Instantiate(enemyPrefab, roomCenter + new Vector2(-MinRoomSize.x / 2 + 2, 0), Quaternion.identity);
-        Instantiate(enemyPrefab, roomCenter + new Vector2(0, -MinRoomSize.y / 2 + 2), Quaternion.identity);
+        Instantiate(enemyPrefab, roomCenter + new Vector2(0, MinRoomSize.y / 2 - 2), Quaternion.identity, parent);
+        Instantiate(enemyPrefab, roomCenter + new Vector2(MinRoomSize.x / 2 - 2, 0), Quaternion.identity, parent);
+        Instantiate(enemyPrefab, roomCenter + new Vector2(-MinRoomSize.x / 2 + 2, 0), Quaternion.identity, parent);
+        Instantiate(enemyPrefab, roomCenter + new Vector2(0, -MinRoomSize.y / 2 + 2), Quaternion.identity, parent);
     }
 
     private void PerformDetection()

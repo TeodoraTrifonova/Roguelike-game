@@ -62,22 +62,26 @@ public class PlayerShooting : MonoBehaviour
             
             canFire = false;
             Instantiate(weapons[selectedWeapon], new Vector2(transform.position.x, transform.position.y - 0.33f), Quaternion.identity);
-            AudioManager.instance.Play("shoot");
+            
             if (selectedWeapon == 0)
             {
                 player.RemoveItem(new Item { itemType = Item.ItemType.rollingPin, amount = 1 });
+                AudioManager.instance.Play("SwishSound");
             }
             else if(selectedWeapon == 1)
             {
                 player.RemoveItem(new Item { itemType = Item.ItemType.cookingPot, amount = 1 });
+                AudioManager.instance.Play("SwishSound");
             }
             else if(selectedWeapon == 2)
             {
                 player.RemoveItem(new Item { itemType = Item.ItemType.ladle, amount = 1});
+                AudioManager.instance.Play("SwishSound");
             }
             else if(selectedWeapon == 3)
             {
                 player.RemoveItem(new Item { itemType = Item.ItemType.cookingKnife, amount = 1});
+                AudioManager.instance.Play("MetalHit");
             }
             selectedWeapon = -1;
         }

@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class PrefabSpawner : MonoBehaviour
 {
+    [SerializeField]
+    private Transform parent;
+
     private HashSet<Vector2Int> corridors;
     private List<Room> rooms;
 
@@ -33,6 +36,10 @@ public class PrefabSpawner : MonoBehaviour
             GenerateRandomPrefabCount(numberOfPrefabItemProps, itemPrefabs);
             GenerateSpawningPoints(room);
             SpawnProps(itemPrefabs, numberOfPrefabItemProps);
+            
+            possibleCornerPositions.Clear();
+            possibleRemainingPositions.Clear();
+            numberOfPrefabItemProps.Clear();
         }
 
         gameObject.GetComponent<EnemySpawner>().Setup(rooms);
@@ -103,7 +110,7 @@ public class PrefabSpawner : MonoBehaviour
         for (int i = 0, j = i; j < numberOfProps && i < possiblePositions.Count; i++, j++)
         {
             numberSpawned++;
-            Instantiate(propPrefab, new Vector3(possiblePositions[i].x + 0.5f, possiblePositions[i].y + 0.5f), Quaternion.identity);
+            Instantiate(propPrefab, new Vector3(possiblePositions[i].x + 0.5f, possiblePositions[i].y + 0.5f), Quaternion.identity, parent);
             possiblePositions.RemoveAt(i);
             i--;
         }

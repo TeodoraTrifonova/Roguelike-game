@@ -7,16 +7,16 @@ public class SceneLoader : MonoBehaviour
 {
     public void StartTheGame()
     {
-        AudioManager.instance.Play("Button click");
-        AudioManager.instance.Stop("Main menu background track");
-        SceneManager.LoadScene("SampleScene");
+        AudioManager.instance.Play("ButtonClick");
+        AudioManager.instance.Stop("MainMenuBackgroundTrack");
+        SceneManager.LoadScene("test");
 
         
     }
 
     private void Start()
     {
-        AudioManager.instance.PlayTheme("Main menu background track");
+        AudioManager.instance.PlayTheme("MainMenuBackgroundTrack");
         //FindObjectOfType<AudioManager>().Play("Main menu background track");// plays background music in menu
 
     }
@@ -28,7 +28,7 @@ public class SceneLoader : MonoBehaviour
 
     public void DoExitGame()
     {
-        AudioManager.instance.Play("Button click");
+        AudioManager.instance.Play("ButtonClick");
         Debug.Log("Game is exiting");
         Application.Quit();
     }

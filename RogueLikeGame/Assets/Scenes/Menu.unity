@@ -1439,19 +1439,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Main menu background track
+  - name: MainMenuBackgroundTrack
     clip: {fileID: 8300000, guid: 033766cc31c97904bae4404b8a079544, type: 3}
     volume: 0.1
     pitch: 1
     source: {fileID: 0}
     loop: 1
-  - name: Button click
+  - name: ButtonClick
     clip: {fileID: 8300000, guid: 89b85ac2a87cba84e9c8064515d5febc, type: 3}
     volume: 0.6
     pitch: 1
     source: {fileID: 0}
     loop: 0
-  - name: Button hover
+  - name: ButtonHover
     clip: {fileID: 8300000, guid: e7992d172691ce147bde04a9ea103f2c, type: 3}
     volume: 0.6
     pitch: 1

@@ -47,12 +47,15 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
             RunProceduralGeneration();
 
             Room baseRoom = rooms.Find(x => x is BaseRoom);
+            Room bossRoom = rooms.Find(y => y is BossRoom);// added by me
             GameObject player = GameObject.FindGameObjectWithTag("Player");
+            GameObject boss = GameObject.FindGameObjectWithTag("Boss"); // added by me
             GameObject fallenWarrior = GameObject.Find("FallenWarrior");
             Camera mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
-
+            
             player.transform.position = new Vector2(baseRoom.RoomCenter.x+1, baseRoom.RoomCenter.y+1);
+            boss.transform.position = new Vector2(bossRoom.RoomCenter.x + 1, bossRoom.RoomCenter.y + 1);
             fallenWarrior.transform.position = new Vector2(baseRoom.RoomCenter.x - 2, baseRoom.RoomCenter.y - 2);
             mainCam.transform.position = new Vector3(baseRoom.RoomCenter.x, baseRoom.RoomCenter.y, mainCam.transform.position.z);
 

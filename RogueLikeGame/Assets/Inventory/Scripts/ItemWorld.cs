@@ -27,13 +27,18 @@ public class ItemWorld : MonoBehaviour {
     private TextMeshPro textMeshPro;
 
     private void Awake() {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        textMeshPro = transform.GetComponentInChildren<TextMeshPro>();
-        SetItem(new Item { itemType = GetItemBySprite(gameObject.GetComponent<SpriteRenderer>().sprite) , amount = 1 });
-        if(!item.IsStackable())
+        ItemSetup();
+        if (!item.IsStackable())
         {
             Destroy(gameObject.transform.GetChild(0).gameObject);
         }
+    }
+
+    public void ItemSetup()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        textMeshPro = transform.GetComponentInChildren<TextMeshPro>();
+        SetItem(new Item { itemType = GetItemBySprite(gameObject.GetComponent<SpriteRenderer>().sprite), amount = 1 });
     }
 
 

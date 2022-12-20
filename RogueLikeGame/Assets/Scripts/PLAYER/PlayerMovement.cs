@@ -3,6 +3,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
+    private float normalMoveSpeed = 2f;
+
     private float moveSpeed = 2f;
 
     private Rigidbody2D rb;
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        moveSpeed = normalMoveSpeed - ((float)Backpack.ItemsCount / 10);
         rb.velocity = new Vector2(0, 0);
 
         movement = Vector2.zero;
@@ -38,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         {
             MoveCharacter();
             animator.SetBool("isMoving", true);
-          
+
             if (movement.x > 0)
             {
                 playerSpriteRenderer.flipX = false;
@@ -47,36 +50,39 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerSpriteRenderer.flipX = true;
             }
-            
-            
+
+
         }
         else
         {
-            
+
             animator.SetBool("isMoving", false);
 
         }
+    }
 
-        void SpawnParticles()
+    void FixedUpdate()
+    {
+        MoveCharacter();
+    }
+
+    void SpawnParticles()
+    {
+        if (particleTimer < 0.1f)
         {
-            if (particleTimer < 0.1f)
-            {
-                particleTimer += Time.deltaTime;
-            }
-            else
-            {
-                Instantiate(walkingParticles, feetPos.transform.position, transform.rotation);
-                particleTimer = 0f;
-            }
+            particleTimer += Time.deltaTime;
         }
-
-        void MoveCharacter()
+        else
         {
-            SpawnParticles();
-            rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
-           
+            Instantiate(walkingParticles, feetPos.transform.position, transform.rotation, GameObject.Find("Particles").transform);
+            particleTimer = 0f;
         }
     }
 
+    void MoveCharacter()
+    {
+        SpawnParticles();
+        rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
 
+    }
 }
