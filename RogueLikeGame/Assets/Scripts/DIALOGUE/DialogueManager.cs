@@ -101,6 +101,13 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         Debug.Log("Ending dialogue!");
+        foreach (var child in GameObject.Find("UI").transform)
+        {
+            if (child is GameObject childObj)
+            {
+                childObj.SetActive(true);
+            }
+        }
         GameObject.Find("DialogueMenu").SetActive(false);
     }
 }
