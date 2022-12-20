@@ -55,6 +55,10 @@ public class PlayerHealth : MonoBehaviour
         AudioManager.instance.Stop("IngameTheme");
         AudioManager.instance.Play("PlayerDeathSound");
         AudioManager.instance.PlayTheme("PlayerDeathTheme");
+        foreach (var enemies in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            enemies.SetActive(false);
+        }
         Destroy(gameObject);
         gameOverMenu.SetActive(true);
     }

@@ -8,17 +8,24 @@ public class DialogueTrigger : MonoBehaviour
     private Dialogue startingDialogue;
 
     [SerializeField]
+    private Dialogue failedDialogue;
+
+    [SerializeField]
     private Dialogue endingDialogue;
 
     public void TriggerDialogue()
     {
-        if(EndConditions.CompleteEndConditions == false)
+        if(EndConditions.CompleteEndConditions == false && EndConditions.FailEndConditions == false)
         {
             FindObjectOfType<DialogueManager>().StartDialogue(startingDialogue);
         }
-        else
+        else if(EndConditions.CompleteEndConditions == true)
         {
             FindObjectOfType<DialogueManager>().StartDialogue(endingDialogue);
+        }
+        else if(EndConditions.FailEndConditions == true)
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(failedDialogue);
         }
         // Bi mi haresalo da ima animaciq za popup na dialogue bubble-a
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Inventory {
 
@@ -19,6 +20,25 @@ public class Inventory {
         AddItem(new Item { itemType = Item.ItemType.cookingPot, amount = 1 });
         AddItem(new Item { itemType = Item.ItemType.ladle, amount = 1 });
         AddItem(new Item { itemType = Item.ItemType.cookingKnife, amount = 1 });*/
+    }
+
+    public void CheckForAllIngredientsCollected()
+    {
+        if(itemList.Count == 8)
+        {
+            EndConditions.CompleteEndConditions = true;
+            EndConditions.FailEndConditions = false;
+        }
+        else if(itemList.Where(x=>x.itemType == Item.ItemType.grape).Count() >= 1)
+        {
+            EndConditions.FailEndConditions = true;
+            EndConditions.CompleteEndConditions = false;
+        }
+        else
+        {
+            EndConditions.CompleteEndConditions = false;
+            EndConditions.FailEndConditions = false;
+        }
     }
 
     public void AddItem(Item item) 

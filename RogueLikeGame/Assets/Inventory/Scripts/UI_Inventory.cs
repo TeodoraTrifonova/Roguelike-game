@@ -35,6 +35,7 @@ public class UI_Inventory : MonoBehaviour
     private void Inventory_OnItemListChanged(object sender, System.EventArgs e)
     {
         RefreshInventoryItems();
+        inventory.CheckForAllIngredientsCollected();
     }
 
     private void RefreshInventoryItems()
