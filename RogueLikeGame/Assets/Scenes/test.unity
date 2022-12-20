@@ -4260,6 +4260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 986160027}
   - component: {fileID: 986160026}
+  - component: {fileID: 986160028}
   m_Layer: 0
   m_Name: CameraFollowingPlayer
   m_TagString: Untagged
@@ -4321,6 +4322,18 @@ Transform:
   m_Father: {fileID: 1469928702}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &986160028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986160025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17b93b028db2864a8511e49852618be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1023340683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4882,7 +4895,6 @@ GameObject:
   - component: {fileID: 1208139132}
   - component: {fileID: 1208139133}
   - component: {fileID: 1208139134}
-  - component: {fileID: 1208139135}
   m_Layer: 0
   m_Name: SceneController
   m_TagString: SceneController
@@ -5015,18 +5027,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20eba60e7208d8746b4241ce4d4f5fca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1208139135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1208139126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3915dd297e4b574ba85ee531c8c441e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1277961033
@@ -32166,6 +32166,7 @@ GameObject:
   - component: {fileID: 1786082961}
   - component: {fileID: 1786082963}
   - component: {fileID: 1786082962}
+  - component: {fileID: 1786082964}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -32243,6 +32244,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1786082964
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786082960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 5
+  mNoiseOffsets: {x: 85.11557, y: 37.193634, z: 432.9104}
 --- !u!1 &1786771251
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,6 +32,7 @@ public class PlayerHealth : MonoBehaviour
 
         if(mod < 0)
         {
+            CinemachineShake.Instance.ShakeCamera(1, 0.1f);
             Instantiate(damageParticles, transform.position, transform.rotation);
         }
 

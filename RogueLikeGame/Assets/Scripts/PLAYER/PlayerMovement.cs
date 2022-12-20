@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
     void SpawnParticles()
     {
-        if (particleTimer < 0.1f)
+        if (particleTimer < 0.3f)
         {
             particleTimer += Time.deltaTime;
         }
@@ -81,7 +81,10 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveCharacter()
     {
-        SpawnParticles();
+        if(movement.x != 0 || movement.y != 0)
+        {
+            SpawnParticles();
+        }
         rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
 
     }

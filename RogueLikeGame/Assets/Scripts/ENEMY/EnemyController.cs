@@ -28,14 +28,15 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private GameObject deathParticles;
 
-    public HealthBarController healthBar;
+    [SerializeField]
+    private HealthBarController healthBar;
 
 
     void Start()
     {
         enemy = GetComponent<Enemy>();
         currentHealth = enemy.MaxHealth;
-        healthBar.SetMaxHealth(currentHealth);
+        healthBar.SetMaxHealth(currentHealth);  
         SpawnParticles();
         rb = GetComponent<Rigidbody2D>();
     }
