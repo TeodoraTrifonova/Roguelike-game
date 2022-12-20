@@ -84,8 +84,14 @@ MonoBehaviour:
     - Edin vid meso, edin zelenchuk, plod i edna taina sustavka!
     - Sorry, I don't understand!
   endingDialogue:
-    names: []
-    sentences: []
+    names:
+    - Shef Manchev
+    - ???
+    - ???
+    sentences:
+    - Aide, gotowa e! Surbai!
+    - '*gluck* *gluck* *gluck*'
+    - Oh god! IS THERE GRAPE IN THE SOUP! I'M ALLERGIC TO GRAPE!
 --- !u!1 &8190216219638017884
 GameObject:
   m_ObjectHideFlags: 0

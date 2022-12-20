@@ -33107,30 +33107,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1676358933}
-    - target: {fileID: 3790592288478119142, guid: e4051b8cd8c3d7947949b1946bc788b1, type: 3}
-      propertyPath: points
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 3790592288478119142, guid: e4051b8cd8c3d7947949b1946bc788b1, type: 3}
-      propertyPath: maxHealth
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 3790592288478119142, guid: e4051b8cd8c3d7947949b1946bc788b1, type: 3}
-      propertyPath: moveSpeed
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3790592288478119142, guid: e4051b8cd8c3d7947949b1946bc788b1, type: 3}
-      propertyPath: attackRange
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3790592288478119142, guid: e4051b8cd8c3d7947949b1946bc788b1, type: 3}
-      propertyPath: attackDamage
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3790592288478119142, guid: e4051b8cd8c3d7947949b1946bc788b1, type: 3}
-      propertyPath: attackMask.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
+    - target: {fileID: 7640882055635586004, guid: e4051b8cd8c3d7947949b1946bc788b1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8022ce0a172cfd348904479d323b782a, type: 2}
     - target: {fileID: 7640882055635586005, guid: e4051b8cd8c3d7947949b1946bc788b1, type: 3}
       propertyPath: m_Name
       value: ArmoredSkeletonEnemy
@@ -33640,106 +33620,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: meat.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: fruit.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: meat.Array.data[0]
-      value: 
-      objectReference: {fileID: 8330565974326503940, guid: 7d7a983ee9ccdfd4993df1d6f00c9ad3, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: meat.Array.data[1]
-      value: 
-      objectReference: {fileID: 5862262301260080792, guid: 1e80743e33f4b5840a8dda75f07913f3, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: meat.Array.data[2]
-      value: 
-      objectReference: {fileID: 6331321867658686029, guid: a064363a39c81aa44a11c5f1dfa00d01, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: meat.Array.data[3]
-      value: 
-      objectReference: {fileID: 1981341697844258482, guid: f0bf7990b4695be45a5bb4d3255e390a, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: meat.Array.data[4]
-      value: 
-      objectReference: {fileID: 6539261680142436332, guid: ac3c2650f774f0947bf6411ad798618b, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: fruit.Array.data[0]
-      value: 
-      objectReference: {fileID: 7386590436764721119, guid: a91b8c95bca4dff428dc14df1670cade, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: fruit.Array.data[1]
-      value: 
-      objectReference: {fileID: 1654240119205424258, guid: 78c985842f25aee44893f9a4df401bc4, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: fruit.Array.data[2]
-      value: 
-      objectReference: {fileID: 3688518604555081826, guid: b4880ad0be9628240a3215f00e840d17, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: fruit.Array.data[3]
-      value: 
-      objectReference: {fileID: 8087140300079385855, guid: efe18b67b86a15c4f811f3d9f788bec0, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: fruit.Array.data[4]
-      value: 
-      objectReference: {fileID: 5068207551417169762, guid: f587525a68ee635418356a1445b03dc9, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: fruit.Array.data[5]
-      value: 
-      objectReference: {fileID: 6004381524923165200, guid: 67e7e5d31ab71ee4c9acada7afbc9ada, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: fruit.Array.data[6]
-      value: 
-      objectReference: {fileID: 7244317285649332575, guid: 3817ea9c53d1cff40a4d387c059f6f34, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: fruit.Array.data[7]
-      value: 
-      objectReference: {fileID: 7244317285649332575, guid: 3817ea9c53d1cff40a4d387c059f6f34, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: vegetables.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: vegetables.Array.data[0]
-      value: 
-      objectReference: {fileID: 4230123432534602623, guid: 456b36b039aa50b43a8e9e9cc0092204, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: vegetables.Array.data[1]
-      value: 
-      objectReference: {fileID: 460164455334714260, guid: adc9437ba74eb6e40b31e7d78b8b32d1, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: vegetables.Array.data[2]
-      value: 
-      objectReference: {fileID: 4460263243599115060, guid: e81421e065214944d805171d3e519f1c, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: vegetables.Array.data[3]
-      value: 
-      objectReference: {fileID: 4727537666409238332, guid: 3dcab65efe0984d4fab9361f20c9f3a9, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: vegetables.Array.data[4]
-      value: 
-      objectReference: {fileID: 7598511321548825133, guid: e82fdd55cc3a18d46acb3083553a4be1, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: vegetables.Array.data[5]
-      value: 
-      objectReference: {fileID: 5025264009145724013, guid: 437b29b350357824e8c214fceefa882e, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: vegetables.Array.data[6]
-      value: 
-      objectReference: {fileID: 737621716168290790, guid: bbcae3aac63db0646802c958f57ba5dd, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: vegetables.Array.data[7]
-      value: 
-      objectReference: {fileID: 1956064657040437730, guid: 4dfb5a356e5ec594fbe100e27e09a763, type: 3}
-    - target: {fileID: 4427297194893741203, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
-      propertyPath: vegetables.Array.data[8]
-      value: 
-      objectReference: {fileID: 1441566415919699545, guid: 695484f27b0127849a0029615dd8de20, type: 3}
     - target: {fileID: 8589539013080587480, guid: 3da6ab423fc37e6439d4fbce3ef8bda8, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -33797,38 +33677,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: endingDialogue.names.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: endingDialogue.names.Array.data[0]
-      value: Shef Manchev
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: endingDialogue.names.Array.data[1]
-      value: ???
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: endingDialogue.names.Array.data[2]
-      value: ???
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: endingDialogue.sentences.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: endingDialogue.sentences.Array.data[0]
-      value: Aide, gotowa e! Surbai!
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: endingDialogue.sentences.Array.data[1]
-      value: '*gluck* *gluck* *gluck*'
-      objectReference: {fileID: 0}
-    - target: {fileID: 911814523, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
-      propertyPath: endingDialogue.sentences.Array.data[2]
-      value: Oh god! IS THERE GRAPE IN THE SOUP! I'M ALLERGIC TO GRAPE!
-      objectReference: {fileID: 0}
     - target: {fileID: 840401243916310688, guid: 7e57fa4122823d74083eab9b85fd2261, type: 3}
       propertyPath: m_RootOrder
       value: 10

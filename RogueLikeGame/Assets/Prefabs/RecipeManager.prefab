@@ -44,6 +44,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e35b8c610b2724494cb947daca9948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meat: []
-  vegetables: []
-  fruit: []
+  meat:
+  - {fileID: 8330565974326503940, guid: 7d7a983ee9ccdfd4993df1d6f00c9ad3, type: 3}
+  - {fileID: 5862262301260080792, guid: 1e80743e33f4b5840a8dda75f07913f3, type: 3}
+  - {fileID: 6331321867658686029, guid: a064363a39c81aa44a11c5f1dfa00d01, type: 3}
+  - {fileID: 1981341697844258482, guid: f0bf7990b4695be45a5bb4d3255e390a, type: 3}
+  - {fileID: 6539261680142436332, guid: ac3c2650f774f0947bf6411ad798618b, type: 3}
+  vegetables:
+  - {fileID: 4230123432534602623, guid: 456b36b039aa50b43a8e9e9cc0092204, type: 3}
+  - {fileID: 460164455334714260, guid: adc9437ba74eb6e40b31e7d78b8b32d1, type: 3}
+  - {fileID: 4460263243599115060, guid: e81421e065214944d805171d3e519f1c, type: 3}
+  - {fileID: 4727537666409238332, guid: 3dcab65efe0984d4fab9361f20c9f3a9, type: 3}
+  - {fileID: 7598511321548825133, guid: e82fdd55cc3a18d46acb3083553a4be1, type: 3}
+  - {fileID: 5025264009145724013, guid: 437b29b350357824e8c214fceefa882e, type: 3}
+  - {fileID: 737621716168290790, guid: bbcae3aac63db0646802c958f57ba5dd, type: 3}
+  - {fileID: 1956064657040437730, guid: 4dfb5a356e5ec594fbe100e27e09a763, type: 3}
+  - {fileID: 1441566415919699545, guid: 695484f27b0127849a0029615dd8de20, type: 3}
+  fruit:
+  - {fileID: 7386590436764721119, guid: a91b8c95bca4dff428dc14df1670cade, type: 3}
+  - {fileID: 1654240119205424258, guid: 78c985842f25aee44893f9a4df401bc4, type: 3}
+  - {fileID: 3688518604555081826, guid: b4880ad0be9628240a3215f00e840d17, type: 3}
+  - {fileID: 8087140300079385855, guid: efe18b67b86a15c4f811f3d9f788bec0, type: 3}
+  - {fileID: 5068207551417169762, guid: f587525a68ee635418356a1445b03dc9, type: 3}
+  - {fileID: 6004381524923165200, guid: 67e7e5d31ab71ee4c9acada7afbc9ada, type: 3}
+  - {fileID: 7244317285649332575, guid: 3817ea9c53d1cff40a4d387c059f6f34, type: 3}
