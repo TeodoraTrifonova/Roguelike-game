@@ -11,7 +11,7 @@ public class ScoreCounter : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
     private static int score = 0;
-    private static int highScore = ScoreSaver.LoadPlayer();
+    private static int highScore;
 
     public int Score { get => score; private set => score = value; }
 
@@ -29,6 +29,7 @@ public class ScoreCounter : MonoBehaviour
     public void Awake()
     {
         instance = this;
+        highScore = ScoreSaver.LoadPlayer();
     }
     private void Start()
     {
