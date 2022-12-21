@@ -3,8 +3,10 @@ using UnityEngine.UI;
 using CodeMonkey.Utils;
 using TMPro;
 using System;
+using System.Collections.Generic;
 
-public class UI_Inventory : MonoBehaviour {
+public class UI_Inventory : MonoBehaviour
+{
 
     private Inventory inventory;
     [SerializeField] private Transform itemSlotContainer;
@@ -12,15 +14,18 @@ public class UI_Inventory : MonoBehaviour {
     private Player player;
     private Color bgcolor;
 
-    private void Awake() {
+    private void Awake()
+    {
         bgcolor = itemSlotTemplate.Find("background").GetComponent<Image>().color;
     }
 
-    public void SetPlayer(Player player) {
+    public void SetPlayer(Player player)
+    {
         this.player = player;
     }
 
-    public void SetInventory(Inventory inventory) {
+    public void SetInventory(Inventory inventory)
+    {
         this.inventory = inventory;
 
         inventory.OnItemListChanged += Inventory_OnItemListChanged;
@@ -28,12 +33,15 @@ public class UI_Inventory : MonoBehaviour {
         RefreshInventoryItems();
     }
 
-    private void Inventory_OnItemListChanged(object sender, System.EventArgs e) {
+    private void Inventory_OnItemListChanged(object sender, System.EventArgs e)
+    {
         RefreshInventoryItems();
+        inventory.CheckForAllIngredientsCollected();
     }
 
-    private void RefreshInventoryItems() {
-        foreach (Transform child in itemSlotContainer) 
+    private void RefreshInventoryItems()
+    {
+        foreach (Transform child in itemSlotContainer)
         {
             if (child == itemSlotTemplate) continue;
             Destroy(child.gameObject);
@@ -42,27 +50,18 @@ public class UI_Inventory : MonoBehaviour {
         int x = 0;
         int y = 0;
         float itemSlotCellSize = 75f;
+        int newWeapon = -1;
 
-        foreach (Item item in inventory.GetItemList()) 
+        foreach (Item item in inventory.GetItemList())
         {
 
             RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
 
             itemSlotRectTransform.gameObject.SetActive(true);
-            
-            itemSlotRectTransform.GetComponent<Button_UI>().ClickFunc = () => 
+
+            if(newWeapon == -1)
             {
-                //
-            };
-            itemSlotRectTransform.GetComponent<Button_UI>().MouseRightClickFunc = () => 
-            {
-                // Drop item
-                /*Item duplicateItem = new Item { itemType = item.itemType, amount = item.amount };
-                inventory.RemoveItem(item);
-                ItemWorld.DropItem(player.GetPosition(), duplicateItem);*/
-                ChangeAllBackgrounds();
-                int newWeapon = -1;
-                if(item.itemType == Item.ItemType.rollingPin)
+                if (item.itemType == Item.ItemType.rollingPin)
                 {
                     newWeapon = 0;
                     itemSlotRectTransform.Find("background").GetComponent<Image>().color = new Color(97, 63, 49, 0.5f);
@@ -83,7 +82,38 @@ public class UI_Inventory : MonoBehaviour {
                     itemSlotRectTransform.Find("background").GetComponent<Image>().color = new Color(97, 63, 49, 0.5f);
                 }
                 player.gameObject.GetComponentInChildren<PlayerShooting>().selectedWeapon = newWeapon;
-           
+            }
+
+            itemSlotRectTransform.GetComponent<Button_UI>().ClickFunc = () =>
+            {
+                //
+            };
+            itemSlotRectTransform.GetComponent<Button_UI>().MouseRightClickFunc = () =>
+            {
+                ChangeAllBackgrounds();
+                
+                if (item.itemType == Item.ItemType.rollingPin)
+                {
+                    newWeapon = 0;
+                    itemSlotRectTransform.Find("background").GetComponent<Image>().color = new Color(97, 63, 49, 0.5f);
+                }
+                else if (item.itemType == Item.ItemType.cookingPot)
+                {
+                    newWeapon = 1;
+                    itemSlotRectTransform.Find("background").GetComponent<Image>().color = new Color(97, 63, 49, 0.5f);
+                }
+                else if (item.itemType == Item.ItemType.ladle)
+                {
+                    newWeapon = 2;
+                    itemSlotRectTransform.Find("background").GetComponent<Image>().color = new Color(97, 63, 49, 0.5f);
+                }
+                else if (item.itemType == Item.ItemType.cookingKnife)
+                {
+                    newWeapon = 3;
+                    itemSlotRectTransform.Find("background").GetComponent<Image>().color = new Color(97, 63, 49, 0.5f);
+                }
+                player.gameObject.GetComponentInChildren<PlayerShooting>().selectedWeapon = newWeapon;
+
             };
 
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, -y * itemSlotCellSize);
@@ -91,13 +121,13 @@ public class UI_Inventory : MonoBehaviour {
             image.sprite = item.GetSprite();
 
             TextMeshProUGUI uiText = itemSlotRectTransform.Find("amountText").GetComponent<TextMeshProUGUI>();
-            
-            if (item.amount > 1) 
+
+            if (item.amount > 1)
             {
                 uiText.SetText(item.amount.ToString());
-            } 
+            }
 
-            else 
+            else
             {
                 uiText.SetText("");
             }

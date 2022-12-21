@@ -7,6 +7,8 @@ TagManager:
   - Bullet
   - SceneController
   - Boss
+  - BossDrop
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - Enemy
   - Bullet
   - BulletColliders
-  - 
+  - EnemyCollisions
   - 
   - 
   - 

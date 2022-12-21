@@ -44,9 +44,13 @@ public class DialogueManager : MonoBehaviour
         if (sentences.Count == 0 || correspondingNames.Count == 0)
         {
             EndDialogue();
-            if(EndConditions.CompleteEndConditions)
+            if(EndConditions.CompleteEndConditions || EndConditions.FailEndConditions)
             {
-                StartCoroutine(DelayedDestroy(1));
+                if(EndConditions.CompleteEndConditions)
+                {
+                    ScoreCounter.instance.IncrementScore(ScoreCounter.instance.Score);
+                }
+                StartCoroutine(DelayedEnding(1));
             }
             return;
         }
@@ -58,12 +62,34 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentence));
     }
 
-    IEnumerator DelayedDestroy(float seconds)
+    IEnumerator DelayedEnding(float seconds)
     {
-        GameObject.Find("FallenWarrior").transform.GetChild(1).gameObject.SetActive(false);
+        try
+        {
+            GameObject.Find("FallenWarrior").transform.GetChild(1).gameObject.SetActive(false);
+        }
+        catch
+        {
+
+        }
+
         yield return new WaitForSeconds(seconds);
-        Destroy(GameObject.Find("FallenWarrior"));
-        Instantiate(GameObject.Find("SkeletonDeathParticles"), transform.position, Quaternion.identity);
+
+        try
+        {
+            Destroy(GameObject.Find("FallenWarrior"));
+        }
+        catch
+        {
+
+        }
+
+       // Instantiate(GameObject.Find("SkeletonDeathParticles"), transform.position, Quaternion.identity);
+
+        yield return new WaitForSeconds(seconds);
+
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().UpdateHealth(-100);
+
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -79,7 +105,13 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         Debug.Log("Ending dialogue!");
+        foreach (var child in GameObject.Find("UI").transform)
+        {
+            if (child is GameObject childObj)
+            {
+                childObj.SetActive(true);
+            }
+        }
         GameObject.Find("DialogueMenu").SetActive(false);
-
     }
 }

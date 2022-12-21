@@ -83,9 +83,22 @@ MonoBehaviour:
     - Ama ne si spomnqm receptata tui che kakwito sustavki si haresam.
     - Edin vid meso, edin zelenchuk, plod i edna taina sustavka!
     - Sorry, I don't understand!
+  failedDialogue:
+    names:
+    - Shef Manchev
+    - ???
+    sentences:
+    - Yo! Ne namerih vsichki sustavki, no ti vzeh grozde...
+    - Oh god! IS THAT GRAPE! I'M ALLERGIC TO GRAPE!
   endingDialogue:
-    names: []
-    sentences: []
+    names:
+    - Shef Manchev
+    - ???
+    - ???
+    sentences:
+    - Aide, gotowa e! Surbai!
+    - '*gluck* *gluck* *gluck*'
+    - Oh god! IS THERE GRAPE IN THE SOUP! I'M ALLERGIC TO GRAPE!
 --- !u!1 &8190216219638017884
 GameObject:
   m_ObjectHideFlags: 0

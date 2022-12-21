@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  damage: 20
+  damage: 40
   bulletTriggerCollider: {fileID: 847400240612789920}
   onInactiveCollider: {fileID: 6512808864694879367}
   sprite: {fileID: 3507239786015803017}

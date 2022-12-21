@@ -17,4 +17,9 @@ public static class Backpack
     {
         itemsNotRecipeCount--;
     }
+
+    public static void RemoveItems(int itemsCount)
+    {
+        itemsNotRecipeCount -= itemsCount;
+    }
 }

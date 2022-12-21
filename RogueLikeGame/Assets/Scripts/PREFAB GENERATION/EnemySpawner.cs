@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -20,8 +21,9 @@ public class EnemySpawner : MonoBehaviour
     private LayerMask detectionMask;
 
     [SerializeField]
-    private GameObject enemyPrefab;
+    private List<GameObject> enemyPrefab;
 
+    private int rand;
     public void Setup(List<Room> _rooms)
     {
         rooms = new List<Room>(_rooms);
@@ -40,10 +42,11 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator SpawnWithDelay(Vector2 roomCenter)
     {
         yield return new WaitForSeconds(spawningDelay);
-        Instantiate(enemyPrefab, roomCenter + new Vector2(0, MinRoomSize.y / 2 - 2), Quaternion.identity, parent);
-        Instantiate(enemyPrefab, roomCenter + new Vector2(MinRoomSize.x / 2 - 2, 0), Quaternion.identity, parent);
-        Instantiate(enemyPrefab, roomCenter + new Vector2(-MinRoomSize.x / 2 + 2, 0), Quaternion.identity, parent);
-        Instantiate(enemyPrefab, roomCenter + new Vector2(0, -MinRoomSize.y / 2 + 2), Quaternion.identity, parent);
+        rand = Random.Range(0, enemyPrefab.Count);
+        Instantiate(enemyPrefab[rand], roomCenter + new Vector2(0, MinRoomSize.y / 2 - 2), Quaternion.identity, parent);
+        Instantiate(enemyPrefab[rand], roomCenter + new Vector2(MinRoomSize.x / 2 - 2, 0), Quaternion.identity, parent);
+        Instantiate(enemyPrefab[rand], roomCenter + new Vector2(-MinRoomSize.x / 2 + 2, 0), Quaternion.identity, parent);
+        Instantiate(enemyPrefab[rand], roomCenter + new Vector2(0, -MinRoomSize.y / 2 + 2), Quaternion.identity, parent);
     }
 
     private void PerformDetection()
