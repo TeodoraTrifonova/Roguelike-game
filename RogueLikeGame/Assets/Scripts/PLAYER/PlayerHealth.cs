@@ -49,7 +49,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        
+        ScoreCounter.instance.ClearScore();
         GetComponent<Collider2D>().enabled = false;
         Instantiate(deathParticles, transform.position, transform.rotation);
         AudioManager.instance.Stop("IngameTheme");

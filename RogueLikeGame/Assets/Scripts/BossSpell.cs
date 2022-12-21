@@ -35,6 +35,7 @@ public class BossSpell : StateMachineBehaviour
             boss.transform.SetPositionAndRotation(player.transform.position + new Vector3(0f, 2f, 0f), player.transform.localRotation);
             animator.SetInteger("BossStacks", --BossController.stackCounter);
             justOnce2 = false;
+            animator.SetInteger("BossStacks", 0);
         }
     }
 

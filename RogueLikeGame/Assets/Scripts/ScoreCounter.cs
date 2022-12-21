@@ -9,7 +9,9 @@ public class ScoreCounter : MonoBehaviour
  
     public static ScoreCounter instance;   
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI highScoreText;
     private static int score = 0;
+    private static int highScore = ScoreSaver.LoadPlayer();
 
     public int Score { get => score; private set => score = value; }
 
