@@ -85,8 +85,7 @@ public class Inventory {
         else
         {
             Backpack.AddItem();
-        }
-        
+        }        
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 

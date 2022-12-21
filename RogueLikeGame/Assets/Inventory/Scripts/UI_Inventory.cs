@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using CodeMonkey.Utils;
 using TMPro;
 using System;
+using System.Collections.Generic;
 
 public class UI_Inventory : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class UI_Inventory : MonoBehaviour
         int x = 0;
         int y = 0;
         float itemSlotCellSize = 75f;
+        int newWeapon = -1;
 
         foreach (Item item in inventory.GetItemList())
         {
@@ -57,6 +59,31 @@ public class UI_Inventory : MonoBehaviour
 
             itemSlotRectTransform.gameObject.SetActive(true);
 
+            if(newWeapon == -1)
+            {
+                if (item.itemType == Item.ItemType.rollingPin)
+                {
+                    newWeapon = 0;
+                    itemSlotRectTransform.Find("background").GetComponent<Image>().color = new Color(97, 63, 49, 0.5f);
+                }
+                else if (item.itemType == Item.ItemType.cookingPot)
+                {
+                    newWeapon = 1;
+                    itemSlotRectTransform.Find("background").GetComponent<Image>().color = new Color(97, 63, 49, 0.5f);
+                }
+                else if (item.itemType == Item.ItemType.ladle)
+                {
+                    newWeapon = 2;
+                    itemSlotRectTransform.Find("background").GetComponent<Image>().color = new Color(97, 63, 49, 0.5f);
+                }
+                else if (item.itemType == Item.ItemType.cookingKnife)
+                {
+                    newWeapon = 3;
+                    itemSlotRectTransform.Find("background").GetComponent<Image>().color = new Color(97, 63, 49, 0.5f);
+                }
+                player.gameObject.GetComponentInChildren<PlayerShooting>().selectedWeapon = newWeapon;
+            }
+
             itemSlotRectTransform.GetComponent<Button_UI>().ClickFunc = () =>
             {
                 //
@@ -64,7 +91,7 @@ public class UI_Inventory : MonoBehaviour
             itemSlotRectTransform.GetComponent<Button_UI>().MouseRightClickFunc = () =>
             {
                 ChangeAllBackgrounds();
-                int newWeapon = -1;
+                
                 if (item.itemType == Item.ItemType.rollingPin)
                 {
                     newWeapon = 0;

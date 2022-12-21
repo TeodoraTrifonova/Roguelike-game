@@ -26,7 +26,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField]
     private float timeBetweenFiring;
 
-    void Start()
+    void Awake()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         for (int i = 0; i < weapons.Count; i++)
@@ -65,25 +65,29 @@ public class PlayerShooting : MonoBehaviour
             
             if (selectedWeapon == 0)
             {
+                selectedWeapon = -1;
                 player.RemoveItem(new Item { itemType = Item.ItemType.rollingPin, amount = 1 });
                 AudioManager.instance.Play("SwishSound");
             }
             else if(selectedWeapon == 1)
             {
+                selectedWeapon = -1;
                 player.RemoveItem(new Item { itemType = Item.ItemType.cookingPot, amount = 1 });
                 AudioManager.instance.Play("SwishSound");
             }
             else if(selectedWeapon == 2)
             {
+                selectedWeapon = -1;
                 player.RemoveItem(new Item { itemType = Item.ItemType.ladle, amount = 1});
                 AudioManager.instance.Play("SwishSound");
             }
             else if(selectedWeapon == 3)
             {
+                selectedWeapon = -1;
                 player.RemoveItem(new Item { itemType = Item.ItemType.cookingKnife, amount = 1});
                 AudioManager.instance.Play("MetalHit");
             }
-            selectedWeapon = -1;
+            
         }
     }
 }

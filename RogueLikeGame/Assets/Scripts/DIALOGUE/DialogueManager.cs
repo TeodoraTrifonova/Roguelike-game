@@ -44,8 +44,12 @@ public class DialogueManager : MonoBehaviour
         if (sentences.Count == 0 || correspondingNames.Count == 0)
         {
             EndDialogue();
-            if(EndConditions.CompleteEndConditions)
+            if(EndConditions.CompleteEndConditions || EndConditions.FailEndConditions)
             {
+                if(EndConditions.CompleteEndConditions)
+                {
+                    ScoreCounter.instance.IncrementScore(ScoreCounter.instance.Score);
+                }
                 StartCoroutine(DelayedEnding(1));
             }
             return;
@@ -80,7 +84,7 @@ public class DialogueManager : MonoBehaviour
 
         }
 
-        Instantiate(GameObject.Find("SkeletonDeathParticles"), transform.position, Quaternion.identity);
+       // Instantiate(GameObject.Find("SkeletonDeathParticles"), transform.position, Quaternion.identity);
 
         yield return new WaitForSeconds(seconds);
 

@@ -338,8 +338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a08fe93067a0f4b948928e720a80e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  damage: 15
+  speed: 12
+  damage: 30
   bulletTriggerCollider: {fileID: 5202400043038461857}
   onInactiveCollider: {fileID: 2026398152532748145}
   sprite: {fileID: 8576212089882548706}
