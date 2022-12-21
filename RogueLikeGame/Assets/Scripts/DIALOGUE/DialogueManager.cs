@@ -44,9 +44,9 @@ public class DialogueManager : MonoBehaviour
         if (sentences.Count == 0 || correspondingNames.Count == 0)
         {
             EndDialogue();
-            if(EndConditions.CompleteEndConditions || EndConditions.FailEndConditions)
+            if(GameStates.Instance.CurrentState != GameStates.State.beginning)
             {
-                if(EndConditions.CompleteEndConditions)
+                if(GameStates.Instance.CurrentState == GameStates.State.allIngredientsFound)
                 {
                     ScoreCounter.instance.IncrementScore(ScoreCounter.instance.Score);
                 }
