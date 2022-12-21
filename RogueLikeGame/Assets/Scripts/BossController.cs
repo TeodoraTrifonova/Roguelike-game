@@ -21,11 +21,17 @@ public class BossController : MonoBehaviour
     [SerializeField]
     public static int stackCounter;
 
-    
+    [SerializeField]
+    public float detectionRadius =4.5f;
+
+    [SerializeField]
+    private LayerMask detectionMask = 7;
+
+
     public bool isInvulnerable = false;
 
 
-    //public HealthBarController healthBar;
+    public HealthBarController healthBar;
 
     private void Awake()
     {
@@ -39,8 +45,23 @@ public class BossController : MonoBehaviour
         grape.SetActive(false);
         currentHealth = enemy.MaxHealth;
         stackCounter = 0;
-       // healthBar.SetMaxHealth(currentHealth);
+        healthBar.gameObject.SetActive(false);
+        healthBar.SetMaxHealth(enemy.MaxHealth);
   
+    }
+
+
+    public void OnBossReached()
+    {
+
+        Collider2D collider = Physics2D.OverlapCircle(transform.position, detectionRadius, detectionMask);
+
+        if(collider != null)
+        {
+            healthBar.gameObject.SetActive(true);
+            animator.SetTrigger("BossStartsFight");
+        }
+     
     }
 
 
@@ -96,6 +117,7 @@ public class BossController : MonoBehaviour
             return;
 
         currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
         animator.SetTrigger("BossHurt");
        animator.SetInteger("BossStacks", ++stackCounter);
 
@@ -110,6 +132,7 @@ public class BossController : MonoBehaviour
     private void Die()
     {
         animator.SetBool("IsBossDead",true);
+        healthBar.gameObject.SetActive(false);
         ScoreCounter.instance.IncrementScore(enemy.Points);
         GetComponent<Collider2D>().enabled = false;
 

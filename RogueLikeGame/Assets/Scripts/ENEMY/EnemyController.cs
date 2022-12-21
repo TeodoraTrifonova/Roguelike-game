@@ -116,7 +116,7 @@ public class EnemyController : MonoBehaviour
 
     private void Die()
     {
-        animator.SetTrigger("isDead");
+       // animator.SetTrigger("isDead");
         ScoreCounter.instance.IncrementScore(enemy.Points);
 
         GetComponent<Collider2D>().enabled = false;
