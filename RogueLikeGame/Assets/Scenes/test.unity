@@ -23099,17 +23099,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1479223891 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1051079780043590742, guid: a35672041e5828646b32f18951fc0459, type: 3}
-  m_PrefabInstance: {fileID: 1673711400}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cc5748841d910849aed23cd9e4d72ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1634440937
 GameObject:
   m_ObjectHideFlags: 0
@@ -31985,111 +31974,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1001 &1673711400
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1051079779393832515, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_Name
-      value: BossHealthBarUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_RootOrder
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779393832519, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779655876786, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051079779655876786, guid: a35672041e5828646b32f18951fc0459, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a35672041e5828646b32f18951fc0459, type: 3}
 --- !u!1 &1687827101
 GameObject:
   m_ObjectHideFlags: 0
@@ -33534,14 +33418,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 375029032526180992, guid: 4ba3bf2a055525c40869a5589e8ab788, type: 3}
+      propertyPath: maxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 375029032526180993, guid: 4ba3bf2a055525c40869a5589e8ab788, type: 3}
+      propertyPath: grape
+      value: 
+      objectReference: {fileID: 2851264426069129817, guid: 67ad0d7623a6df04698e80cb573d99ab, type: 3}
     - target: {fileID: 375029032526180993, guid: 4ba3bf2a055525c40869a5589e8ab788, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 216041071}
-    - target: {fileID: 375029032526180993, guid: 4ba3bf2a055525c40869a5589e8ab788, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 1479223891}
     - target: {fileID: 375029032526181021, guid: 4ba3bf2a055525c40869a5589e8ab788, type: 3}
       propertyPath: m_Name
       value: DeathBringer
