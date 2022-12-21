@@ -24,11 +24,8 @@ public static class ScoreSaver
             stream.Close();
             return highScore;
 
-        }else
-        {
-            Debug.LogError("Save file not found in" + path);
-            return 0;
         }
+        return 0;
 
     }
     

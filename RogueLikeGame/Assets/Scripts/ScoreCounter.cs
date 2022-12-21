@@ -11,9 +11,10 @@ public class ScoreCounter : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
     private static int score = 0;
-    private static int highScore = ScoreSaver.LoadPlayer();
+    private static int highScore = 0;
 
     public int Score { get => score; private set => score = value; }
+    public int HighScore { get => highScore; private set => highScore = value; }
 
 
     public void IncrementScore(int points)
@@ -23,20 +24,29 @@ public class ScoreCounter : MonoBehaviour
 
     public void ClearScore()
     {
-        Score = 0;
+        if(Score >= HighScore)
+        {
+            HighScore = Score;
+            ScoreSaver.SaveHighScore(HighScore);
+        }
+    
     }
 
     public void Awake()
     {
         instance = this;
+        Score = 0;
+        highScore = ScoreSaver.LoadPlayer();
     }
     private void Start()
     {
-        scoreText.text = "SCORE: " + score.ToString();
+        scoreText.text = "SCORE: " + Score.ToString();
+        highScoreText.text = "HIGHSCORE: " + HighScore.ToString();
     }
 
     private void Update()
     {
-        scoreText.text = "SCORE: "+ score.ToString();
+        scoreText.text = "SCORE: "+ Score.ToString();
+        highScoreText.text = "HIGHSCORE: " + HighScore.ToString();
     }
 }

@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 1918546151}
   - component: {fileID: 1918546150}
   - component: {fileID: 1918546152}
+  - component: {fileID: 1425395449}
   m_Layer: 0
   m_Name: Backpack
   m_TagString: Untagged
@@ -247,6 +248,18 @@ MonoBehaviour:
   hoverBehaviour_Move: 0
   hoverBehaviour_Move_Amount: {x: 0, y: 0}
   triggerMouseOutFuncOnClick: 0
+--- !u!114 &1425395449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918546148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6be7b3c29b06fb41bbedd477c2b88d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &605600997343645630
 GameObject:
   m_ObjectHideFlags: 0
