@@ -23,7 +23,6 @@ public static class ScoreSaver
             int highScore = (int)formatter.Deserialize(stream);
             stream.Close();
             return highScore;
-
         }
         return 0;
 
