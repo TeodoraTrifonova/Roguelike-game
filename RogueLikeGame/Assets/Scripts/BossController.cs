@@ -22,11 +22,11 @@ public class BossController : MonoBehaviour
     public static int stackCounter;
 
     [SerializeField]
+
     public float detectionRadius =4.5f;
 
     [SerializeField]
     private LayerMask detectionMask = 7;
-
 
     public bool isInvulnerable = false;
 
@@ -40,16 +40,31 @@ public class BossController : MonoBehaviour
 
     void Start()
     {
+        //healthBar = GameObject.Find("BossHealthBarUI");
+        healthBar.gameObject.SetActive(false);
+        //healthBar.SetActive(false);
         enemy = GetComponent<Enemy>();
         grape = GameObject.FindGameObjectWithTag("BossDrop");
         grape.SetActive(false);
         currentHealth = enemy.MaxHealth;
+        healthBar.SetMaxHealth(enemy.MaxHealth);
         stackCounter = 0;
         healthBar.gameObject.SetActive(false);
         healthBar.SetMaxHealth(enemy.MaxHealth);
   
     }
 
+    public void OnBossReached()
+    {
+        Collider2D collider = Physics2D.OverlapCircle(transform.position, detectionRadius, detectionMask);
+        
+        if (collider != null)
+        {
+            Debug.Log("Near Death Bringer!");
+            animator.SetTrigger("BossStartsFight");
+            healthBar.gameObject.SetActive(true);
+        }
+    }
 
     public void OnBossReached()
     {
@@ -140,6 +155,7 @@ public class BossController : MonoBehaviour
 
     public void OnDeathAnimationFinished()
     {
+        healthBar.gameObject.SetActive(false);
         grape.SetActive(true);
         grape.transform.position = enemy.gameObject.transform.position;
         Destroy(gameObject);
