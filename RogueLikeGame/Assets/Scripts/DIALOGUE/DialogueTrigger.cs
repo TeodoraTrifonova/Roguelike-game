@@ -15,15 +15,15 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        if(EndConditions.CompleteEndConditions == false && EndConditions.FailEndConditions == false)
+        if(GameStates.Instance.CurrentState == GameStates.State.beginning)
         {
             FindObjectOfType<DialogueManager>().StartDialogue(startingDialogue);
         }
-        else if(EndConditions.CompleteEndConditions == true)
+        else if(GameStates.Instance.CurrentState == GameStates.State.allIngredientsFound)
         {
             FindObjectOfType<DialogueManager>().StartDialogue(endingDialogue);
         }
-        else if(EndConditions.FailEndConditions == true)
+        else if(GameStates.Instance.CurrentState == GameStates.State.someIngredientsFound)
         {
             FindObjectOfType<DialogueManager>().StartDialogue(failedDialogue);
         }

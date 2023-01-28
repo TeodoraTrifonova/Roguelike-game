@@ -24,20 +24,33 @@ public class Inventory {
 
     public void CheckForAllIngredientsCollected()
     {
-        if(itemList.Count == 8)
+        int ingredientCount = 0;
+        foreach (var item in itemList)
         {
-            EndConditions.CompleteEndConditions = true;
-            EndConditions.FailEndConditions = false;
+            if (item.itemType == Item.ItemType.rollingPin ||
+            item.itemType == Item.ItemType.ladle ||
+            item.itemType == Item.ItemType.cookingPot ||
+            item.itemType == Item.ItemType.cookingKnife)
+            {
+                continue;
+            }
+            else
+            {
+                ingredientCount++;
+            }
         }
-        else if(itemList.Where(x=>x.itemType == Item.ItemType.grape).Count() >= 1)
+
+        if (ingredientCount == 4)
         {
-            EndConditions.FailEndConditions = true;
-            EndConditions.CompleteEndConditions = false;
+            GameStates.Instance.CurrentState = GameStates.State.allIngredientsFound;
         }
-        else
+        else if(ingredientCount > 0)
         {
-            EndConditions.CompleteEndConditions = false;
-            EndConditions.FailEndConditions = false;
+            GameStates.Instance.CurrentState = GameStates.State.someIngredientsFound;
+        }
+        else if(ingredientCount == 0)
+        {
+            GameStates.Instance.CurrentState = GameStates.State.beginning;
         }
     }
 
