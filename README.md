@@ -16,9 +16,12 @@
 
 ## 📽 Видео Трейлър
 
-[![Soup Saviour Trailer](http://img.youtube.com/vi/VIDEO_ID/0.jpg)]([http://www.youtube.com/watch?v=gEdAwArfXbg)
+[![Soup Saviour Trailer](http://img.youtube.com/vi/gEdAwArfXbg/0.jpg)](https://www.youtube.com/watch?v=gEdAwArfXbg&ab_channel=petar)
+
 
 ## 👥 Екип
 
 Този проект е реализиран като екипна работа по време на Unity Zariba курса.
-
+- [Petar] (https://github.com/peterdobrev)
+- [Teodora] (https://github.com/TeodoraTrifonova)
+- [Hakan] (https://github.com/hakanihat)
